@@ -1,7 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="278d1e47-2a51-4b8f-8b24-f1b1393493b8" name="Default Changelist" comment="" />
+    <list default="true" id="278d1e47-2a51-4b8f-8b24-f1b1393493b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_bounce.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_flash.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_jello.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_pulse.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_rubberBand.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_shake.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_swing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_tada.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/_wobble.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_attention-seekers/attention-seekers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-entrances/_bounceIn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-entrances/_bounceInDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-entrances/_bounceInLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-entrances/_bounceInRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-entrances/_bounceInUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-entrances/bouncing-entrances.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-exits/_bounceOut.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-exits/_bounceOutDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-exits/_bounceOutLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-exits/_bounceOutRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-exits/_bounceOutUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_bouncing-exits/bouncing-exits.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeIn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInDownBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInLeftBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInRightBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/_fadeInUpBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-entrances/fading-entrances.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOut.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutDownBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutLeftBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutRightBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/_fadeOutUpBig.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_fading-exits/fading-exits.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_flippers/_flip.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_flippers/_flipInX.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_flippers/_flipInY.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_flippers/_flipOutX.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_flippers/_flipOutY.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_flippers/flippers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_lightspeed/_lightSpeedIn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_lightspeed/_lightSpeedOut.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_lightspeed/lightspeed.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_properties.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-entrances/_rotateIn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-entrances/_rotateInDownLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-entrances/_rotateInDownRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-entrances/_rotateInUpLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-entrances/_rotateInUpRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-entrances/rotating-entrances.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-exits/_rotateOut.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-exits/_rotateOutDownLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-exits/_rotateOutDownRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-exits/_rotateOutUpLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-exits/_rotateOutUpRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_rotating-exits/rotating-exits.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-entrances/_slideInDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-entrances/_slideInLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-entrances/_slideInRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-entrances/_slideInUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-entrances/sliding-entrances.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-exits/_slideOutDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-exits/_slideOutLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-exits/_slideOutRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-exits/_slideOutUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_sliding-exits/sliding-exits.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_specials/_hinge.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_specials/_rollIn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_specials/_rollOut.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_specials/specials.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-entrances/_zoomIn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-entrances/_zoomInDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-entrances/_zoomInLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-entrances/_zoomInRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-entrances/_zoomInUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-entrances/zooming-entrances.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-exits/_zoomOut.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-exits/_zoomOutDown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-exits/_zoomOutLeft.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-exits/_zoomOutRight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-exits/_zoomOutUp.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/_zooming-exits/zooming-exits.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/animate.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/animate.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/animate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/animate.scss/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/components/landing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/constants.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/_flex.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/tests/tests.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/scss/sass-flex-mixin/tests/tests.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/js/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/js/actions/indexActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/actions/landingActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/js/components/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/components/landing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/js/containers/indexContainer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/containers/landingContainer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/js/reducers/indexReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/reducers/landingReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/js/reducers/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/reducers/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/scss/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/scss/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/scss/index.css" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -11,67 +135,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1149621740">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="1" />
-          <entry key="js" value="1" />
-          <entry key="json" value="20" />
-          <entry key="svg" value="1" />
-          <entry key="ts" value="11" />
-          <entry key="tsx" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="1" />
-          <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="1" />
-          <entry key="SVG" value="1" />
-          <entry key="TypeScript" value="11" />
-          <entry key="TypeScript JSX" value="11" />
-          <entry key="tsconfig" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
-        <counts>
-          <entry key="TsLintLanguageService" value="2" />
-          <entry key="TypeScriptServerServiceImpl" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="json" value="57" />
-          <entry key="ts" value="453" />
-          <entry key="tsx" value="348" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JSON" value="52" />
-          <entry key="TypeScript" value="453" />
-          <entry key="TypeScript JSX" value="348" />
-          <entry key="tsconfig" value="5" />
-        </counts>
-      </usages-collector>
-    </session>
+  <component name="FavoritesManager">
+    <favorites_list name="Barf-App" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/index.tsx">
+        <entry file="file://$PROJECT_DIR$/app/src/js/components/landing.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+            <state relative-caret-position="294">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -80,10 +153,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/App.tsx">
+        <entry file="file://$PROJECT_DIR$/app/src/scss/components/landing.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="189">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/scss/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/js/App.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -92,46 +183,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/app.tsx">
+        <entry file="file://$PROJECT_DIR$/app/src/js/containers/landingContainer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/index.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/components/login.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="34" column="64" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/containers/loginContainer.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="69" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/containers/indexContainer.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="441">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -140,31 +195,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/reducers/indexReducer.ts">
+        <entry file="file://$PROJECT_DIR$/app/src/js/actions/landingActions.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/js/reducers/landingReducer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+            <state relative-caret-position="273">
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tslint.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/actions/indexActions.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -192,11 +234,18 @@
       <find>bindActionCreators</find>
       <find>store</find>
       <find>Provider</find>
+      <find>Login</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Landing</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>F:\Development\ProjectC\BarfApp\app</dir>
       <dir>F:\Development\ProjectC\BarfApp\app\src</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -214,30 +263,26 @@
         <option value="$PROJECT_DIR$/src/js/containers/indexContainer.ts" />
         <option value="$PROJECT_DIR$/src/js/App.tsx" />
         <option value="$PROJECT_DIR$/src/index.tsx" />
+        <option value="$PROJECT_DIR$/app/src/js/App.tsx" />
+        <option value="$PROJECT_DIR$/app/src/js/reducers/landingReducer.ts" />
+        <option value="$PROJECT_DIR$/app/src/js/reducers/reducer.ts" />
+        <option value="$PROJECT_DIR$/app/src/js/containers/landingContainer.ts" />
+        <option value="$PROJECT_DIR$/app/src/scss/index.css" />
+        <option value="$PROJECT_DIR$/app/src/scss/landing.css" />
+        <option value="$PROJECT_DIR$/app/package.json" />
+        <option value="$PROJECT_DIR$/app/src/scss/landing.scss" />
+        <option value="$PROJECT_DIR$/app/src/scss/_globals.scss" />
+        <option value="$PROJECT_DIR$/app/src/scss/App.css" />
+        <option value="$PROJECT_DIR$/app/src/scss/breakpoints.scss" />
+        <option value="$PROJECT_DIR$/app/src/scss/constants.scss" />
+        <option value="$PROJECT_DIR$/app/src/js/components/landing.tsx" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="51" />
-    <option name="y" value="-14" />
-    <option name="width" value="1799" />
-    <option name="height" value="941" />
+    <option name="x" value="125" />
+    <option name="width" value="1764" />
+    <option name="height" value="1006" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -249,37 +294,78 @@
         <subPane>
           <expand>
             <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Barf-App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Barf-App" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -289,7 +375,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../_Appbase/PMO-Dashboard" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="F:\Development\ProjectC\BarfApp\app\node_modules\tslint" />
@@ -297,19 +383,23 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="ts.external.directory.path" value="F:\Development\ProjectC\BarfApp\app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="F:\Development\ProjectC\Barf-App\app\node_modules\typescript\lib" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Development\ProjectC\BarfApp\app\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Development\ProjectC\Barf-App\app\src\scss\components" />
       <recent name="F:\Development\ProjectC\BarfApp\app" />
       <recent name="F:\Development\ProjectC\BarfApp\app\src\js" />
       <recent name="F:\Development\ProjectC\BarfApp\app\src\assets" />
       <recent name="F:\Development\ProjectC\BarfApp\app\src" />
-      <recent name="F:\Development\ProjectC\BarfApp\app\src\scss" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Development\ProjectC\Barf-App\app\src\scss" />
+      <recent name="F:\Development\ProjectC\Barf-App\app\src\js\actions" />
+      <recent name="F:\Development\ProjectC\Barf-App\app\src\js\containers" />
+      <recent name="F:\Development\ProjectC\Barf-App\app\src\js\reducers" />
+      <recent name="F:\Development\ProjectC\Barf-App\app\src\js\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -325,7 +415,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -353,11 +443,12 @@
       <updated>1538768585811</updated>
       <workItem from="1538768588157" duration="1236000" />
       <workItem from="1538836686564" duration="5181000" />
+      <workItem from="1560698058863" duration="4886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6417000" />
+    <option name="totallyTimeSpent" value="11303000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -370,24 +461,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.24973656" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49757674" visible="true" weight="0.24973656" />
+      <window_info id="Structure" order="1" sideWeight="0.5024233" side_tool="true" weight="0.24973656" />
       <window_info id="npm" order="2" sideWeight="0.50161815" side_tool="true" weight="0.24973656" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.5024233" side_tool="true" weight="0.24973656" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28633407" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28633407" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -417,202 +507,157 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/package.json">
+    <entry file="file://F:/_Appbase/PMO-Dashboard/package.json" />
+    <entry file="file://$PROJECT_DIR$/src/js/registerServiceWorker.ts" />
+    <entry file="file://$PROJECT_DIR$/public/manifest.json" />
+    <entry file="file://$PROJECT_DIR$/public/index.html" />
+    <entry file="file://$PROJECT_DIR$/src/js/App.test.tsx" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/tsconfig.json" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/build.js" />
+    <entry file="file://$PROJECT_DIR$/tsconfig.json" />
+    <entry file="file://$PROJECT_DIR$/public/assets/logo.svg" />
+    <entry file="file://$PROJECT_DIR$/src/tsconfig.json" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/actions/loginActions.ts" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/reducers/loginReducer.ts" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/reducers/reducer.ts" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/reducers/forgotPasswordReducer.ts" />
+    <entry file="file://$PROJECT_DIR$/src/js/actions/indexActions.ts" />
+    <entry file="file://$PROJECT_DIR$/src/js/reducers/indexReducer.ts" />
+    <entry file="file://$PROJECT_DIR$/tslint.json" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/package.json" />
+    <entry file="file://$PROJECT_DIR$/package.json" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/containers/loginContainer.ts" />
+    <entry file="file://$PROJECT_DIR$/src/js/reducers/reducer.ts" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/components/login.tsx" />
+    <entry file="file://$PROJECT_DIR$/src/js/components/index.tsx" />
+    <entry file="file://$PROJECT_DIR$/src/js/containers/indexContainer.ts" />
+    <entry file="file://F:/_Appbase/PMO-Dashboard/frontend/source/js/app.tsx" />
+    <entry file="file://$PROJECT_DIR$/src/js/App.tsx" />
+    <entry file="file://$PROJECT_DIR$/src/index.tsx" />
+    <entry file="file://$PROJECT_DIR$/app/src/js/registerServiceWorker.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/registerServiceWorker.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="116" column="30" lean-forward="true" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+        <state>
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/App.test.tsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1581" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/logo.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tslint.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/actions/loginActions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="105" column="5" lean-forward="true" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/reducers/loginReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/reducers/reducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="1" column="71" selection-start-line="1" selection-start-column="71" selection-end-line="1" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/reducers/forgotPasswordReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="19" column="34" selection-start-line="19" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/actions/indexActions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/reducers/indexReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tslint.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="43" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/containers/loginContainer.ts">
+    <entry file="file://$PROJECT_DIR$/app/src/js/App.test.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="69" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/reducers/reducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/components/login.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="34" column="64" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/indexContainer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../_Appbase/PMO-Dashboard/frontend/source/js/app.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.tsx">
+    <entry file="file://$PROJECT_DIR$/app/src/js/actions/landingActions.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/js/reducers/landingReducer.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/js/reducers/reducer.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/js/containers/landingContainer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/assets/wave.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/js/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/_globals.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/mixins.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/fontsizes.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/colors.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="42" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/components/landing.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/breakpoints.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/constants.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/js/components/landing.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

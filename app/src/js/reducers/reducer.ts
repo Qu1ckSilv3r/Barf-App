@@ -1,9 +1,9 @@
-import {IndexState, IndexReducer} from "./indexReducer";
+import {LandingReducer, LandingState} from "./landingReducer";
 
 export interface State {
-    index: IndexState,
+    landing: LandingState,
 }
 
 export default {
-    index: IndexReducer,
+    landing: LandingReducer,
 }

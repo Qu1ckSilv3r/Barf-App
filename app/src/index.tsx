@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './js/App';
 import registerServiceWorker from './js/registerServiceWorker';
-import './scss/index.css';
+import './scss/components/landing.scss';
 
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {Provider} from 'react-redux'

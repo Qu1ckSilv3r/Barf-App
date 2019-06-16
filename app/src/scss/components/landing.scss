@@ -1,0 +1,16 @@
+.landing {
+  width: 100%;
+  height: 100%;
+}
+
+.section1 {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  background-color: red;
+  img {
+    position: absolute;
+    bottom: 0;
+  }
+}
