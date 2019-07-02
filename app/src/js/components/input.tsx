@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "../../scss/components/components.scss"
 
 export interface InputProps {
     label: string,

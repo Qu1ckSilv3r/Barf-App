@@ -6,6 +6,7 @@ import {verifyLogin} from "./landingActions";
 import {verifyRegister} from "./landingActions";
 import {Input} from "../../components/input";
 import LanguageHelper from "../../languageHelper";
+import {Checkbox} from "../../components/checkbox";
 
 export interface LandingProps {
     login: LoginInputs,
@@ -63,7 +64,7 @@ export default class Landing extends React.Component<LandingProps, {}> {
                                 valid={loginValidities.usernameAndPassword}/>
                             <Input
                                 label={LanguageHelper.getString('label_password')}
-                                onChange={(text: string) => setLoginInput({key: 'username', value: text})}
+                                onChange={(text: string) => setLoginInput({key: 'password', value: text})}
                                 type={login.passwordVisibility ? 'text' : 'password'}
                                 value={login.password}
                                 valid={loginValidities.usernameAndPassword}
@@ -100,14 +101,10 @@ export default class Landing extends React.Component<LandingProps, {}> {
                                 valid={registerValidities.repeatedPassword}
                                 validityInfo={LanguageHelper.getString('feedback_passwordRepeat')}/>
                             <button onClick={() => verifyRegister(register)}>Register</button>
-
+                            <Checkbox label={'agreed'} value={register.policyAgreed} onChange={(e: boolean) => setRegisterInput({key: "policyAgreed", value: e})} valid={registerValidities.repeatedPassword}
+                                      validityInfo={LanguageHelper.getString('feedback_policyAgreed')}/>
                         </div>}
-                    Login - username
-                    <input type="text" value={login.username}
-                           onChange={(e) => setLoginInput({key: 'username', value: e.target.value})}/>
-                    Register - username
-                    <input type="text" value={register.username}
-                           onChange={(e) => setRegisterInput({key: 'username', value: e.target.value})}/>
+
                 </div>
             </div>
         );
