@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../scss/App.css';
-import LandingContainer from "./containers/landingContainer"
+import LandingContainer from "./modules/landing/landingContainer"
 
 
 class App extends React.Component {
