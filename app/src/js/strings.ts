@@ -15,6 +15,13 @@ export default {
         feedback_password: 'Das Passwort muss mind. 8 Zeichen besitzen.',
         feedback_passwordRepeat: 'Die Passwörter stimmen leider nicht überein.',
         feedback_policyAgreed: 'Um sich zu registrieren, müssen Sie der Datenschutzerlätung zustimmen',
+
+        /* buttons */
+        button_login: 'Anmelden',
+        button_register: 'Registrieren',
+
+        /* other */
+        input_placeholder: 'eingeben...',
     },
     "en": {}
 }

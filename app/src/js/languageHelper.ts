@@ -27,5 +27,5 @@ export class LanguageHelperBasic {
 }
 
 
-const LanguageHelper  = new LanguageHelperBasic(Strings)
-export default  LanguageHelper
+const LanguageHelper  = new LanguageHelperBasic(Strings);
+export default LanguageHelper

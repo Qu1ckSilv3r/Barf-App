@@ -1,0 +1,40 @@
+@import "../../scss/constants";
+
+.inputWrapper {
+  margin-bottom: $big;
+  .label {
+    font-size: $sizeM;
+    font-weight: 300;
+  }
+
+  .innerWrapper {
+    width: auto;
+    margin-top: $small;
+
+    input {
+      font-size: $sizeSM;
+      font-family: 'Lato', sans-serif;
+      font-weight: 200;
+      padding: $tiny;
+      border: none;
+      outline: none;
+    }
+
+    border-bottom: 1px solid $color_darkGray;
+  }
+
+
+  .validityInfo {
+
+  }
+}
+
+.checkboxWrapper {
+  .label {
+
+  }
+
+  .checkbox {
+
+  }
+}

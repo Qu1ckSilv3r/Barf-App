@@ -1,5 +1,6 @@
 import * as React from 'react';
-import "../../scss/components/components.scss"
+import "./components.scss"
+import LanguageHelper from "../languageHelper";
 
 export interface InputProps {
     label: string,
@@ -11,12 +12,17 @@ export interface InputProps {
 }
 
 export const Input = (props: InputProps) => {
-    return(
+    return (
         <div className="inputWrapper">
-            {props.label}
-            <input type={props.type} value={props.value} onChange={(e) => props.onChange(e.target.value)}/>
+            <div className="label">
+                {props.label}
+            </div>
+            <div className="innerWrapper">
+                <input placeholder={LanguageHelper.getString('input_placeholder')} type={props.type} value={props.value} onChange={(e) => props.onChange(e.target.value)}/>
+            </div>
+
             {props.valid ?
-                null:
+                null :
                 <div className="validityInfo">
                     {props.validityInfo}
                 </div>
