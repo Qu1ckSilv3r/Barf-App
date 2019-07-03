@@ -5,58 +5,78 @@
 .landing {
   width: 100%;
   height: 100%;
-}
 
-.section1 {
-  @include flexbox();
-  @include align-content(center);
-  @include justify-content(center);
+  .section1 {
+    @include flexbox();
+    @include align-content(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    height: 100%;
+    position: relative;
 
-  .loginRegisterWrapper {
-    background-color: $color_white;
-    @include box-shadow(1px 1px 8px -2px rgba(0, 0, 0, 0.75));
-    padding: $default;
-
-    .tabs {
-      width: 100%;
-      border: 1px solid $color_accent;
-      border-radius: 50px;
+    .loginRegisterWrapper {
       @include flexbox();
-      @include flex-direction(row);
-      @include align-content(center);
+      @include flex-direction(column);
+      @include align-content(flex-start);
       @include justify-content(center);
+      @include flex-grow(0);
+      background-color: $color_white;
+      @include box-shadow(1px 1px 5px -3px rgba(0, 0, 0, 0.75));
+      padding: $default;
+      width: fit-content;
 
-      .tab {
-        width: 50%;
-        background-color: $color_white;
-        color: $color_accent;
-        padding: $tiny $default;
+      .tabs {
+        //width: 100%;
+        border: 1px solid $color_accent;
+        border-radius: 50px;
         @include flexbox();
+        @include flex-direction(row);
         @include align-content(center);
         @include justify-content(center);
-        font-weight: 200;
-        font-size: $sizeM;
 
-        &.login {
-          border-radius: 50px 0 0 50px;
-        }
+        .tab {
+          width: 50%;
+          background-color: $color_white;
+          color: $color_accent;
+          padding: $tiny $big;
+          @include flexbox();
+          @include align-content(center);
+          @include justify-content(center);
+          font-weight: 300;
+          font-size: $sizeM;
 
-        &.register {
-          border-radius: 0 50px 50px 0;
-        }
+          &.login {
+            border-radius: 50px 0 0 50px;
+          }
 
-        &.active {
-          background-color: $color_accent;
-          color: $color_white
+          &.register {
+            border-radius: 0 50px 50px 0;
+          }
+
+          &.active {
+            background-color: $color_accent;
+            color: $color_white
+          }
         }
       }
+
+      .loginInputWrapper {
+        padding: $default;
+      }
+
+      .registerInputWrapper {
+        padding: $default;
+      }
     }
-    .loginInputWrapper{
-      padding: $default;
-    }
-    .registerInputWrapper{
-      padding: $default;
+
+    .accentBackground {
+      width: 100%;
+      height: 200px;
+      background-color: $color_accent;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
   }
-
 }
+
