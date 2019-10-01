@@ -1,7 +1,10 @@
+@import "../../scss/sass-flex-mixin/_flex.scss";
 @import "../../scss/constants";
+@import "../../scss/mixins";
 
 .inputWrapper {
   margin-bottom: $big;
+
   .label {
     font-size: $sizeM;
     font-weight: 300;
@@ -36,5 +39,55 @@
 
   .checkbox {
 
+  }
+}
+
+.extendingButtonWrapper {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  margin: $small 0;
+
+  .extendingButton {
+    position: absolute;
+    height: 24px;
+    max-width: 24px;
+    padding: $tinySmall;
+    background-color: $color_lightGray;
+    border-radius: 24px;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(flex-start);
+    @include box-shadow(1px 1px 5px -3px rgba(0, 0, 0, 0.75));
+    @include transition(all 0.3s ease-in-out);
+
+
+    .icon {
+      @include flex-shrink(0);
+      @include flex-grow(0);
+      height: 24px;
+      width: 24px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .label {
+      max-width: 0;
+      margin: 0 $small;
+      overflow: hidden;
+      @include transition(all 0.3s ease-in-out);
+      color: $color_darkGray;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      max-width: 300px;
+      @include flex-grow(0);
+
+      .label {
+        max-width: 300px;
+      }
+    }
   }
 }

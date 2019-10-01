@@ -6,45 +6,49 @@ import {
 import {State} from "../../reducer";
 import Landing from './landing';
 import {LandingTabs, LoginInputs, LoginValidities, RegisterInputs, RegisterValidities} from "./landingReducer";
+import {setSideDialog} from "../sideDialog/sideDialogActions";
 
-export interface LandingContainerOwnProps {
+interface OwnContainerProps {
 }
 
-export interface LandingContainerMapStateToProps {
+interface MapStateToProps {
     login: LoginInputs,
     register: RegisterInputs,
     activeTab: LandingTabs,
     loginValidities: LoginValidities,
-    registerValidities: RegisterValidities
+    registerValidities: RegisterValidities,
+    sideDialog: boolean
 }
 
-const mapStateToProps = (state: State, ownProps: LandingContainerOwnProps): LandingContainerMapStateToProps => {
+const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
     return {
         login: state.landing.login,
         register: state.landing.register,
         activeTab: state.landing.activeTab,
-
+        sideDialog: state.sideDialog.opened,
         loginValidities: state.landing.loginValidities,
         registerValidities: state.landing.registerValidities,
     }
 };
 
 
-export interface LandingContainerMapDispatchToProps {
+interface MapDispatchToProps {
     setLoginInput: typeof setLoginInput,
     setRegisterInput: typeof setRegisterInput,
     setActiveTab: typeof setActiveTab,
     verifyLogin: typeof verifyLogin,
-    verifyRegister: typeof verifyRegister
+    verifyRegister: typeof verifyRegister,
+    setSideDialog: typeof setSideDialog
 }
 
-const mapDispatchToProps = (dispatch: any, ownProps: LandingContainerOwnProps): LandingContainerMapDispatchToProps => {
+const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
     return bindActionCreators({
         setLoginInput,
         setRegisterInput,
         setActiveTab,
         verifyLogin,
-        verifyRegister
+        verifyRegister,
+        setSideDialog
     }, dispatch)
 };
 

@@ -7,6 +7,9 @@ import {verifyRegister} from "./landingActions";
 import {Input} from "../../components/input";
 import LanguageHelper from "../../languageHelper";
 import {Checkbox} from "../../components/checkbox";
+import {ExtendingButton} from "../../components/extendingButton";
+import {setSideDialog} from "../sideDialog/sideDialogActions";
+import SideDialogContainer from "../sideDialog/sideDialogContainer";
 
 export interface LandingProps {
     login: LoginInputs,
@@ -23,12 +26,15 @@ export interface LandingProps {
     verifyLogin: typeof verifyLogin,
     verifyRegister: typeof verifyRegister,
 
-    someField?: boolean
+    someField?: boolean,
+
+    sideDialog: boolean
+    setSideDialog: typeof setSideDialog
 }
 
 export default class Landing extends React.Component<LandingProps, {}> {
 
-    public render() {
+    render() {
         const {
             login,
             register,
@@ -40,9 +46,13 @@ export default class Landing extends React.Component<LandingProps, {}> {
             registerValidities,
             verifyLogin,
             verifyRegister,
+
+            setSideDialog,
         } = this.props;
         return (
             <div className="landing">
+
+                <SideDialogContainer/>
                 <div className="section1">
                     <div className="logo"/>
                     <div className="contentWrapper">
@@ -73,8 +83,34 @@ export default class Landing extends React.Component<LandingProps, {}> {
                                         valid={loginValidities.usernameAndPassword}
                                         validityInfo={LanguageHelper.getString('feedback_login')}/>
                                     <Checkbox label={'stay logged in'} value={login.stayLoggedIn}
-                                              onChange={(e: boolean) => setLoginInput({key: "stayLoggedIn", value: e})}/>
+                                              onChange={(e: boolean) => setLoginInput({
+                                                  key: "stayLoggedIn",
+                                                  value: e
+                                              })}/>
                                     <button onClick={() => verifyLogin(login)}>Login</button>
+                                    <ExtendingButton icon={'/assets/test_image.png'} label={'Testbutton'}
+                                                     onClick={() => {
+                                                         setSideDialog({
+                                                             content: <div>I AM CONTENT :D</div>,
+                                                             buttons: [
+                                                                 {
+                                                                     icon: '/assets/test_image.png',
+                                                                     label: 'Side Button',
+                                                                     onClick: () => console.log('WORKS :DD')
+                                                                 },
+                                                                 {
+                                                                     icon: '/assets/test_image.png',
+                                                                     label: 'Side Button2',
+                                                                     onClick: () => console.log('WORKS2 :DD')
+                                                                 },
+                                                                 {
+                                                                     icon: '/assets/test_image.png',
+                                                                     label: 'Side Button3',
+                                                                     onClick: () => console.log('WORKS3 :DD')
+                                                                 }
+                                                             ]
+                                                         })
+                                                     }}/>
                                 </div> :
                                 <div className="registerInputWrapper">
                                     <Input
@@ -110,7 +146,10 @@ export default class Landing extends React.Component<LandingProps, {}> {
                                         validityInfo={LanguageHelper.getString('feedback_passwordRepeat')}/>
                                     <button onClick={() => verifyRegister(register)}>Register</button>
                                     <Checkbox label={'agreed'} value={register.policyAgreed}
-                                              onChange={(e: boolean) => setRegisterInput({key: "policyAgreed", value: e})}
+                                              onChange={(e: boolean) => setRegisterInput({
+                                                  key: "policyAgreed",
+                                                  value: e
+                                              })}
                                               valid={registerValidities.repeatedPassword}
                                               validityInfo={LanguageHelper.getString('feedback_policyAgreed')}/>
                                 </div>}
@@ -118,7 +157,7 @@ export default class Landing extends React.Component<LandingProps, {}> {
                         </div>
                     </div>
 
-<div className="accentBackground"/>
+                    <div className="accentBackground"/>
                 </div>
             </div>
         );

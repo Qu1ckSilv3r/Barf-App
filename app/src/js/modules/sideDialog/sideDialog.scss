@@ -1,0 +1,14 @@
+@import "../../../scss/sass-flex-mixin/_flex.scss";
+@import "../../../scss/constants";
+@import "../../../scss/mixins";
+
+.sideDialogWrapper {
+  position: absolute;
+  z-index: 1000;
+  right:0;
+  top:0;
+  height: 100%;
+  @include box-shadow(1px 1px 5px -3px rgba(0, 0, 0, 0.75));
+  background-color: $color_white;
+}
+
