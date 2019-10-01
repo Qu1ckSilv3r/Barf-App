@@ -1,0 +1,33 @@
+# Use postgres/password user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    build: database/
+    restart: always
+    environment: 
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+ 
+  service:
+    build: service/
+    restart: always
+    ports:
+      - 8081:8081
+      
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 80:80
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@pg.admin
+      PGADMIN_DEFAULT_PASSWORD: password
