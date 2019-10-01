@@ -21,7 +21,9 @@ export interface LandingProps {
     registerValidities: RegisterValidities,
 
     verifyLogin: typeof verifyLogin,
-    verifyRegister: typeof verifyRegister
+    verifyRegister: typeof verifyRegister,
+
+    someField?: boolean
 }
 
 export default class Landing extends React.Component<LandingProps, {}> {
