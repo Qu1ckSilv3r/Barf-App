@@ -46,13 +46,13 @@ export default class Landing extends React.Component<LandingProps, {}> {
             registerValidities,
             verifyLogin,
             verifyRegister,
-
             setSideDialog,
         } = this.props;
         return (
             <div className="landing">
 
                 <SideDialogContainer/>
+
                 <div className="section1">
                     <div className="logo"/>
                     <div className="contentWrapper">
@@ -108,7 +108,8 @@ export default class Landing extends React.Component<LandingProps, {}> {
                                                                      label: 'Side Button3',
                                                                      onClick: () => console.log('WORKS3 :DD')
                                                                  }
-                                                             ]
+                                                             ],
+                                                             header: 'SideDialog'
                                                          })
                                                      }}/>
                                 </div> :

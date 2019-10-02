@@ -53,9 +53,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
 };
 
 
-const LandingContainer = connect(
+export const LandingContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Landing);
-
-export default LandingContainer

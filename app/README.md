@@ -137,7 +137,7 @@ my-app/
     index.html
     favicon.ico
   src/
-    App.css
+    App.scss
     App.js
     App.test.js
     index.css
@@ -575,7 +575,7 @@ Then in `package.json`, add the following lines to `scripts`:
 
 >Note: To use a different preprocessor, replace `build-css` and `watch-css` commands according to your preprocessor’s documentation.
 
-Now you can rename `src/App.css` to `src/App.scss` and run `npm run watch-css`. The watcher will find every Sass file in `src` subdirectories, and create a corresponding CSS file next to it, in our case overwriting `src/App.css`. Since `src/App.js` still imports `src/App.css`, the styles become a part of your application. You can now edit `src/App.scss`, and `src/App.css` will be regenerated.
+Now you can rename `src/App.scss` to `src/App.scss` and run `npm run watch-css`. The watcher will find every Sass file in `src` subdirectories, and create a corresponding CSS file next to it, in our case overwriting `src/App.scss`. Since `src/App.js` still imports `src/App.scss`, the styles become a part of your application. You can now edit `src/App.scss`, and `src/App.scss` will be regenerated.
 
 To share variables between Sass files, you can use Sass imports. For example, `src/App.scss` and other component style files could include `@import "./shared.scss";` with variable definitions.
 

@@ -2,27 +2,35 @@ import * as React from 'react';
 import './sideDialog.scss'
 import {ExtendingButton} from "../../components/extendingButton";
 import {SideDialogButton} from "./sideDialogReducer";
-import {clearSideDialog} from "./sideDialogActions";
+import {clearSideDialog, closeSideDialog} from "./sideDialogActions";
 import TouchClick from "../../components/touchClick";
 import "animate.css";
 
 export interface SideDialogProps {
     content: any,
-    buttons: SideDialogButton[]
+    buttons: SideDialogButton[],
+    header: string,
     clearSideDialog: typeof clearSideDialog,
-    opened: boolean
+    opened: boolean,
+    closeSideDialog: typeof closeSideDialog
 }
 
 export default class SideDialog extends React.Component<SideDialogProps, {}> {
 
+    endAnimation = (element: string,) => {
+        this.props.clearSideDialog();
+        const node = document.querySelector(element);
+        node && node.classList.remove('withWidth')
+
+    }
+
     animateCSS = (element: string, animationName: string, callback?: () => void) => {
         const node = document.querySelector(element)
-        node && node.classList.add('animated', animationName)
+        node && node.classList.add('animated', animationName, 'withWidth', 'faster')
 
         function handleAnimationEnd() {
-            node && node.classList.remove('animated', animationName)
+            node && node.classList.remove('animated', animationName, 'faster')
             node && node.removeEventListener('animationend', handleAnimationEnd)
-
             if (typeof callback === 'function') callback()
         }
 
@@ -30,32 +38,22 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
     }
 
     componentWillUpdate(nextProps: Readonly<SideDialogProps>, nextState: Readonly<{}>, nextContext: any): void {
-        if(this.props.opened !== nextProps.opened){
-            if(nextProps.opened){
+        if (this.props.opened !== nextProps.opened) {
+            if (nextProps.opened) {
                 this.animateCSS('.sideDialogWrapper', 'slideInRight')
+            } else if (!nextProps.opened) {
+                this.animateCSS('.sideDialogWrapper', 'slideOutRight', () => this.endAnimation('.sideDialogWrapper'))
             }
-            else if(!nextProps.opened){
-                this.animateCSS('.sideDialogWrapper', 'slideOutRight')
-            }
-            
         }
-
     }
 
-    componentDidMount(): void {
-
-    }
-
-    componentWillUnmount(): void {
-
-    }
 
     render() {
         const {
             content,
             buttons,
-            clearSideDialog,
-            opened
+            closeSideDialog,
+            header
         } = this.props;
 
         const buttonsToRender = buttons && buttons.map((button, index) => {
@@ -63,22 +61,33 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
                 <ExtendingButton label={button.label} icon={button.icon} onClick={() => button.onClick()}
                                  key={'sideDialogButton' + index}/>
             )
-        })
-
-
+        });
 
         return (
-            opened ?
-                <div className="sideDialogWrapper">
+            <div className={"sideDialogWrapper"}>
+                {content ?
+                    <div className="sideDialog">
+                        <div className="topBar">
+                            <TouchClick className="close" onClick={() => closeSideDialog()}/>
+                            <div className="header">
+                                {header}
+                            </div>
+                        </div>
+                        <div className="content">
+                            <div className="buttonBar">
+                                {buttonsToRender}
+                            </div>
+                            <div className="contentWrapper">
+                                {content}
+                            </div>
+                        </div>
 
-                    <TouchClick onClick={() => clearSideDialog()}>close</TouchClick>
-                    <div className="buttonWrapper">
-                        {buttonsToRender}
+
                     </div>
-                    {content}
-                </div>
-                    :<div className="sideDialogWrapper"/>
+                    : null}
 
+
+            </div>
         );
     }
 }

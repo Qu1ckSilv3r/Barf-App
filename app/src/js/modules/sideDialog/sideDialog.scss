@@ -5,10 +5,61 @@
 .sideDialogWrapper {
   position: absolute;
   z-index: 1000;
-  right:0;
-  top:0;
+  right: 0;
+  top: 0;
   height: 100%;
-  @include box-shadow(1px 1px 5px -3px rgba(0, 0, 0, 0.75));
+
+  &.withWidth {
+    width: 500px;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+
+  @include box-shadow(1px 1px 5px -1px rgba(0, 0, 0, 0.75));
   background-color: $color_white;
+
+  .topBar {
+    width: 100%;
+    background-color: $color_lightGray;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+    padding: $smallDefault;
+
+    .close {
+      height: 24px;
+      width: 24px;
+      @include flex-shrink(0);
+      @include flex-grow(0);
+      background: url('/assets/close.svg') no-repeat center;
+      background-size: contain;
+    }
+
+    .header {
+      width: 100%;
+      color: $color_accent;
+      text-align: center;
+      font-size: $sizeML;
+      font-weight: 600;
+    }
+  }
+
+  .content {
+    @include flexbox();
+    @include align-items(flex-start);
+    @include justify-content(flex-start);
+    .buttonBar {
+      @include flex-shrink(0);
+      @include flex-grow(0);
+      padding: $smallDefault
+    }
+
+    .contentWrapper {
+      width: 100%;
+      padding: $default;
+    }
+  }
+
 }
 

@@ -9,6 +9,7 @@ export interface SideDialogButton {
 
 export interface SideDialogState {
     opened: boolean,
+    header: string,
     buttons: SideDialogButton[],
     content: any
 }
@@ -16,8 +17,9 @@ export interface SideDialogState {
 
 const defaultState: SideDialogState = {
     opened: false,
+    header: '',
     buttons: [],
-    content: {}
+    content: null
 };
 
 export const SideDialogReducer = reducerWithInitialState(defaultState)
@@ -26,14 +28,20 @@ export const SideDialogReducer = reducerWithInitialState(defaultState)
             ...state,
             opened: true,
             content: payload.content,
-            buttons: payload.buttons
+            buttons: payload.buttons,
+            header: payload.header
+        }
+    })
+    .case(sideDialogActions.closeSideDialog, (state, payload) => {
+        return {
+            ...state,
+            opened: false,
         }
     })
     .case(sideDialogActions.clearSideDialog, (state, payload) => {
         return {
             ...state,
-            opened: false,
-            content: {},
-            buttons: []
+            buttons: [],
+            content: null
         }
     })
