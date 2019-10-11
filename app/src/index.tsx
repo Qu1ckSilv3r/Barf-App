@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './js/App';
 import registerServiceWorker from './js/registerServiceWorker';
 import './js/modules/landing/landing.scss';
 
@@ -8,6 +7,8 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {Provider} from 'react-redux'
 import reducer from "./js/reducer";
 import thunk from 'redux-thunk';
+import App from "./js/App";
+
 
 const reducers = combineReducers({...reducer});
 
@@ -23,6 +24,7 @@ ReactDOM.render(
         store={store}>
         <App/>
     </Provider>
+
     ,
     document.getElementById('root') as HTMLElement
 );
