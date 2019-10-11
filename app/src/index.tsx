@@ -7,15 +7,8 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {Provider} from 'react-redux'
 import reducer from "./js/reducer";
 import thunk from 'redux-thunk';
-import {ConnectedRouter} from 'connected-react-router';
-import {Route} from 'react-router';
-import {LandingContainer} from "./js/modules/landing/landingContainer";
+import App from "./js/App";
 
-import {createBrowserHistory} from 'history'
-
-
-
-const history = createBrowserHistory()
 
 const reducers = combineReducers({...reducer});
 
@@ -29,13 +22,7 @@ const store = createStore(reducers, composeEnhancers(
 ReactDOM.render(
     <Provider
         store={store}>
-        <ConnectedRouter history={history}>
-
-            <div className="app">
-                <Route path="/" render={props => <LandingContainer/>}/>
-            </div>
-
-        </ConnectedRouter>
+        <App/>
     </Provider>
 
     ,

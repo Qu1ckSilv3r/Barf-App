@@ -31,7 +31,7 @@ export default class TouchClick extends React.Component<Props, {}> {
         super(props);
         if (TouchClick.nextGlobalClickId === 1) {
             window.addEventListener("click", (event) => {
-                    TouchClick.notifyOtherTouchClicksOfClick(event.target)
+
                 }
             );
         }
@@ -67,28 +67,13 @@ export default class TouchClick extends React.Component<Props, {}> {
     onClick(event: any) {
         event.stopPropagation();
         if (this.props.onClick) {
-            TouchClick.notifyOtherTouchClicksOfClick(this._r);
+
             event.preventDefault();
             (this.props.onClick.apply as any)(this, arguments);
         }
     }
 
-    static notifyOtherTouchClicksOfClick = (clickedElement: any) => {
-        const filteredOtherListeners: any = {...TouchClick.clickListeners};
-        let currentNode: any = clickedElement;
-        while (currentNode !== document.body) {
-            let touchClickId = currentNode && currentNode.dataset.touchclickid;
-            if (touchClickId && filteredOtherListeners[touchClickId]) {
-                delete filteredOtherListeners[touchClickId]
-            }
-            if (currentNode) {
-                currentNode = currentNode.parentNode;
-            } else {
-                break;
-            }
-        }
-        Object.values(filteredOtherListeners).forEach(fn => (fn as (elm: any) => void)(clickedElement));
-    }
+
 
 
     componentWillReceiveProps(nextProps: Props) {

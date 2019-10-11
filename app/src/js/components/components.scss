@@ -77,9 +77,9 @@
       margin: 0 $smallDefault;
       overflow: hidden;
       @include transition(all 0.3s ease-in-out);
-      color: $color_darkGray;
+      color: $color_accent;
       white-space: nowrap;
-      font-weight: 400;
+      font-weight: 600;
     }
 
     &:hover {
