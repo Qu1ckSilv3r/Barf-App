@@ -10,4 +10,5 @@ public interface IBarfuserService {
 	Barfuser findByName(String name);
 	Barfuser saveUser(Barfuser user);
 	Barfuser checkCredentials(LoginDto credentials);
+	void delete(long user_id);
 }

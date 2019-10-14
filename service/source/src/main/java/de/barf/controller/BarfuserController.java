@@ -1,34 +1,37 @@
 package de.barf.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.barf.model.Barfuser;
-import de.barf.repository.BarfuserService;
 import de.barf.repository.IBarfuserService;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class BarfuserController {
 	@Autowired
 	private IBarfuserService barfuserService;
 	
 	@GetMapping("/barfusers")
-	public List<Barfuser> findBerfusers(){
+	public List<Barfuser> findBarfusers(){
 		return barfuserService.findAll();
 	}
+	
+	//eigentlich nicht nötig?!
 	@RequestMapping(value = "/barfusers/{name}", method = RequestMethod.GET)
-	public Barfuser findBerfusers(@PathVariable("name") String name){
+	public Barfuser findBarfusers(@PathVariable("name") String name){
 		return barfuserService.findByName(name);
 	}
+	
 	@RequestMapping(value = "/barfusers/create", method = RequestMethod.POST)
 	public Barfuser createUser(@RequestBody Barfuser user){
 		return barfuserService.saveUser(user);
@@ -38,4 +41,13 @@ public class BarfuserController {
 	public Barfuser login(@RequestBody LoginDto credentials){
 		return barfuserService.checkCredentials(credentials);
 	}
+	
+	//Password zurücksetzten
+	
+//	//Nutzer Löschen? nicht getestet
+//	@DeleteMapping("/barfusers/delete/{user_id}")
+//	public void delete(@PathVariable("user_id") long user_id){
+//		barfuserService.delete(user_id);
+//	}
+	
 }
