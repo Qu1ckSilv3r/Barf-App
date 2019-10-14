@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {
-    setLoginInput, setRegisterInput, setActiveTab, verifyLogin, verifyRegister
+    setLoginInput, setRegisterInput, setActiveTab, verifyLogin, verifyRegister, pushHistory
 } from './landingActions';
 import {State} from "../../reducer";
 import Landing from './landing';
@@ -38,7 +38,9 @@ interface MapDispatchToProps {
     setActiveTab: typeof setActiveTab,
     verifyLogin: typeof verifyLogin,
     verifyRegister: typeof verifyRegister,
-    setSideDialog: typeof setSideDialog
+    setSideDialog: typeof setSideDialog,
+
+    pushHistory: typeof pushHistory
 }
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
@@ -48,7 +50,8 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         setActiveTab,
         verifyLogin,
         verifyRegister,
-        setSideDialog
+        setSideDialog,
+        pushHistory
     }, dispatch)
 };
 

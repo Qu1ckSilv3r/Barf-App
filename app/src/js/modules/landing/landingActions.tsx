@@ -2,7 +2,7 @@ import {actionCreatorFactory} from 'typescript-fsa';
 import {LandingTabs, LoginInputs, LoginValidities, RegisterInputs, RegisterValidities} from "./landingReducer";
 import {ThunkAction} from 'redux-thunk';
 import {State} from "../../reducer";
-
+import {history} from '../../App'
 const actionCreator = actionCreatorFactory();
 
 export const setLoginInput = actionCreator<{ key: keyof LoginInputs, value: string | boolean }>("SET_LOGIN_INPUT_LANDING");
@@ -69,5 +69,11 @@ export const verifyRegister = (registerObj: RegisterInputs): ThunkAction<Promise
         } catch (er) {
             console.error("er", er)
         }
+    }
+}
+
+export const pushHistory = (path: string) => {
+    return async () => {
+        history.push(path)
     }
 }

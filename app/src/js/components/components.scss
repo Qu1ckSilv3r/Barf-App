@@ -92,3 +92,77 @@
     }
   }
 }
+
+.button {
+  height: 20px;
+  width: 20px;
+  margin: 0 $small;
+  padding: $tinySmall;
+  background-color: $color_lightGray;
+  border-radius: 24px;
+  @include flex-shrink(0);
+
+  &.bigger {
+    height: 25px;
+    width: 25px;
+  }
+
+  .icon {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+}
+
+.petListItem {
+  background-color: $color_white;
+  @include transition(all 0.2s ease);
+
+  &.activePet {
+    background-color: $color_accent;
+  }
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(flex-start);
+
+  .image {
+    height: 50px;
+    width: 50px;
+    @include flex-shrink(0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    margin: 8px;
+  }
+
+  .textWrapper {
+    margin: $small;
+
+    .name {
+      color: $color_darkGray;
+
+      &.activePet {
+        color: $color_white;
+      }
+    }
+
+    .lastGenerated {
+      color: $color_darkGray;
+
+      &.activePet {
+        color: $color_white;
+      }
+    }
+  }
+
+  .buttonWrapper {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+  }
+}

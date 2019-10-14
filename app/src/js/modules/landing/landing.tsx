@@ -2,7 +2,7 @@ import * as React from 'react';
 import './landing.scss'
 import * as landingActions from "./landingActions";
 import {LandingTabs, LoginInputs, LoginValidities, RegisterInputs, RegisterValidities} from "./landingReducer";
-import {verifyLogin} from "./landingActions";
+import {pushHistory, verifyLogin} from "./landingActions";
 import {verifyRegister} from "./landingActions";
 import {Input} from "../../components/input";
 import LanguageHelper from "../../languageHelper";
@@ -10,6 +10,7 @@ import {Checkbox} from "../../components/checkbox";
 import {ExtendingButton} from "../../components/extendingButton";
 import {setSideDialog} from "../sideDialog/sideDialogActions";
 import SideDialogContainer from "../sideDialog/sideDialogContainer";
+import TouchClick from "../../components/touchClick";
 
 export interface LandingProps {
     login: LoginInputs,
@@ -29,7 +30,8 @@ export interface LandingProps {
     someField?: boolean,
 
     sideDialog: boolean
-    setSideDialog: typeof setSideDialog
+    setSideDialog: typeof setSideDialog,
+    pushHistory: typeof pushHistory
 }
 
 export default class Landing extends React.Component<LandingProps, {}> {
@@ -47,6 +49,7 @@ export default class Landing extends React.Component<LandingProps, {}> {
             verifyLogin,
             verifyRegister,
             setSideDialog,
+            pushHistory
         } = this.props;
         return (
             <div className="landing">
@@ -54,8 +57,9 @@ export default class Landing extends React.Component<LandingProps, {}> {
                 <SideDialogContainer/>
 
                 <div className="section1">
-                    <div className="logo"/>
+
                     <div className="contentWrapper">
+                        <div className="logo"/>
                         <div className="loginRegisterWrapper">
                             <div className="tabs">
                                 <div className={"tab login" + (activeTab === 'login' ? " active" : "")}
@@ -158,7 +162,35 @@ export default class Landing extends React.Component<LandingProps, {}> {
                         </div>
                     </div>
 
+
+                    <TouchClick onClick={() => pushHistory('/petsAndPlans')}> go to pets and plans</TouchClick>
+
+
                     <div className="accentBackground"/>
+                    <div className="accentSpacer"/>
+                </div>
+                <div className="section2">
+                    <div className="accentBackground"/>
+                    <div className="contentWrapper">
+                        <h1>
+                            {LanguageHelper.getString('section2Header1')}
+                        </h1>
+                        <p>
+                            {LanguageHelper.getString('section2Paragraph1')}
+                        </p>
+                        <p>
+                            {LanguageHelper.getString('section2Paragraph2')}
+                        </p><h1>
+                        {LanguageHelper.getString('section2Header2')}
+                    </h1>
+                        <p>
+                            {LanguageHelper.getString('section2Paragraph3')}
+                        </p>
+                        <p>
+                            {LanguageHelper.getString('section2Paragraph4')}
+                        </p>
+                    </div>
+
                 </div>
             </div>
         );

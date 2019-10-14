@@ -74,9 +74,7 @@ export default class TouchClick extends React.Component<Props, {}> {
     }
 
 
-
-
-    componentWillReceiveProps(nextProps: Props) {
+    UNSAFE_componentWillReceiveProps(nextProps: Readonly<Props>, nextContext: any): void {
         this.handleCallbackSetup(nextProps);
     }
 

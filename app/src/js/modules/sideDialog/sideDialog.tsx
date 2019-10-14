@@ -37,7 +37,7 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
         node && node.addEventListener('animationend', handleAnimationEnd)
     }
 
-    componentWillUpdate(nextProps: Readonly<SideDialogProps>, nextState: Readonly<{}>, nextContext: any): void {
+    UNSAFE_componentWillUpdate(nextProps: Readonly<SideDialogProps>, nextState: Readonly<{}>, nextContext: any): void {
         if (this.props.opened !== nextProps.opened) {
             if (nextProps.opened) {
                 this.animateCSS('.sideDialogWrapper', 'slideInRight')
