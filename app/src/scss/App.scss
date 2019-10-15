@@ -5,19 +5,30 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700);
 
 html, body, #app, #root {
-    width: 100%;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: $sizeSM;
+  width: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $sizeSM;
 }
 
 .App {
-    margin: 0;
-    width: 100%;
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
-    min-width: 750px;
+  margin: 0;
+  width: 100%;
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  min-width: 750px;
 
-    white-space: pre-wrap;
+  white-space: pre-wrap;
+}
+
+.routeWrapper {
+  margin: 0;
+  width: 100%;
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  min-width: 750px;
+  padding-top: 50px;
+  white-space: pre-wrap;
 }
