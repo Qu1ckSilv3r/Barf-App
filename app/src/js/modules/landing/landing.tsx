@@ -9,7 +9,6 @@ import LanguageHelper from "../../languageHelper";
 import {Checkbox} from "../../components/checkbox";
 import {ExtendingButton} from "../../components/extendingButton";
 import {setSideDialog} from "../sideDialog/sideDialogActions";
-import SideDialogContainer from "../sideDialog/sideDialogContainer";
 import TouchClick from "../../components/touchClick";
 
 export interface LandingProps {
@@ -53,8 +52,6 @@ export default class Landing extends React.Component<LandingProps, {}> {
         } = this.props;
         return (
             <div className="landing">
-
-                <SideDialogContainer/>
 
                 <div className="section1">
 

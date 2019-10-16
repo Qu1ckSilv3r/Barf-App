@@ -5,12 +5,31 @@
 .navigationBarWrapper {
   position: fixed;
   height: 50px;
+  z-index: 1000;
   width: 100%;
+
   @include box-shadow(1px 1px 5px -1px rgba(0, 0, 0, 0.75));
   top: 0;
   left: 0;
   @include flexbox();
-  @include align-items(flex-start);
+  @include align-items(center);
+  background-color: $color_white;
+
+  .mainWrapper {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(flex-start);
+    @include flex-grow(2);
+    height: 100%;
+  }
+
+  .backWrapper {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(flex-end);
+    @include flex-grow(1);
+    height: 100%;
+  }
 
   .navItem {
     background-color: $color_white;

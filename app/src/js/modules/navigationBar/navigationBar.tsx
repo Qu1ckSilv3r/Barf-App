@@ -22,7 +22,7 @@ export default class NavigationBar extends React.Component<LandingProps, {}> {
     }
 
     componentDidMount(): void {
-        switch(window.location.pathname){
+        switch (window.location.pathname) {
             case '/petsAndPlans':
                 this.props.setActiveNavItem(0)
                 break;
@@ -69,7 +69,13 @@ export default class NavigationBar extends React.Component<LandingProps, {}> {
 
         return (
             <div className="navigationBarWrapper">
-                {navItemsToRender}
+                <div className="mainWrapper">
+                    {navItemsToRender.slice(0, navItemsToRender.length - 1)}
+                </div>
+                <div className="backWrapper">
+                    {navItemsToRender[navItemsToRender.length - 1]}
+                </div>
+
             </div>
         );
     }

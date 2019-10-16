@@ -7,7 +7,7 @@ import {pushHistory} from "../landing/landingActions";
 import {petListElement} from "../../components/petListItem";
 import {setSideDialog} from "../sideDialog/sideDialogActions";
 import LanguageHelper from "../../languageHelper";
-import SideDialogContainer from "../sideDialog/sideDialogContainer";
+import {setSideNavigation} from "../navigationSide/sideNavigationActions";
 
 export interface LandingProps {
     pets: Pet[],
@@ -15,25 +15,24 @@ export interface LandingProps {
     setActivePet: typeof setActivePet,
     setSideDialog: typeof setSideDialog,
 
+    setSideNavigation: typeof setSideNavigation,
     pushHistory: typeof pushHistory
 }
 
 
-
 export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
-    render() {
+    componentDidMount(): void {
         const {
             pets,
             activePet,
             setActivePet,
-            pushHistory,
-            setSideDialog
+            setSideDialog,
+            setSideNavigation
         } = this.props;
-
         const petsToRender = pets && pets.map((pet, index) => {
             return petListElement({
-                pet:pet,
+                pet: pet,
                 setActive: setActivePet,
                 active: pet._id === activePet,
                 edit: () => setSideDialog({
@@ -50,10 +49,19 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             })
         })
 
+        setSideNavigation(petsToRender)
+    }
+
+    render() {
+        const {
+
+            pushHistory,
+
+        } = this.props;
+
+
         return (
             <div className="petsAndPlans">
-                <SideDialogContainer/>
-                {petsToRender}
                 <TouchClick onClick={() => pushHistory('/')}>go to landing</TouchClick>
             </div>
         );

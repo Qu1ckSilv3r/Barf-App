@@ -2,17 +2,22 @@ import * as React from 'react';
 import '../scss/App.scss';
 import {LandingContainer} from "./modules/landing/landingContainer"
 
-import {Route, Redirect, Router} from 'react-router';
+import {Route, Redirect} from 'react-router';
 
 import {Switch} from 'react-router-dom';
 import {createBrowserHistory} from "history";
 import {PetsAndPlansContainer} from "./modules/petsAndPlans/petsAndPlansContainer";
 import {NavigationBarContainer} from "./modules/navigationBar/navigationBarContainer";
+//import {SideNav} from "./components/sideNav";
+import SideDialogContainer from "./modules/sideDialog/sideDialogContainer";
+import SideNavigationContainer from "./modules/navigationSide/sideNavigationContainer";
+import {ConnectedRouter} from "connected-react-router";
 
 export const history = createBrowserHistory();
 
 interface RouteWrapperProps {
-    content: any
+    content: any,
+    sideNavContent?: any
 }
 
 class RouteWrapper extends React.Component<RouteWrapperProps, {}> {
@@ -21,7 +26,11 @@ class RouteWrapper extends React.Component<RouteWrapperProps, {}> {
         return (
             <div className="routeWrapper">
                 <NavigationBarContainer/>
-                {this.props.content}
+                <SideNavigationContainer/>
+                <div className="content">
+                    {this.props.content}
+                </div>
+                <SideDialogContainer/>
             </div>
         )
     }
@@ -31,7 +40,8 @@ class App extends React.Component {
     public render() {
         return (
             <div className="App">
-                <Router history={history}>
+                <ConnectedRouter history={history}>
+
                     <Switch>
                         <Route exact path="/" render={props => <LandingContainer/>}/>
                         <Route exact path="/petsAndPlans"
@@ -44,7 +54,7 @@ class App extends React.Component {
                                render={props => <RouteWrapper content={'SETTINGS'}/>}/>
                         <Redirect from="/" to="/landing"/>
                     </Switch>
-                </Router>
+                </ConnectedRouter>
 
 
             </div>
