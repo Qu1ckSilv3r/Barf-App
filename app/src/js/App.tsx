@@ -5,13 +5,13 @@ import {LandingContainer} from "./modules/landing/landingContainer"
 import {Route, Redirect} from 'react-router';
 
 import {Switch} from 'react-router-dom';
+import {ConnectedRouter} from "connected-react-router";
 import {createBrowserHistory} from "history";
 import {PetsAndPlansContainer} from "./modules/petsAndPlans/petsAndPlansContainer";
 import {NavigationBarContainer} from "./modules/navigationBar/navigationBarContainer";
 //import {SideNav} from "./components/sideNav";
 import SideDialogContainer from "./modules/sideDialog/sideDialogContainer";
 import SideNavigationContainer from "./modules/navigationSide/sideNavigationContainer";
-import {ConnectedRouter} from "connected-react-router";
 
 export const history = createBrowserHistory();
 

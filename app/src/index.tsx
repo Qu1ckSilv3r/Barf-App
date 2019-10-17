@@ -7,10 +7,11 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {Provider} from 'react-redux'
 import reducer from "./js/reducer";
 import thunk from 'redux-thunk';
-import App from "./js/App";
+import App,{history} from "./js/App";
+import {connectRouter} from "connected-react-router";
 
 
-const reducers = combineReducers({...reducer});
+const reducers = combineReducers({...reducer,router: connectRouter(history)});
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
