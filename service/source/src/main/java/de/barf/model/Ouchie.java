@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Ouchie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long ouchieID;
+	private long ouchie_id;
 	private boolean note;
 	private boolean poo;
 	private boolean rash;
@@ -24,17 +24,17 @@ public class Ouchie {
 	private boolean puke;
 	private String others;
 	@JsonFormat(pattern="yyyy-mm-dd")
-	private Date dayDate;
-	private long animalID;
+	private Date day_date;
+	private long animal_id;
 	
 	public Ouchie() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ouchie(long ouchieID, boolean note, boolean poo, boolean rash, boolean heartburn, boolean itsch,
-			boolean puke, String others, Date dayDate, long animalID) {
+	public Ouchie(long ouchie_id, boolean note, boolean poo, boolean rash, boolean heartburn, boolean itsch,
+			boolean puke, String others, Date day_date, long animal_id) {
 		super();
-		this.ouchieID = ouchieID;
+		this.ouchie_id = ouchie_id;
 		this.note = note;
 		this.poo = poo;
 		this.rash = rash;
@@ -42,16 +42,16 @@ public class Ouchie {
 		this.itsch = itsch;
 		this.puke = puke;
 		this.others = others;
-		this.dayDate = dayDate;
-		this.animalID = animalID;
+		this.day_date = day_date;
+		this.animal_id = animal_id;
 	}
 
-	public long getOuchieID() {
-		return ouchieID;
+	public long getOuchie_id() {
+		return ouchie_id;
 	}
 
-	public void setOuchieID(long ouchieID) {
-		this.ouchieID = ouchieID;
+	public void setOuchie_id(long ouchie_id) {
+		this.ouchie_id = ouchie_id;
 	}
 
 	public boolean isNote() {
@@ -110,25 +110,25 @@ public class Ouchie {
 		this.others = others;
 	}
 
-	public Date getDayDate() {
-		return dayDate;
+	public Date getDay_date() {
+		return day_date;
 	}
 
-	public void setDayDate(Date dayDate) {
-		this.dayDate = dayDate;
+	public void setDay_date(Date day_date) {
+		this.day_date = day_date;
 	}
 
-	public long getAnimalID() {
-		return animalID;
+	public long getAnimal_id() {
+		return animal_id;
 	}
 
-	public void setAnimalID(long animalID) {
-		this.animalID = animalID;
+	public void setAnimal_id(long animal_id) {
+		this.animal_id = animal_id;
 	}
 	@Override
 	public String toString() {
-		return "Ouchie [ouchieID=" + ouchieID + ", note=" + note + ", poo=" + poo + ", rash=" + rash + ", heartburn="
-				+ heartburn + ", itsch=" + itsch + ", puke=" + puke + ", others=" + others + ", dayDate=" + dayDate
-				+ ", animalID=" + animalID + "]";
+		return "Ouchie [ouchie_id=" + ouchie_id + ", note=" + note + ", poo=" + poo + ", rash=" + rash + ", heartburn="
+				+ heartburn + ", itsch=" + itsch + ", puke=" + puke + ", others=" + others + ", day_date=" + day_date
+				+ ", animal_id=" + animal_id + "]";
 	}
 }

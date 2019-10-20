@@ -12,24 +12,24 @@ public class Wiki {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long wikiID;
+	private long wiki_id;
 	private String titel;
 	private String artikel;
 	
 	public Wiki() {
 		
 	}
-	public Wiki(long wikiID, String titel, String artikel) {
+	public Wiki(long wiki_id, String titel, String artikel) {
 		super();
-		this.wikiID = wikiID;
+		this.wiki_id = wiki_id;
 		this.titel = titel;
 		this.artikel = artikel;
 	}
-	public long getWikiID() {
-		return wikiID;
+	public long getWiki_id() {
+		return wiki_id;
 	}
-	public void setWikiID(long wikiID) {
-		this.wikiID = wikiID;
+	public void setWiki_id(long wiki_id) {
+		this.wiki_id = wiki_id;
 	}
 	public String getTitel() {
 		return titel;
@@ -45,7 +45,7 @@ public class Wiki {
 	}
 	@Override
 	public String toString() {
-		return "Wiki [wikiID=" + wikiID + ", titel=" + titel + ", artikel=" + artikel + "]";
+		return "Wiki [wiki_id=" + wiki_id + ", titel=" + titel + ", artikel=" + artikel + "]";
 	}
 	
 }

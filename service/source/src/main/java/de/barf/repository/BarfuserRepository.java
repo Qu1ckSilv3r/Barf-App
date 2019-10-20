@@ -11,12 +11,8 @@ import de.barf.model.Barfuser;
 public interface BarfuserRepository extends CrudRepository<Barfuser, Long>{
 	@Query("SELECT x FROM Barfuser AS x WHERE username LIKE :name")
 	Barfuser findByName(@Param("name")String name);
-	
-	//nicht getestet, aufruf darunter ist getestet und läuft
-//	@Query("SELECT user_id FROM Barfuser AS x WHERE username LIKE :name AND password LIKE :password")
-//	Barfuser findByNameAndPassword(@Param("name") String name, @Param("password") String password);
-	
-//	gibt den ganzen user zurück, benötigt wird ab hier eigentlich nur die User_id
+
+	//geht; brauchen wir den ganzen user? 
 	@Query("SELECT x FROM Barfuser AS x WHERE username LIKE :name AND password LIKE :password")
 	Barfuser findByNameAndPassword(@Param("name") String name, @Param("password") String password);  
 }

@@ -12,17 +12,17 @@
 //	//@Id
 //	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	private String nutrition;
-//	private long componentID;
+//	private long component_id;
 //	private int value;
 //	
 //	public Nutritions() {
 //		// TODO Auto-generated constructor stub
 //	}
 //
-//	public Nutritions(String nutrition, long componentID, int value) {
+//	public Nutritions(String nutrition, long component_id, int value) {
 //		super();
 //		this.nutrition = nutrition;
-//		this.componentID = componentID;
+//		this.component_id = component_id;
 //		this.value = value;
 //	}
 //
@@ -34,12 +34,12 @@
 //		this.nutrition = nutrition;
 //	}
 //
-//	public long getComponentID() {
-//		return componentID;
+//	public long getComponent_id() {
+//		return component_id;
 //	}
 //
-//	public void setComponentID(long componentID) {
-//		this.componentID = componentID;
+//	public void setComponent_id(long component_id) {
+//		this.component_id = component_id;
 //	}
 //
 //	public int getValue() {
@@ -51,7 +51,7 @@
 //	}
 //	@Override
 //	public String toString() {
-//		return "Nutritions [nutrition=" + nutrition + ", componentID=" + componentID + ", value=" + value + "]";
+//		return "Nutritions [nutrition=" + nutrition + ", component_id=" + component_id + ", value=" + value + "]";
 //	}
 //}
-//// PK sind 	private String nutrition; private long componentID Annotation muss da anders aussehen
+//// PK sind 	private String nutrition; private long component_id Annotation muss da anders aussehen

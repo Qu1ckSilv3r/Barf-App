@@ -10,4 +10,5 @@ public interface IAnimalService {
 	List<Animal> findByUserId(long user_id);
 	Animal saveAnimal(Animal animal);
 	//Animal feedCredentials(AnimalFeedPartDto credentials);
+	void delete(long animal_id);
 }

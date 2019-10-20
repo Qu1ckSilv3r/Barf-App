@@ -26,7 +26,12 @@ public class AnimalService implements IAnimalService {
 	public List<Animal> findByUserId(long user_id) {
 		return (List<Animal>) aRepository.findByUserId(user_id);
 	}
-
+	
+	@Override
+	public void delete(long animal_id) {
+		aRepository.deleteById(animal_id);
+	}
+	
 //	@Override
 //	public Animal feedCredentials(AnimalFeedPartDto credentials) {
 //		// TODO Auto-generated method stub

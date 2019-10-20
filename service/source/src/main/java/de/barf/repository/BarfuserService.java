@@ -23,6 +23,10 @@ public class BarfuserService implements IBarfuserService{
 		return repository.findByName(name);
 	}
 	
+	public Barfuser findById(long user_id){
+		return repository.findById(user_id).get();
+	}
+	
 	@Override
 	public Barfuser saveUser(Barfuser user) {
 		return repository.save(user);
