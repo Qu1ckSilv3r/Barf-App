@@ -1,6 +1,11 @@
 import * as petsAndPlansActions from "./petsAndPlansActions";
 import {reducerWithInitialState} from "typescript-fsa-reducers"
+import {actionCreatorFactory} from 'typescript-fsa';
+import {LOCATION_CHANGE} from "react-router-redux";
 
+
+const actionCreator = actionCreatorFactory();
+const locationChange = actionCreator(LOCATION_CHANGE);
 
 export interface Pet {
     _id: number,
@@ -44,7 +49,12 @@ const defaultState: PetsAndPlansState = {
 };
 
 export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
-    .case(petsAndPlansActions.setActivePet, (state, payload) => {
+    .case(locationChange, (state, payload) => {
+        return {
+            ...defaultState
+        }
+    })
+     .case(petsAndPlansActions.setActivePet, (state, payload) => {
         return {
             ...state,
             activePet: payload

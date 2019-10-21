@@ -18,9 +18,10 @@ export interface SideDialogProps {
 export default class SideDialog extends React.Component<SideDialogProps, {}> {
 
     endAnimation = (element: string,) => {
-        this.props.clearSideDialog();
         const node = document.querySelector(element);
         node && node.classList.remove('withWidth')
+
+        this.props.clearSideDialog();
 
     }
 

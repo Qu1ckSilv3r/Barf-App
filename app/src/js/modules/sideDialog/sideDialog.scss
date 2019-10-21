@@ -3,16 +3,21 @@
 @import "../../../scss/mixins";
 
 .sideDialogWrapper {
-  position: absolute;
-  z-index: 998;
+  position: fixed;
+  z-index: 999;
   right: 0;
   bottom: 0;
   height: calc(100% - 50px);
 
+  @media (max-width: 380px) {
+    z-index: 1000;
+    height: 100%;
+  }
+
   &.withWidth {
     width: 550px;
     @media (max-width: 550px) {
-      width: 100%;
+      width: 100vw;
     }
   }
 

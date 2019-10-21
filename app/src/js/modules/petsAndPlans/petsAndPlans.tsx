@@ -4,10 +4,10 @@ import {Pet} from "./petsAndPlansReducer";
 import {setActivePet} from "./petsAndPlansActions";
 import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../landing/landingActions";
-import {petListElement} from "../../components/petListItem";
+import PetListItemContainer from "../../components/petListItem/petListItemContainer";
 import {setSideDialog} from "../sideDialog/sideDialogActions";
 import LanguageHelper from "../../languageHelper";
-import {setSideNavigation} from "../navigationSide/sideNavigationActions";
+import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 
 export interface LandingProps {
     pets: Pet[],
@@ -15,6 +15,8 @@ export interface LandingProps {
     setActivePet: typeof setActivePet,
     setSideDialog: typeof setSideDialog,
 
+    closeSideNavigation: typeof closeSideNavigation,
+    clearSideNavigation: typeof clearSideNavigation,
     setSideNavigation: typeof setSideNavigation,
     pushHistory: typeof pushHistory
 }
@@ -25,17 +27,15 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
     componentDidMount(): void {
         const {
             pets,
-            activePet,
-            setActivePet,
             setSideDialog,
-            setSideNavigation
+            setSideNavigation,
         } = this.props;
+
         const petsToRender = pets && pets.map((pet, index) => {
-            return petListElement({
-                pet: pet,
-                setActive: setActivePet,
-                active: pet._id === activePet,
-                edit: () => setSideDialog({
+            return <PetListItemContainer
+                key={'petListItem' + pet._id}
+                pet={pet}
+                edit={() => setSideDialog({
                     content: 'Pet Edit',
                     buttons: [
                         {
@@ -45,10 +45,8 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                         }
                     ],
                     header: pet.name
-                })
-            })
+                })}/>
         })
-
         setSideNavigation(petsToRender)
     }
 
