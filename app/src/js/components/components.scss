@@ -169,3 +169,45 @@
   }
 }
 
+.encyclopediaListItem {
+  background-color: $color_white;
+  @include transition(all 0.2s ease);
+
+  &.activeEntry {
+    background-color: $color_accent;
+  }
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(flex-start);
+
+  .image {
+    height: 50px;
+    width: 50px;
+    @include flex-shrink(0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    border-radius: 100%;
+    margin: 8px;
+    background-color: $color_lightGray;
+    &.activeEntry {
+      background-color: #672A26;
+    }
+  }
+
+  .textWrapper {
+    margin: $small;
+    width: 100%;
+
+    .name {
+      color: $color_darkGray;
+
+      &.activeEntry {
+        color: $color_white;
+      }
+    }
+  }
+}
+
+

@@ -34,7 +34,6 @@ export default class SideNavigation extends React.Component<SideNavigationProps,
     }
 
     UNSAFE_componentWillUpdate(nextProps: Readonly<SideNavigationProps>, nextState: Readonly<{}>, nextContext: any): void {
-        console.log('this.props', this.props.opened, 'nextProps', nextProps.opened)
         if (this.props.opened !== nextProps.opened) {
             if (nextProps.opened) {
                 this.animateCSS('.sideNavWrapper', 'slideInLeft')
