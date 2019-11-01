@@ -23,18 +23,18 @@ public class ComponentService implements IComponentService{
 	}
 	
 	@Override
-	public List<Components> findByCategorie(String categorie){
-		return (List<Components>) cRepository.findByCategorie(categorie);
+	public List<Components> findByCategorieAndUser_id(String categorie, long user_id){
+		return (List<Components>) cRepository.findByCategorieAndUser_id(categorie, user_id);
 	}
 	
 	@Override
-	public List<Components> findByAnimalSort(String animal_sort){
-		return (List<Components>) cRepository.findByAnimalSort(animal_sort);
+	public List<Components> findByAnimalSortAndUser_id(String animal_sort, long user_id){
+		return (List<Components>) cRepository.findByAnimalSort(animal_sort, user_id);
 	}
 	
 	@Override
-	public List<Components> findByName(String name){
-		return (List<Components>) cRepository.findByName(name);
+	public List<Components> findByNameAndUser_id(String name, long user_id){
+		return (List<Components>) cRepository.findByName(name, user_id);
 	}
 	
 	@Override

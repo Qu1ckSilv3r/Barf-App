@@ -1,5 +1,6 @@
 package de.barf.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +15,8 @@ public class Schedultday {
 	private long schedult_id;
 	private String weekday;
 	private int week;
-	private long ouchie_id;
-	private long setting_id;
+	private Long ouchie_id;
+	private Long setting_id;
 	
 	public Schedultday() {
 		// TODO Auto-generated constructor stub
@@ -54,19 +55,19 @@ public class Schedultday {
 		this.week = week;
 	}
 
-	public long getOuchie_id() {
+	public Long getOuchie_id() {
 		return ouchie_id;
 	}
 
-	public void setOuchie_id(long ouchie_id) {
+	public void setOuchie_id(Long ouchie_id) {
 		this.ouchie_id = ouchie_id;
 	}
 
-	public long getSetting_id() {
+	public Long getSetting_id() {
 		return setting_id;
 	}
 
-	public void setSetting_id(long setting_id) {
+	public void setSetting_id(Long setting_id) {
 		this.setting_id = setting_id;
 	}
 

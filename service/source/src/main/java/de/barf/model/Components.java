@@ -18,13 +18,13 @@ public class Components {
 	private String name;
 	private String info;
 	private long user_id;
-	private long wiki_id;
+	private Long wiki_id;
 	
 	public Components() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Components(long component_id, String categorie, String animal_sort, String name, String info, long user_id, long wiki_id) {
+	public Components(long component_id, String categorie, String animal_sort, String name, String info, long user_id, Long wiki_id) {
 		super();
 		this.component_id = component_id;
 		this.categorie = categorie;
@@ -34,7 +34,7 @@ public class Components {
 		this.user_id = user_id;
 		this.wiki_id = wiki_id;
 	}
-
+	
 	public long getComponent_id() {
 		return component_id;
 	}
@@ -83,11 +83,11 @@ public class Components {
 		this.user_id = user_id;
 	}
 
-	public long getWiki_id() {
+	public Long getWiki_id() {
 		return wiki_id;
 	}
 
-	public void setWiki_id(long wiki_id) {
+	public void setWiki_id(Long wiki_id) {
 		this.wiki_id = wiki_id;
 	}
 	@Override

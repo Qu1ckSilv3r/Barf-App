@@ -11,6 +11,6 @@ import de.barf.model.Animal;
 
 @Repository
 public interface AnimalRepository extends CrudRepository<Animal,Long>{
-	@Query("SELECT x FROM Animal AS x WHERE user_id LIKE :user_id")
+	@Query("SELECT x FROM Animal AS x WHERE user_id = :user_id")
 	List<Animal> findByUserId(@Param("user_id")long user_id);
 }

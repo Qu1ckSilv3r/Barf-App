@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,16 +29,19 @@ public class AnimalController {
 		return animalService.findAll();
 	}
 
-//	//geht nicht  ---> ein long wird nicht in der Datenbank als BigInt gespeichert JDBG macht das nicht 
-//	//package org.postgresql.jdbc;
-//	//class PgPreparedStatement extends PgStatement implements PreparedStatement 
-//	@RequestMapping(value = "/animal/animalOf/{user_id}", method = RequestMethod.GET)
-//	public List<Animal> findAnimalsOfUser(@PathVariable("user_id") long user_id){		
-//		return animalService.findByUserId(user_id);
-//	}
+	//geht 
+	@RequestMapping(value = "/animal/animalOf/{user_id}", method = RequestMethod.GET)
+	public List<Animal> findAnimalsOfUser(@PathVariable("user_id") long user_id){		
+		return animalService.findByUserId(user_id);
+	}
 	
-	//geht -->settingID und user_id sollten nicht expliziet angegeben werden müssen
-	//INSERT STATMENT SELBER SCHREIBEN IM BARF REPOSITORY
+	//geht
+	@RequestMapping(value = "/animal/{animal_id}", method = RequestMethod.GET)
+	public Animal findAnimalById(@PathVariable("animal_id") long animal_id){
+		return animalService.findById(animal_id);
+	}
+	
+	//geht
 	@PostMapping("/animal/create")
 	public Animal createAnimal(@RequestBody Animal dog){
 		return animalService.saveAnimal(dog);
@@ -45,7 +49,16 @@ public class AnimalController {
 	
 	//abrufen von für die berechnung relevanten einträgen
 	
-	//bearbeiten von einzelnen einträgen(zB setting ID wenn, da was geändert wird
+	//bearbeiten von einzelnen einträgen
+
+	//geht
+	@PutMapping("/animal/setSettingIDof/{animal_id}")
+	public Animal updateSettingId(@PathVariable("animal_id") long animal_id, @RequestBody Animal setting_id){
+		Animal animal = animalService.findById(animal_id);
+		animal.setSetting_id(setting_id.getSetting_id());
+		animalService.saveAnimal(animal);
+		return animal;
+ 	}
 	
 	//geht
 	@DeleteMapping("/animal/delete/{animalID}")
