@@ -1,6 +1,11 @@
 import * as landingActions from "./landingActions";
 import {reducerWithInitialState} from "typescript-fsa-reducers"
+import {actionCreatorFactory} from 'typescript-fsa';
+import {LOCATION_CHANGE} from "react-router-redux";
 
+
+const actionCreator = actionCreatorFactory();
+const locationChange = actionCreator(LOCATION_CHANGE);
 export type LandingTabs = 'login' | 'register'
 
 export interface LoginInputs {
@@ -73,7 +78,12 @@ const defaultState: LandingState = {
 };
 
 export const LandingReducer = reducerWithInitialState(defaultState)
-    .case(landingActions.setLoginInput, (state, payload) => {
+    .case(locationChange, (state, payload) => {
+        return {
+            ...defaultState
+        }
+    })
+     .case(landingActions.setLoginInput, (state, payload) => {
         return {
             ...state,
             login: {

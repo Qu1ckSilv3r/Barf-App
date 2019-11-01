@@ -12,6 +12,9 @@ import {NavigationBarContainer} from "./modules/navigationBar/navigationBarConta
 //import {SideNav} from "./components/sideNav";
 import SideDialogContainer from "./modules/sideDialog/sideDialogContainer";
 import SideNavigationContainer from "./modules/navigationSide/sideNavigationContainer";
+import {EncyclopediaContainer} from "./modules/encyclopedia/encyclopediaContainer";
+import {ComponentsContainer} from "./modules/components/componentsContainer";
+import {SettingsContainer} from "./modules/settings/settingsContainer";
 
 export const history = createBrowserHistory();
 
@@ -47,11 +50,11 @@ class App extends React.Component {
                         <Route exact path="/petsAndPlans"
                                render={props => <RouteWrapper content={<PetsAndPlansContainer {...props}/>}/>}/>
                         <Route exact path="/components"
-                               render={props => <RouteWrapper content={'COMPONENTS'}/>}/>
+                               render={props => <RouteWrapper content={<ComponentsContainer {...props}/>}/>}/>
                         <Route exact path="/encyclopedia"
-                               render={props => <RouteWrapper content={'ENCYCLOPEDIA'}/>}/>
+                               render={props => <RouteWrapper content={<EncyclopediaContainer {...props}/>}/>}/>
                         <Route exact path="/settings"
-                               render={props => <RouteWrapper content={'SETTINGS'}/>}/>
+                               render={props => <RouteWrapper content={<SettingsContainer {...props}/>}/>}/>
                         <Redirect from="/" to="/landing"/>
                     </Switch>
                 </ConnectedRouter>

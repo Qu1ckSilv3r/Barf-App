@@ -143,6 +143,7 @@
 
   .textWrapper {
     margin: $small;
+    width: 100%;
 
     .name {
       color: $color_darkGray;
@@ -168,35 +169,45 @@
   }
 }
 
-.sideNav {
-  width: 380px;
-  height: calc(100% - 50px);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 999;
-  overflow: hidden;
+.encyclopediaListItem {
   background-color: $color_white;
-  @include box-shadow(1px 1px 5px -1px rgba(0, 0, 0, 0.75));
-  @include flexbox();
-  @include flex-direction(column);
-  @include align-items(flex-start);
-  @include justify-content(space-between);
+  @include transition(all 0.2s ease);
 
-  .contentWrapper {
-    overflow: auto;
+  &.activeEntry {
+    background-color: $color_accent;
   }
 
-  .footer {
-    width: 100%;
-    height: 65px;
-    @include box-shadow(1px 1px 5px -1px rgba(0, 0, 0, 0.75));
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(flex-start);
 
-    .logo {
-      background: url('/assets/logo.png') no-repeat center;
-      background-size: auto 70%;
-      height: 100%;
-      width: 100%;
+  .image {
+    height: 50px;
+    width: 50px;
+    @include flex-shrink(0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    border-radius: 100%;
+    margin: 8px;
+    background-color: $color_lightGray;
+    &.activeEntry {
+      background-color: #672A26;
+    }
+  }
+
+  .textWrapper {
+    margin: $small;
+    width: 100%;
+
+    .name {
+      color: $color_darkGray;
+
+      &.activeEntry {
+        color: $color_white;
+      }
     }
   }
 }
+
+

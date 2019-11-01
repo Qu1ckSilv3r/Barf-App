@@ -1,6 +1,14 @@
 import * as sideDialogActions from "./sideDialogActions";
 import {reducerWithInitialState} from "typescript-fsa-reducers"
 
+
+import {actionCreatorFactory} from 'typescript-fsa';
+import {LOCATION_CHANGE} from "react-router-redux";
+
+
+const actionCreator = actionCreatorFactory();
+const locationChange = actionCreator(LOCATION_CHANGE);
+
 export interface SideDialogButton {
     label: string,
     onClick: () => void,
@@ -23,7 +31,12 @@ const defaultState: SideDialogState = {
 };
 
 export const SideDialogReducer = reducerWithInitialState(defaultState)
-    .case(sideDialogActions.setSideDialog, (state, payload) => {
+    .case(locationChange, (state, payload) => {
+        return {
+            ...defaultState
+        }
+    })
+     .case(sideDialogActions.setSideDialog, (state, payload) => {
         return {
             ...state,
             opened: true,
