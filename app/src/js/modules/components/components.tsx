@@ -52,7 +52,7 @@ export default class Components extends React.Component<LandingProps, {}> {
 
         return (
             <div className="components">
-                {LanguageHelper.getString('nav_componetns')}
+                {LanguageHelper.getString('nav_components')}
                 <TouchClick onClick={() => pushHistory('/')}>go to landing</TouchClick>
             </div>
         );

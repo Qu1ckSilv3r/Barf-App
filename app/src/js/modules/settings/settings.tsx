@@ -34,8 +34,8 @@ export default class Settings extends React.Component<LandingProps, {}> {
 
 
         return (
-            <div className="components">
-                {LanguageHelper.getString('nav_componetns')}
+            <div className="settings">
+                {LanguageHelper.getString('nav_settings')}
                 <TouchClick onClick={() => pushHistory('/')}>go to landing</TouchClick>
             </div>
         );

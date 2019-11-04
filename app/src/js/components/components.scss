@@ -147,6 +147,7 @@
 
     .name {
       color: $color_darkGray;
+      font-weight: bolder;
 
       &.activePet {
         color: $color_white;
@@ -154,10 +155,12 @@
     }
 
     .lastGenerated {
-      color: $color_darkGray;
+      color: $font_lighter;
+      font-size: $sizeS;
+      margin-top: $small;
 
       &.activePet {
-        color: $color_white;
+        color: $font_light;
       }
     }
   }
