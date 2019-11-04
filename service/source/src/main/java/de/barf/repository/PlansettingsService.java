@@ -27,8 +27,8 @@ public class PlansettingsService implements IPlansettingsService{
 		return settingRepository.save(planSettings);
 	}
 	
-//	@Override
-//	public Plansettings getSetting_id(int animal_amount,int fet_per_day,int plant_amount,int factor,int fullfil_demant,int intervall,boolean own_component,boolean plan_view,int protein_per_day){
-//		return settingRepository.getSetting_id(animal_amount, fet_per_day, plant_amount, factor, fullfil_demant, intervall, own_component, plan_view, protein_per_day);
-//	}
+	@Override
+	public void delete(long setting_id) {
+		settingRepository.deleteById(setting_id);
+	}
 }

@@ -16,9 +16,17 @@ public class AnimalService implements IAnimalService {
 	public List<Animal> findAll() {
 		return (List<Animal>) aRepository.findAll();
 	}
+	
+	@Override
+	public Animal findById(long animal_id){
+		return aRepository.findById(animal_id).get();
+	}
 
 	@Override
 	public Animal saveAnimal(Animal animal) {
+		if(animal.getSetting_id() == null){
+			animal.setSetting_id(1L);
+		}
 		return aRepository.save(animal);
 	}
 

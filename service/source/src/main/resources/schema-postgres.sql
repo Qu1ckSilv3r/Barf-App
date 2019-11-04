@@ -37,7 +37,7 @@ CREATE TABLE public.animal(
    weight NUMERIC (4, 1) NOT NULL,
    target_weight NUMERIC (4, 1) NOT NULL,
    aktivity VARCHAR (50) NOT NULL,
-   user_id BIGINT REFERENCES barfuser ON DELETE CASCADE  NOT NULL ,
+   user_id BIGINT REFERENCES barfuser ON DELETE CASCADE  NOT NULL,
    setting_id BIGINT REFERENCES plansettings ON DELETE CASCADE NOT NULL DEFAULT 1
 );
 CREATE TABLE public.wiki(
@@ -55,20 +55,20 @@ CREATE TABLE public.component(
    wiki_id BIGINT REFERENCES wiki ON DELETE CASCADE DEFAULT NULL
 );
 CREATE TABLE public.nutritions(
+   nutrition_id BIGSERIAL PRIMARY KEY,
    nutrition VARCHAR (10) NOT NULL,
    component_id BIGINT REFERENCES component ON DELETE CASCADE NOT NULL,
-   value NUMERIC (4, 1) NOT NULL,
-   PRIMARY KEY (nutrition, component_id) 
+   value NUMERIC (4, 1) NOT NULL 
 );
 
 CREATE TABLE public.ouchie(
    ouchie_id BIGSERIAL PRIMARY KEY,
-   note BOOLEAN,
-   poo BOOLEAN,
-   rash BOOLEAN,
-   heartburn BOOLEAN,
-   itsch BOOLEAN,
-   puke BOOLEAN,
+   note BOOLEAN DEFAULT FALSE,
+   poo BOOLEAN DEFAULT FALSE,
+   rash BOOLEAN DEFAULT FALSE,
+   heartburn BOOLEAN DEFAULT FALSE,
+   itsch BOOLEAN DEFAULT FALSE,
+   puke BOOLEAN DEFAULT FALSE,
    others VARCHAR (150),
    day_date DATE NOT NULL,
    animal_id BIGINT REFERENCES animal ON DELETE CASCADE NOT NULL
@@ -81,17 +81,17 @@ CREATE TABLE public.schedultday(
    setting_id BIGINT REFERENCES plansettings ON DELETE CASCADE NOT NULL DEFAULT 1
 );
 CREATE TABLE public.feedlist(
+   feed_part_id BIGSERIAL PRIMARY KEY,
    feed_part VARCHAR (50) NOT NULL,
    schedult_id BIGINT REFERENCES schedultday ON DELETE CASCADE NOT NULL,
-   amount NUMERIC (4, 1) NOT NULL,
-   PRIMARY KEY (feed_part, schedult_id) 
+   amount NUMERIC (4, 1) NOT NULL 
 );
 CREATE TABLE public.filtered_by(
+   filtered_by_id BIGSERIAL PRIMARY KEY,
    sort VARCHAR (50),
    name VARCHAR (50),
    categorie VARCHAR (50),
    property VARCHAR (50) NOT NULL,
    component_id BIGINT REFERENCES component ON DELETE CASCADE NOT NULL,
-   animal_id BIGINT REFERENCES animal ON DELETE CASCADE NOT NULL,
-   PRIMARY KEY (component_id, animal_id) 
+   animal_id BIGINT REFERENCES animal ON DELETE CASCADE NOT NULL
 );

@@ -23,7 +23,7 @@ public class Ouchie {
 	private boolean itsch;
 	private boolean puke;
 	private String others;
-	@JsonFormat(pattern="yyyy-mm-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date day_date;
 	private long animal_id;
 	
@@ -125,10 +125,67 @@ public class Ouchie {
 	public void setAnimal_id(long animal_id) {
 		this.animal_id = animal_id;
 	}
+	
 	@Override
 	public String toString() {
 		return "Ouchie [ouchie_id=" + ouchie_id + ", note=" + note + ", poo=" + poo + ", rash=" + rash + ", heartburn="
 				+ heartburn + ", itsch=" + itsch + ", puke=" + puke + ", others=" + others + ", day_date=" + day_date
 				+ ", animal_id=" + animal_id + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (animal_id ^ (animal_id >>> 32));
+		result = prime * result + ((day_date == null) ? 0 : day_date.hashCode());
+		result = prime * result + (heartburn ? 1231 : 1237);
+		result = prime * result + (itsch ? 1231 : 1237);
+		result = prime * result + (note ? 1231 : 1237);
+		result = prime * result + ((others == null) ? 0 : others.hashCode());
+		result = prime * result + (int) (ouchie_id ^ (ouchie_id >>> 32));
+		result = prime * result + (poo ? 1231 : 1237);
+		result = prime * result + (puke ? 1231 : 1237);
+		result = prime * result + (rash ? 1231 : 1237);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ouchie other = (Ouchie) obj;
+		if (animal_id != other.animal_id)
+			return false;
+		if (day_date == null) {
+			if (other.day_date != null)
+				return false;
+		} else if (!day_date.equals(other.day_date))
+			return false;
+		if (heartburn != other.heartburn)
+			return false;
+		if (itsch != other.itsch)
+			return false;
+		if (note != other.note)
+			return false;
+		if (others == null) {
+			if (other.others != null)
+				return false;
+		} else if (!others.equals(other.others))
+			return false;
+//		if (ouchie_id != other.ouchie_id)
+//			return false;
+		if (poo != other.poo)
+			return false;
+		if (puke != other.puke)
+			return false;
+		if (rash != other.rash)
+			return false;
+		return true;
+	}
+	
 }

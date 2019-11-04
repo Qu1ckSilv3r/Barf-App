@@ -2,6 +2,7 @@ package de.barf.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Animal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long animal_id;
-	@JsonFormat(pattern="yyyy-mm-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	private int age;
 	private String spezies;
@@ -25,7 +26,8 @@ public class Animal {
 	private double target_weight;
 	private String aktivity;
 	private long user_id;
-	private long setting_id;
+	@Column(nullable=false) 
+	private Long setting_id;
 	
 	public Animal() {
 		
@@ -116,10 +118,10 @@ public class Animal {
 		this.user_id = user_id;
 	}
 	
-	public long getSetting_id() {
+	public Long getSetting_id() {
 		return setting_id;
 	}
-	public void setSetting_id(long setting_id) {
+	public void setSetting_id(Long setting_id) {
 		this.setting_id = setting_id;
 	}
 	
