@@ -6,6 +6,9 @@ export default {
         label_password: 'Passwort',
         label_passwordRepeat: 'Passwort wiederholen',
 
+        /* placeholder */
+        placeholder_searchEncyclopedia: 'Suche nach Einträgen',
+
         /* feedbacks */
         feedback_login: 'Leider stimmen Benutzername und/oder Passwort nicht. Wenn Sie noch keinen Account haben, können Sie hier einen erstellen.',
         feedback_username: 'Sie benötigen einen Benutzernamen.',

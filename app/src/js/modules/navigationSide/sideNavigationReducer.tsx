@@ -9,19 +9,22 @@ const locationChange = actionCreator(LOCATION_CHANGE);
 
 export interface SideNavigationState {
     opened: boolean,
-    content: any
+    content: any,
+    searchValue: string
 }
 
 
 const defaultState: SideNavigationState = {
     opened: false,
-    content: null
+    content: null,
+    searchValue: ''
 };
 
 export const SideNavigationReducer = reducerWithInitialState(defaultState)
     .case(locationChange, (state, payload) => {
         return {
             ...state,
+            searchValue: ''
         }
     })
     .case(sideNavigationActions.setSideNavigation, (state, payload) => {
@@ -44,6 +47,12 @@ export const SideNavigationReducer = reducerWithInitialState(defaultState)
             ...state,
             content: null,
             opened: false,
+        }
+    })
+    .case(sideNavigationActions.setSearchValue, (state, payload) => {
+        return {
+            ...state,
+            searchValue: payload
         }
     })
 /*

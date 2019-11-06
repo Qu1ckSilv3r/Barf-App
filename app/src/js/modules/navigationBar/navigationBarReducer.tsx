@@ -21,25 +21,25 @@ const defaultState: NavigationState = {
             _id: 0,
             name: 'petsAndPlans',
             path: '/petsAndPlans',
-            icon: '/assets/nav_plans.png'
+            icon: '/assets/icons/nav_plans'
         },
         {
             _id: 1,
             name: 'components',
             path: '/components',
-            icon: '/assets/nav_components.png'
+            icon: '/assets/icons/nav_components'
         },
         {
             _id: 2,
             name: 'encyclopedia',
             path: '/encyclopedia',
-            icon: '/assets/nav_encyclopedia.png'
+            icon: '/assets/icons/nav_encyclopedia'
         },
         {
             _id: 3,
             name: 'settings',
             path: '/settings',
-            icon: '/assets/nav_settings.png'
+            icon: '/assets/icons/nav_settings'
         }
     ],
     activeNavItem: 0

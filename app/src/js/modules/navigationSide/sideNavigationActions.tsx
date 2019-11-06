@@ -6,4 +6,5 @@ const actionCreator = actionCreatorFactory();
 export const setSideNavigation = actionCreator<any>("SET_SIDE_NAVIGATION");
 export const clearSideNavigation = actionCreator("CLEAR_SIDE_NAVIGATION");
 export const closeSideNavigation = actionCreator("CLOSE_SIDE_NAVIGATION");
+export const setSearchValue = actionCreator<string>("SET_SEARCH_VALUE");
 //export const locationChange = actionCreator(LOCATION_CHANGE)

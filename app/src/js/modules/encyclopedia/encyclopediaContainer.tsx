@@ -6,7 +6,6 @@ import {setSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import Encyclopedia from "./encyclopedia";
 import {EncyclopediaEntry} from "./encyclopediaReducer";
-import {setSearchValue} from "./encyclopediaActions";
 
 interface OwnContainerProps {
 }
@@ -15,8 +14,6 @@ interface MapStateToProps {
 
     entries: EncyclopediaEntry[],
     activeEntry: number,
-
-    searchValue: string,
 }
 
 const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
@@ -24,8 +21,6 @@ const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToP
 
         entries: state.encyclopedia.entries,
         activeEntry: state.encyclopedia.activeEntry,
-
-        searchValue: state.encyclopedia.searchValue,
     }
 };
 
@@ -34,9 +29,6 @@ interface MapDispatchToProps {
     pushHistory: typeof pushHistory,
     setSideNavigation: typeof setSideNavigation,
     setSideDialog: typeof setSideDialog,
-
-
-    setSearchValue: typeof setSearchValue
 
     clearSideNavigation: typeof clearSideNavigation,
     closeSideNavigation: typeof closeSideNavigation,
@@ -49,7 +41,6 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         setSideNavigation,
         clearSideNavigation,
         closeSideNavigation,
-        setSearchValue
     }, dispatch)
 };
 

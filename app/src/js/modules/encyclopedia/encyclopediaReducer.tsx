@@ -20,7 +20,6 @@ export interface EncyclopediaEntry {
 export interface EncyclopediaState {
     entries: EncyclopediaEntry[],
     activeEntry: number,
-    searchValue: string
 }
 
 
@@ -46,7 +45,6 @@ const defaultState: EncyclopediaState = {
         }
     ],
     activeEntry: 0,
-    searchValue: 'sdgfS'
 };
 
 export const EncyclopediaReducer = reducerWithInitialState(defaultState)
@@ -61,11 +59,4 @@ export const EncyclopediaReducer = reducerWithInitialState(defaultState)
             activeEntry: payload
         }
     })
- .case(encyclopediaActions.setSearchValue, (state, payload) => {
-        return {
-            ...state,
-            searchValue: payload
-        }
-    })
-
 

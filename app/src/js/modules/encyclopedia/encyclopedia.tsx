@@ -7,15 +7,11 @@ import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {EncyclopediaEntry} from "./encyclopediaReducer";
 import EncyclopediaListItemContainer from "../../components/encyclopediaListItem/encyclopediaListItemContainer";
-import {setSearchValue} from "./encyclopediaActions";
-import SearchBar from "../../components/searchBar";
+import SearchBarContainer from "../../components/searchBar/searchBarContainer";
 
 export interface LandingProps {
     entries: EncyclopediaEntry[],
     activeEntry: number,
-    searchValue: string,
-
-    setSearchValue: typeof setSearchValue
 
     clearSideNavigation: typeof clearSideNavigation,
     setSideDialog: typeof setSideDialog,
@@ -33,8 +29,6 @@ export default class Encyclopedia extends React.Component<LandingProps, {}> {
             //activeEntry,
             //setSideDialog,
             setSideNavigation,
-            setSearchValue,
-            searchValue
         } = this.props;
 
         const entriesToRender = entries && entries.map((entry, index) => {
@@ -45,7 +39,7 @@ export default class Encyclopedia extends React.Component<LandingProps, {}> {
 
         setSideNavigation(
             <div className="wrapper">
-                <SearchBar onChange={(value: string) => setSearchValue(value)} value={searchValue}/>
+                <SearchBarContainer placeholder={LanguageHelper.getString('placeholder_searchEncyclopedia')}/>
                 {entriesToRender}
             </div>
         )

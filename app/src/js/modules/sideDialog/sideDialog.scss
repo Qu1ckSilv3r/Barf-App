@@ -37,7 +37,7 @@
       width: 24px;
       @include flex-shrink(0);
       @include flex-grow(0);
-      background: url('/assets/close.svg') no-repeat center;
+      background: url('/assets/icons/x.png') no-repeat center;
       background-size: contain;
     }
 

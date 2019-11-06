@@ -33,8 +33,8 @@ export default class PetListItem extends React.Component<PetListItemProps, {}> {
                 </div>
             </div>
             <div className="buttonWrapper">
-                <Button onClick={() => edit()} icon={'/assets/test_image.png'}/>
-                <Button bigger onClick={() => console.log('clicky :D')} icon={'/assets/test_image.png'}/>
+                <Button onClick={() => edit()} icon={'/assets/icons/edit.png'}/>
+                {/*<Button bigger onClick={() => console.log('ouchies')} icon={'/assets/icons/ouchies.png'}/>*/}
             </div>
         </TouchClick>
     }

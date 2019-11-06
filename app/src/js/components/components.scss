@@ -111,7 +111,7 @@
   .icon {
     height: 100%;
     width: 100%;
-    background-size: contain;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -194,6 +194,7 @@
     border-radius: 100%;
     margin: 8px;
     background-color: $color_lightGray;
+
     &.activeEntry {
       background-color: #672A26;
     }
@@ -208,6 +209,48 @@
 
       &.activeEntry {
         color: $color_white;
+      }
+    }
+  }
+}
+
+.searchBar {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(flex-start);
+  padding: $small;
+
+  .searchIcon {
+    height: 20px;
+    width: 20px;
+    background: url('/assets/icons/search.png') no-repeat center;
+    background-size: contain;
+    margin: 0 $small;
+  }
+
+  .input {
+    border-bottom: 1px solid $color_darkGray;
+   @include flex-grow(1);
+    margin: 0 $default 0 $small;
+    input {
+      padding: $tinySmall 0;
+      color: $color_darkGray;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: $sizeS;
+      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bfbfbf;
+        opacity: 1; /* Firefox */
+      }
+
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bfbfbf;
+      }
+
+      &::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bfbfbf;
       }
     }
   }
