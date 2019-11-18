@@ -14,12 +14,12 @@ interface RequestBuildObj {
 export class AppApi {
 
     private buildRequest = async (buildObject: RequestBuildObj): Promise<any> => {
-        //replace (Access)TOKEN if existing
+        //replace (Access)'TOKEN' if existing
         const authHeader = buildObject.isAuth ? {
             "Authorization": `Bearer ${'TOKEN'}`
         } : null
         const isJSON = typeof buildObject.body === "object" && !(buildObject.body instanceof FormData)
-        console.log("isJSON", isJSON, typeof buildObject.body, buildObject.body)
+
 
         //replace URL
         let result = await fetch(`${'URL'}/${buildObject.url}`, {
@@ -44,7 +44,7 @@ export class AppApi {
 
     // -------------- BARFUSER
 
-    login = (user: User) => {
+    login = (user: User, password: string) => {
         this.buildRequest({
             url: ''
         })

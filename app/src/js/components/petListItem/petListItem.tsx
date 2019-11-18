@@ -1,28 +1,42 @@
-import {Pet} from "../../modules/petsAndPlans/petsAndPlansReducer";
 import TouchClick from "../touchClick";
 import * as React from "react";
 import {Button} from "../button";
-import {setActivePet} from "../../modules/petsAndPlans/petsAndPlansActions";
+import {editPet, setActivePet} from "../../modules/petsAndPlans/petsAndPlansActions";
+import {Animal} from "../../../../datamodels";
 
 interface PetListItemProps {
-    pet: Pet,
+    pet: Animal,
     setActive: typeof setActivePet
     active: boolean,
-    edit: () => void
+    edit: () => void,
+
+    setPetToEdit: typeof editPet,
 }
 
 export default class PetListItem extends React.Component<PetListItemProps, {}> {
+
+    editPet = () => {
+        const {
+            pet,
+            setActive,
+            edit,
+            setPetToEdit
+        } = this.props;
+
+        setActive(pet.animal_id || -1);
+        edit();
+        setPetToEdit(pet.animal_id || -1)
+    }
 
     render() {
         const {
             pet,
             active,
             setActive,
-            edit
         } = this.props;
 
-        return <TouchClick className={"petListItem" + (active ? ' activePet' : '')} onClick={() => setActive(pet._id)}
-                           key={'pet' + pet._id}>
+        return <TouchClick className={"petListItem" + (active ? ' activePet' : '')} onClick={() => setActive(pet.animal_id || -1)}
+                           key={'pet' + pet.animal_id}>
             <div className="image" style={{backgroundImage: "url('" + pet.image + "')"}}/>
             <div className="textWrapper">
                 <div className={"name" + (active ? ' activePet' : '')}>
@@ -33,7 +47,7 @@ export default class PetListItem extends React.Component<PetListItemProps, {}> {
                 </div>
             </div>
             <div className="buttonWrapper">
-                <Button onClick={() => edit()} icon={'/assets/icons/edit.png'}/>
+                <Button onClick={() => this.editPet()} icon={'/assets/icons/edit.png'}/>
                 {/*<Button bigger onClick={() => console.log('ouchies')} icon={'/assets/icons/ouchies.png'}/>*/}
             </div>
         </TouchClick>

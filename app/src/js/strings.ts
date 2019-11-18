@@ -23,9 +23,11 @@ export default {
         button_login: 'Anmelden',
         button_register: 'Registrieren',
         button_save: 'Speichern',
+        button_addPet: 'Neuen Kumpel erstellen',
 
         /* other */
         input_placeholder: 'eingeben...',
+        newPet: 'Neuer Kumpel',
 
         /* navigation */
         nav_petsAndPlans: 'Tiere und Pläne',

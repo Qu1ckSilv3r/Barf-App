@@ -10,7 +10,6 @@ interface OwnContainerProps {
 
 interface MapStateToProps {
     content: any,
-
     opened: boolean,
 }
 

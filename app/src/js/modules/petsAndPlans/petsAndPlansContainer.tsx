@@ -2,17 +2,17 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
-import {Pet} from "./petsAndPlansReducer";
 import {setActivePet} from "./petsAndPlansActions";
 import {pushHistory} from "../landing/landingActions";
 import {setSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
+import {Animal} from "../../../../datamodels";
 
 interface OwnContainerProps {
 }
 
 interface MapStateToProps {
-    pets: Pet[],
+    pets: Animal[],
     activePet: number
 }
 
