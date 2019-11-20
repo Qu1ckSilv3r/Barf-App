@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './petsAndPlans.scss'
-import {setActivePet} from "./petsAndPlansActions";
+import {savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
 import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../landing/landingActions";
 import PetListItemContainer from "../../components/petListItem/petListItemContainer";
@@ -9,59 +9,90 @@ import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {ListAddButton} from "../../components/listAddButton";
 import {Animal} from "../../../../datamodels";
+import {Input} from "../../components/input";
 
 export interface LandingProps {
     pets: Animal[],
     activePet: number
     setActivePet: typeof setActivePet,
     setSideDialog: typeof setSideDialog,
+    editObj: Animal,
 
     closeSideNavigation: typeof closeSideNavigation,
     clearSideNavigation: typeof clearSideNavigation,
     setSideNavigation: typeof setSideNavigation,
-    pushHistory: typeof pushHistory
+    pushHistory: typeof pushHistory,
+
+    setPetInput: typeof setPetInput,
+    savePet: typeof savePet,
 }
 
 
 export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
+    onEdit = (pet:Animal)=>{
+        const {
+            setSideDialog,
+            setPetInput,
+            savePet,
+            editObj
+        } = this.props;
+        const petsAndPlansEditContent = (pet: Animal) => {
+            return (<div>
+                <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'} valid={true} value={pet.name || ""}/>
+                <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'} valid={true} value={pet.age || ""}/>
+                <Input label={'Gewicht'} onChange={(text: string) => setPetInput({key: 'weight', value: text})} type={'text'} valid={true} value={pet.weight || ""}/>
+                <Input label={'Zielgewicht'} onChange={(text: string) => setPetInput({key: 'target_weight', value: text})} type={'text'} valid={true} value={pet.target_weight || ""}/>
+
+                <p>animal_id {pet.animal_id}</p>
+
+                <p>birthday {pet.birthday}</p>
+                <p>age {pet.age}</p>
+
+                <p>species {pet.species}</p>
+
+                <p>image {pet.image}</p>
+
+                <p>activity {pet.activity}</p>
+            </div>)
+        }
+
+        console.log("editObject",editObj)
+        setSideDialog({
+            content: petsAndPlansEditContent(editObj),
+            buttons: [
+                {
+                    label: LanguageHelper.getString('button_save'),
+                    onClick: () => savePet(),
+                    icon: '/assets/icons/save.png'
+                },
+                {
+                    label: LanguageHelper.getString('button_delete'),
+                    onClick: () => console.log('delete'),
+                    icon: '/assets/icons/delete.png'
+                }
+            ],
+            header: pet.name || LanguageHelper.getString('newPet')
+        })
+    }
     componentDidMount(): void {
         const {
             pets,
             setSideDialog,
-            setSideNavigation,
+            setSideNavigation
         } = this.props;
 
 
-        const petsAndPlansEditContent = (pet: Animal) => {
-            return (<div>
-                <p>animal_id {pet.animal_id}</p>
-                <p>birthday {pet.birthday}</p>
-                <p>age {pet.age}</p>
-                <p>species {pet.species}</p>
-                <p>name {pet.name}</p>
-                <p>image {pet.image}</p>
-                <p>weight {pet.weight}</p>
-                <p>target_weight {pet.target_weight}</p>
-                <p>activity {pet.activity}</p>
-            </div>)
-        }
+
+
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
                 key={'petListItem' + pet.animal_id}
                 pet={pet}
-                edit={() => setSideDialog({
-                    content: petsAndPlansEditContent(pet),
-                    buttons: [
-                        {
-                            label: LanguageHelper.getString('button_save'),
-                            onClick: () => console.log('save'),
-                            icon: '/assets/test_image.png'
-                        }
-                    ],
-                    header: pet.name || LanguageHelper.getString('newPet')
-                })}/>
+                edit={() => {
+                    this.onEdit(pet)
+                }}/>
         })
 
         const list = [<ListAddButton key={'listAdd0_petsAndPlans'} onClick={() =>
@@ -71,7 +102,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     {
                         label: LanguageHelper.getString('button_save'),
                         onClick: () => console.log('save'),
-                        icon: '/assets/test_image.png'
+                        icon: '/assets/icons/save.png'
                     }
                 ],
                 header: LanguageHelper.getString('newPet')

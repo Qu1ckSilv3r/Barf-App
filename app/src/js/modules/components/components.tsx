@@ -6,6 +6,9 @@ import {setSideDialog} from "../sideDialog/sideDialogActions";
 import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {ComponentCategory} from "./componentsReducer";
+import ComponentListItemContainer from "../../components/componentListItem/componentListItemContainer";
+import SearchBarContainer from "../../components/searchBar/searchBarContainer";
+import {ListAddButton} from "../../components/listAddButton";
 
 export interface LandingProps {
     componentCategories: ComponentCategory[],
@@ -30,15 +33,19 @@ export default class Components extends React.Component<LandingProps, {}> {
         } = this.props;
 
         const categoriesToRender = componentCategories && componentCategories.map((category, index) => {
-            return <div className="categoryListItem" key={'encyclopediaEntry' + category._id}>
-                <div className="header">
-                    {category.name}
-                </div>
-            </div>
+            return (
+                <ComponentListItemContainer key={'category' + category._id} category={category}
+                                            edit={() => console.log("edit (?) componentCategory " + category._id)}/>
+            )
+
 
         })
 
-        setSideNavigation(categoriesToRender)
+        setSideNavigation(<div className="wrapper">
+            <SearchBarContainer placeholder={LanguageHelper.getString('placeholder_searchComponents')}/>
+            <ListAddButton label={LanguageHelper.getString('button_addComponent')} icon={'assets/icons/plus.png'} onClick={() => console.log("add component")}/>
+            {categoriesToRender}
+        </div>)
     }
 
 

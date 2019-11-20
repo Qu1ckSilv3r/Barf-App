@@ -4,12 +4,11 @@ import {Button} from "../button";
 import {editPet, setActivePet} from "../../modules/petsAndPlans/petsAndPlansActions";
 import {Animal} from "../../../../datamodels";
 
-interface PetListItemProps {
+export interface PetListItemProps {
     pet: Animal,
     setActive: typeof setActivePet
     active: boolean,
     edit: () => void,
-
     setPetToEdit: typeof editPet,
 }
 
@@ -23,9 +22,9 @@ export default class PetListItem extends React.Component<PetListItemProps, {}> {
             setPetToEdit
         } = this.props;
 
-        setActive(pet.animal_id || -1);
-        edit();
+       setActive(pet.animal_id || -1);
         setPetToEdit(pet.animal_id || -1)
+        edit();
     }
 
     render() {

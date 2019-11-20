@@ -1,46 +1,53 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
-import PetListItem from './petListItem';
-import {editPet, setActivePet} from "../../modules/petsAndPlans/petsAndPlansActions";
+import PetListItem, {PetListItemProps} from './petListItem';
+import {editPet, savePet, setActivePet, setPetInput} from "../../modules/petsAndPlans/petsAndPlansActions";
 import {Animal} from "../../../../datamodels";
+import {mergePropsFunc} from "../../mergeFunction";
 
 interface OwnContainerProps {
     pet: Animal,
     edit: () => void
 }
 
-interface MapStateToProps {
+/*interface MapStateToProps {
     pet: Animal,
     active: boolean,
-}
+    edit: () => void,
+}*/
 
-const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
+const mapStateToProps = (state: State, ownProps: OwnContainerProps)/*: MapStateToProps*/ => {
     return {
         pet: ownProps.pet,
         active: state.petsAndPlans.activePet === ownProps.pet.animal_id,
+        edit: ownProps.edit
     }
 };
 
-
+/*
 interface MapDispatchToProps {
     setActive: typeof setActivePet,
-    setPetToEdit: typeof editPet,
-    edit: () => void
-}
+    setPetToEdit: typeof editPet
+    setPetInput: typeof setPetInput,
+    savePet: typeof savePet,
 
-const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
+}
+*/
+const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps)/*: MapDispatchToProps*/ => {
     return bindActionCreators({
         setActive: setActivePet,
         setPetToEdit: editPet,
-        edit: ownProps.edit
+        setPetInput:setPetInput,
+        savePet:savePet
     }, dispatch)
 };
 
 
-const PetListItemContainer = connect(
+const PetListItemContainer = connect<ReturnType<typeof mapStateToProps>,ReturnType<typeof mapDispatchToProps>,OwnContainerProps,PetListItemProps,State>(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
+    mergePropsFunc
 )(PetListItem);
 
 export default PetListItemContainer

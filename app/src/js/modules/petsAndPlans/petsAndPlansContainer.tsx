@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
-import {setActivePet} from "./petsAndPlansActions";
+import {savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
 import {pushHistory} from "../landing/landingActions";
 import {setSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
@@ -13,13 +13,15 @@ interface OwnContainerProps {
 
 interface MapStateToProps {
     pets: Animal[],
-    activePet: number
+    activePet: number,
+    editObj: Animal,
 }
 
 const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
     return {
         pets: state.petsAndPlans.pets,
-        activePet: state.petsAndPlans.activePet
+        activePet: state.petsAndPlans.activePet,
+        editObj: state.petsAndPlans.editObj
     }
 };
 
@@ -31,6 +33,8 @@ interface MapDispatchToProps {
     clearSideNavigation: typeof clearSideNavigation,
     closeSideNavigation: typeof closeSideNavigation,
     setSideDialog: typeof setSideDialog,
+    setPetInput: typeof setPetInput,
+    savePet: typeof savePet,
 }
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
@@ -40,7 +44,9 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         setSideDialog,
         setSideNavigation,
         clearSideNavigation,
-        closeSideNavigation
+        closeSideNavigation,
+        setPetInput,
+        savePet,
     }, dispatch)
 };
 

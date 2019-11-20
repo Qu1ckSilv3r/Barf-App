@@ -6,8 +6,8 @@
   margin-bottom: $big;
 
   .label {
-    font-size: $sizeM;
-    font-weight: 300;
+    font-size: $sizeSM;
+    font-weight: 600;
   }
 
   .innerWrapper {
@@ -59,7 +59,7 @@
     @include align-items(center);
     @include justify-content(flex-start);
     @include box-shadow(1px 1px 5px -1px rgba(0, 0, 0, 0.75));
-    @include transition(all 0.3s ease-in-out);
+    @include transition(max-width 0.3s ease-in-out 0.5s);
 
 
     .icon {
@@ -76,15 +76,16 @@
       max-width: 0;
       margin: 0 $smallDefault;
       overflow: hidden;
-      @include transition(all 0.3s ease-in-out);
+      @include transition(max-width 0.3s ease-in-out 0.5s);
       color: $color_accent;
       white-space: nowrap;
       font-weight: 600;
+      @include flex-grow(0);
     }
 
     &:hover {
       max-width: 300px;
-      @include flex-grow(0);
+      //background-color: $color_hover;
 
       .label {
         max-width: 300px;
@@ -106,6 +107,10 @@
   &.bigger {
     height: 20px;
     width: 20px;
+  }
+
+  &:hover {
+    background-color: $color_hover;
   }
 
   .icon {
@@ -177,11 +182,12 @@
   }
 }
 
-.encyclopediaListItem {
+.encyclopediaListItem, .componentListItem {
   background-color: $color_white;
   @include transition(all 0.2s ease);
+  margin: 0 0 $tiny 0;
 
-  &:hover{
+  &:hover {
     background-color: $color_hover;
   }
 
@@ -215,6 +221,7 @@
 
     .name {
       color: $color_darkGray;
+      font-weight: 400;
 
       &.activeEntry {
         color: $color_white;
@@ -287,7 +294,7 @@
     @include flex-shrink(0);
     width: 50px;
     height: 40px;
-    margin: $small;
+    margin: $tinySmall $small;
 
     .icon {
       height: 30px;
@@ -305,7 +312,7 @@
   .label {
     margin: $small;
     width: 100%;
-    font-size: $sizeSM;
+    //font-size: $sizeSM;
   }
 }
 

@@ -8,6 +8,7 @@ export default {
 
         /* placeholder */
         placeholder_searchEncyclopedia: 'Suche nach Einträgen',
+        placeholder_searchComponents: 'Suche nach Komponenten',
 
         /* feedbacks */
         feedback_login: 'Leider stimmen Benutzername und/oder Passwort nicht. Wenn Sie noch keinen Account haben, können Sie hier einen erstellen.',
@@ -23,7 +24,9 @@ export default {
         button_login: 'Anmelden',
         button_register: 'Registrieren',
         button_save: 'Speichern',
+        button_delete: 'Löschen',
         button_addPet: 'Neuen Kumpel erstellen',
+        button_addComponent: 'Neue Komponente erstellen',
 
         /* other */
         input_placeholder: 'eingeben...',

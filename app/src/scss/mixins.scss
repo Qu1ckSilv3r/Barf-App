@@ -16,6 +16,13 @@
   transition: $args;
 }
 
+@mixin transition-delay($args...) {
+  -moz-transition-delay: $args;
+  -ms-transition-delay: $args;
+  -o-transition-delay: $args;
+  -webkit-transition-delay: $args;
+}
+
 @mixin transform($args...) {
   -webkit-transform: $args;
   -moz-transform: $args;
@@ -31,7 +38,8 @@
   -ms-filter: $args;
   -o-filter: $args;
 }
-@mixin box-shadow($args...){
+
+@mixin box-shadow($args...) {
   -webkit-box-shadow: $args;
   -moz-box-shadow: $args;
   box-shadow: $args;

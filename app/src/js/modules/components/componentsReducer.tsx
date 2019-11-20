@@ -10,7 +10,8 @@ const locationChange = actionCreator(LOCATION_CHANGE);
 export interface ComponentCategory {
     _id: number,
     name: string,
-    components: any[]
+    components: any[],
+    type: string
 }
 
 export interface ComponentsState {
@@ -24,17 +25,20 @@ const defaultState: ComponentsState = {
         {
             _id: 0,
             name: 'Category 1',
-            components: ['1', '2', '3']
+            components: ['1', '2', '3'],
+            type: 'bones'
         },
         {
             _id: 1,
-          name: 'Category 2',
-            components: ['1', '2', '3']
+            name: 'Category 2',
+            components: ['1', '2', '3'],
+            type: 'muscle'
         },
         {
             _id: 2,
-           name: 'Category 3',
-            components: ['1', '2', '3']
+            name: 'Category 3',
+            components: ['1', '2', '3'],
+            type: 'organs'
         }
     ],
     activeCategory: 0
@@ -46,7 +50,7 @@ export const ComponentsReducer = reducerWithInitialState(defaultState)
             ...defaultState
         }
     })
-     .case(componentsActions.setActiveComponentCategory, (state, payload) => {
+    .case(componentsActions.setActiveComponentCategory, (state, payload) => {
         return {
             ...state,
             activeCategory: payload
