@@ -4,7 +4,7 @@ import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
 import {savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
 import {pushHistory} from "../landing/landingActions";
-import {setSideDialog} from "../sideDialog/sideDialogActions";
+import {openSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {Animal} from "../../../../datamodels";
 
@@ -32,7 +32,7 @@ interface MapDispatchToProps {
     setSideNavigation: typeof setSideNavigation,
     clearSideNavigation: typeof clearSideNavigation,
     closeSideNavigation: typeof closeSideNavigation,
-    setSideDialog: typeof setSideDialog,
+    openSideDialog: typeof openSideDialog,
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
 }
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
     return bindActionCreators({
         setActivePet,
         pushHistory,
-        setSideDialog,
+        openSideDialog,
         setSideNavigation,
         clearSideNavigation,
         closeSideNavigation,

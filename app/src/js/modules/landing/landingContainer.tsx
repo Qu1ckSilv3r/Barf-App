@@ -6,7 +6,7 @@ import {
 import {State} from "../../reducer";
 import Landing from './landing';
 import {LandingTabs, LoginInputs, LoginValidities, RegisterInputs, RegisterValidities} from "./landingReducer";
-import {setSideDialog} from "../sideDialog/sideDialogActions";
+import {openSideDialog} from "../sideDialog/sideDialogActions";
 
 interface OwnContainerProps {
 }
@@ -38,7 +38,7 @@ interface MapDispatchToProps {
     setActiveTab: typeof setActiveTab,
     verifyLogin: typeof verifyLogin,
     verifyRegister: typeof verifyRegister,
-    setSideDialog: typeof setSideDialog,
+    openSideDialog: typeof openSideDialog,
 
     pushHistory: typeof pushHistory
 }
@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         setActiveTab,
         verifyLogin,
         verifyRegister,
-        setSideDialog,
+        openSideDialog,
         pushHistory
     }, dispatch)
 };

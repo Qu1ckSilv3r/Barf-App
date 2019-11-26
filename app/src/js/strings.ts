@@ -27,6 +27,11 @@ export default {
         button_delete: 'Löschen',
         button_addPet: 'Neuen Kumpel erstellen',
         button_addComponent: 'Neue Komponente erstellen',
+        button_planSettings: 'Einstellungen',
+        button_generate: 'Generieren',
+        button_grocery: 'Einkaufsliste',
+        button_print: 'Druckansicht',
+        button_deleteAll: 'Alles löschen',
 
         /* other */
         input_placeholder: 'eingeben...',
@@ -47,6 +52,11 @@ export default {
         section2Header2: 'Lorem ipsum dolor sit amet',
         section2Paragraph3: ' At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
         section2Paragraph4: 'At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+
+        /* planDay */
+        planDay_animalComponents: 'Tierischer Teil',
+        planDay_plantComponents: 'Pflanzlicher Teil',
+        planDay_supplementComponents: 'Supplemente',
     },
     "en": {}
 }

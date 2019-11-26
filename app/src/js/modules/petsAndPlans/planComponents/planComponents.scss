@@ -1,0 +1,64 @@
+@import "../../../../scss/sass-flex-mixin/_flex.scss";
+@import "../../../../scss/constants";
+@import "../../../../scss/mixins";
+
+.planDayWrapper {
+  margin: $default;
+  background-color: $color_white;
+  border-radius: 6px;
+  .weekday {
+    background-color: $color_accent;
+    width: 100%;
+    padding: $small;
+    border-radius: 6px 6px 0 0;
+    color: $color_white;
+    font-weight: 600;
+    font-size: $sizeSM;
+  }
+
+  .planComponent {
+
+    background-color: $color_lightGray;
+    padding: $small;
+    margin-bottom: $small;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+
+    .name {
+      color: $color_darkGray;
+      font-size: $sizeSM;
+    }
+
+    .amount {
+      color: $color_accent;
+      font-weight: 600;
+      font-size: $sizeSM;
+    }
+  }
+
+
+  .tableWrapper {
+    width: 100%;
+    border-radius: 0 0 6px 6px;
+    @include flexbox();
+    @include align-items(flex-start);
+    @include justify-content(space-between);
+    padding: $small $default;
+
+    .colHeader {
+      font-weight: 600;
+      color: $color_accent;
+      margin-bottom: $small;
+    }
+
+    .plant, .animal, .supplement {
+      width: 100%;
+      margin: 0 $small;
+    }
+  }
+
+}
+
+
+

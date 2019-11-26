@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import {pushHistory} from "../landing/landingActions";
-import {setSideDialog} from "../sideDialog/sideDialogActions";
+import {openSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import Settings from "./settings";
 
@@ -25,7 +25,7 @@ const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToP
 interface MapDispatchToProps {
     pushHistory: typeof pushHistory,
     setSideNavigation: typeof setSideNavigation,
-    setSideDialog: typeof setSideDialog,
+    openSideDialog: typeof openSideDialog,
 
     clearSideNavigation: typeof clearSideNavigation,
     closeSideNavigation: typeof closeSideNavigation,
@@ -34,7 +34,7 @@ interface MapDispatchToProps {
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
     return bindActionCreators({
         pushHistory,
-        setSideDialog,
+        openSideDialog,
         setSideNavigation,
         clearSideNavigation,
         closeSideNavigation

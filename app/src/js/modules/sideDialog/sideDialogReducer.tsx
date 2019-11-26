@@ -36,25 +36,15 @@ export const SideDialogReducer = reducerWithInitialState(defaultState)
             ...defaultState
         }
     })
-     .case(sideDialogActions.setSideDialog, (state, payload) => {
+     .case(sideDialogActions.openSideDialog, (state, payload) => {
         return {
             ...state,
             opened: true,
-            content: payload.content,
-            buttons: payload.buttons,
-            header: payload.header
         }
     })
     .case(sideDialogActions.closeSideDialog, (state, payload) => {
         return {
             ...state,
             opened: false,
-        }
-    })
-    .case(sideDialogActions.clearSideDialog, (state, payload) => {
-        return {
-            ...state,
-            buttons: [],
-            content: null
         }
     })

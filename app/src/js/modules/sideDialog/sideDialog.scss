@@ -50,7 +50,7 @@
     }
   }
 
-  .content {
+  .dialogContent {
     @include flexbox();
     @include align-items(flex-start);
     @include justify-content(flex-start);

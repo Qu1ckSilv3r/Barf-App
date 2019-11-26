@@ -10,6 +10,7 @@ html, body, #app, #root {
   font-family: 'Montserrat', sans-serif;
   font-size: $sizeS;
   color: $color_darkGray;
+  background-color: #eaeaea;
 }
 
 .App {
@@ -43,6 +44,10 @@ html, body, #app, #root {
   }
 
   .content {
+    padding: $default $default $default 396px;
+    @media (max-width: 380px) {
+      padding: $default;
+    }
     width: 100%;
     height: 100%;
   }

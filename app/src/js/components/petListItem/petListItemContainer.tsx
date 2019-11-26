@@ -11,11 +11,6 @@ interface OwnContainerProps {
     edit: () => void
 }
 
-/*interface MapStateToProps {
-    pet: Animal,
-    active: boolean,
-    edit: () => void,
-}*/
 
 const mapStateToProps = (state: State, ownProps: OwnContainerProps)/*: MapStateToProps*/ => {
     return {
@@ -25,15 +20,6 @@ const mapStateToProps = (state: State, ownProps: OwnContainerProps)/*: MapStateT
     }
 };
 
-/*
-interface MapDispatchToProps {
-    setActive: typeof setActivePet,
-    setPetToEdit: typeof editPet
-    setPetInput: typeof setPetInput,
-    savePet: typeof savePet,
-
-}
-*/
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps)/*: MapDispatchToProps*/ => {
     return bindActionCreators({
         setActive: setActivePet,

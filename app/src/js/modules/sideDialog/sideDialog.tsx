@@ -2,7 +2,7 @@ import * as React from 'react';
 import './sideDialog.scss'
 import {ExtendingButton} from "../../components/extendingButton";
 import {SideDialogButton} from "./sideDialogReducer";
-import {clearSideDialog, closeSideDialog} from "./sideDialogActions";
+import {closeSideDialog} from "./sideDialogActions";
 import TouchClick from "../../components/touchClick";
 import "animate.css";
 
@@ -10,7 +10,6 @@ export interface SideDialogProps {
     content: any,
     buttons: SideDialogButton[],
     header: string,
-    clearSideDialog: typeof clearSideDialog,
     opened: boolean,
     closeSideDialog: typeof closeSideDialog
 }
@@ -20,8 +19,6 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
     endAnimation = (element: string,) => {
         const node = document.querySelector(element);
         node && node.classList.remove('withWidth')
-
-        this.props.clearSideDialog();
 
     }
 
@@ -52,6 +49,7 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
     render() {
         const {
             content,
+            opened,
             buttons,
             closeSideDialog,
             header
@@ -66,7 +64,7 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
 
         return (
             <div className={"sideDialogWrapper"}>
-                {content ?
+                {content && opened ?
                     <div className="sideDialog">
                         <div className="topBar">
                             <TouchClick className="close" onClick={() => closeSideDialog()}/>
@@ -74,7 +72,7 @@ export default class SideDialog extends React.Component<SideDialogProps, {}> {
                                 {header}
                             </div>
                         </div>
-                        <div className="content">
+                        <div className="dialogContent">
                             <div className="buttonBar">
                                 {buttonsToRender}
                             </div>

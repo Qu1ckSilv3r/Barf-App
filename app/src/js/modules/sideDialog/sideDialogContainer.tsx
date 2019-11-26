@@ -1,14 +1,16 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {
-    clearSideDialog, closeSideDialog
+    closeSideDialog
 } from './sideDialogActions';
 import {State} from "../../reducer";
 import SideDialog from './sideDialog';
 import {SideDialogButton} from "./sideDialogReducer";
 
 interface OwnContainerProps {
-
+    content: any,
+    buttons: SideDialogButton[],
+    header: string,
 }
 
 interface MapStateToProps {
@@ -20,22 +22,20 @@ interface MapStateToProps {
 
 const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
     return {
-        content: state.sideDialog.content,
-        buttons: state.sideDialog.buttons,
-        header: state.sideDialog.header,
+        content: ownProps.content,
+        buttons: ownProps.buttons,
+        header: ownProps.header,
         opened: state.sideDialog.opened
     }
 };
 
 
 interface MapDispatchToProps {
-    clearSideDialog: typeof clearSideDialog,
     closeSideDialog: typeof closeSideDialog
 }
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
     return bindActionCreators({
-        clearSideDialog,
         closeSideDialog
     }, dispatch)
 };

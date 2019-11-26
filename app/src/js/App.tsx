@@ -10,7 +10,7 @@ import {createBrowserHistory} from "history";
 import {PetsAndPlansContainer} from "./modules/petsAndPlans/petsAndPlansContainer";
 import {NavigationBarContainer} from "./modules/navigationBar/navigationBarContainer";
 //import {SideNav} from "./components/sideNav";
-import SideDialogContainer from "./modules/sideDialog/sideDialogContainer";
+//import SideDialogContainer from "./modules/sideDialog/sideDialogContainer";
 import SideNavigationContainer from "./modules/navigationSide/sideNavigationContainer";
 import {EncyclopediaContainer} from "./modules/encyclopedia/encyclopediaContainer";
 import {ComponentsContainer} from "./modules/components/componentsContainer";
@@ -33,7 +33,7 @@ class RouteWrapper extends React.Component<RouteWrapperProps, {}> {
                 <div className="content">
                     {this.props.content}
                 </div>
-                <SideDialogContainer/>
+
             </div>
         )
     }
