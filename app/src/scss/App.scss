@@ -6,17 +6,22 @@
 
 html, body, #app, #root {
   width: 100%;
+  height: 100%;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: $sizeS;
   color: $color_darkGray;
   background-color: #eaeaea;
+  background: url('/assets/background.png') no-repeat center;
+  background-size: cover;
 }
 
 .App {
   margin: 0;
   width: 100%;
+  height: 100%;
   @include flexbox;
+  overflow: hidden;
   @include justify-content(center);
   @include align-items(center);
   min-width: 750px;
@@ -30,12 +35,13 @@ html, body, #app, #root {
 
 .routeWrapper {
   margin: 0;
+  height: 100%;
   width: 100%;
   @include flexbox;
   @include justify-content(center);
-  @include align-items(center);
+  @include align-items(flex-start);
   min-width: 750px;
-  padding-top: 50px;
+  overflow: hidden;
   white-space: pre-wrap;
 
   @media (max-width: 380px) {
@@ -44,11 +50,17 @@ html, body, #app, #root {
   }
 
   .content {
-    padding: $default $default $default 396px;
+    padding: 50px $default 0 396px;
     @media (max-width: 380px) {
       padding: $default;
     }
     width: 100%;
     height: 100%;
+  }
+  .emptyListInfo{
+    width: 100%;
+    font-weight: 600;
+    color: $color_accent;
+    text-align: center;
   }
 }

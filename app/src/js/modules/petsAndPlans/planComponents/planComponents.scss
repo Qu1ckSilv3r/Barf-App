@@ -3,17 +3,28 @@
 @import "../../../../scss/mixins";
 
 .planDayWrapper {
-  margin: $default;
+  width: 95%;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+  @include flex-grow(0);
+  margin: $default auto;
   background-color: $color_white;
   border-radius: 6px;
+
   .weekday {
     background-color: $color_accent;
     width: 100%;
-    padding: $small;
     border-radius: 6px 6px 0 0;
     color: $color_white;
     font-weight: 600;
     font-size: $sizeSM;
+
+    .label {
+      width: 100%;
+      padding: $small;
+    }
   }
 
   .planComponent {
@@ -40,6 +51,7 @@
 
   .tableWrapper {
     width: 100%;
+    @include flex-grow(0);
     border-radius: 0 0 6px 6px;
     @include flexbox();
     @include align-items(flex-start);

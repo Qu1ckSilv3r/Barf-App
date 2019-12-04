@@ -4,6 +4,8 @@
 
 .inputWrapper {
   margin-bottom: $big;
+  max-width: 300px;
+  width: 100%;
 
   .label {
     font-size: $sizeSM;
@@ -23,7 +25,7 @@
       outline: none;
     }
 
-    border-bottom: 1px solid $color_darkGray;
+    border-bottom: 1px solid $color_silver;
   }
 
 
@@ -39,6 +41,88 @@
 
   .checkbox {
 
+  }
+}
+
+.dropDownWrapper {
+  margin-bottom: $big;
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+
+  .label {
+    font-size: $sizeSM;
+    font-weight: 600;
+  }
+
+  .wrapper {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+    border-radius: 3px;
+    border: 1px solid $color_silver;
+    margin-top: $small;
+
+    &.open {
+      border-bottom: none;
+      border-radius: 3px 3px 0 0;
+    }
+
+    padding: $tinySmall;
+    min-width: 200px;
+
+    .value {
+
+      font-size: $sizeSM;
+    }
+
+    .arrow {
+      @include transition(all 0.3s ease-in-out);
+      height: 16px;
+      width: 16px;
+      border-radius: 100%;
+      background-color: $color_accent;
+      background-image: url("/assets/icons/arrow_down_white.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 80%;
+
+      &.down {
+        @include transform(rotate(180deg))
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    height: 0;
+    min-height: 0;
+    background: $color_white;
+
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+    width: calc(100% - 2px);
+
+    &.open {
+      height: auto;
+      min-height: 20px;
+      border: 1px solid $color_silver;
+      border-top: none;
+      overflow: auto;
+    }
+
+    .dropdownElement {
+      padding: $tinySmall;
+      @include transition(all 0.1s ease-in-out);
+      &.bold{
+        font-weight: 600;
+        background-color: $color_hover;
+      }
+
+      &:hover {
+        background-color: $color_hover;
+      }
+    }
   }
 }
 
@@ -245,7 +329,7 @@
   }
 
   .input {
-    border-bottom: 1px solid $color_darkGray;
+    border-bottom: 1px solid $color_silver;
     @include flex-grow(1);
     margin: 0 $default 0 $small;
 

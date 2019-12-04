@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './sideNavigation.scss'
 import {clearSideNavigation, closeSideNavigation} from "./sideNavigationActions";
-import TouchClick from "../../components/touchClick";
+//import TouchClick from "../../components/touchClick";
 
 export interface SideNavigationProps {
     content: any,
@@ -46,7 +46,7 @@ export default class SideNavigation extends React.Component<SideNavigationProps,
     render() {
         const {
             content,
-            closeSideNavigation
+            //closeSideNavigation
         } = this.props;
 
         return (
@@ -56,9 +56,13 @@ export default class SideNavigation extends React.Component<SideNavigationProps,
                         <div className="contentWrapper">
                             {content}
                         </div>
+                        {
+                            /*
                         <TouchClick className="close" onClick={() => closeSideNavigation()}>
                             close
-                        </TouchClick>
+                        </TouchClick>*/
+                        }
+
                         <div className="footer">
                             <div className="logo"/>
                         </div>

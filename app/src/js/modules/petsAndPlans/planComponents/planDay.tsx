@@ -47,7 +47,9 @@ export const PlanDay = (props: PlanDayProps) => {
     return (
         <div className="planDayWrapper">
             <div className="weekday">
-                {props.weekday}
+                <div className="label">
+                    {props.weekday}
+                </div>
             </div>
             <div className="tableWrapper">
                 <div className="plant">

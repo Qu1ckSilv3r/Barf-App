@@ -15,6 +15,7 @@ export interface PetsAndPlansState {
     activePet: number,
     editObj: Animal,
     editedPetIndex: number,
+    settingsOpen: boolean,
 }
 
 const defaultState: PetsAndPlansState = {
@@ -25,7 +26,7 @@ const defaultState: PetsAndPlansState = {
             //ouchies: [],
             image: '/assets/demoImages/cat.jpg',
             species: 'cat',
-            birthday: '15.10.2013',
+            birthday: '2013-10-15',
             age: 6,
             weight: 6,
             target_weight: 6,
@@ -37,7 +38,6 @@ const defaultState: PetsAndPlansState = {
             //ouchies: [],
             image: '/assets/demoImages/cat.jpg',
             species: 'cat',
-            birthday: '',
             age: 2,
             weight: 5,
             target_weight: 5,
@@ -49,16 +49,17 @@ const defaultState: PetsAndPlansState = {
             //ouchies: [],
             image: '/assets/demoImages/dog.jpg',
             species: 'dog',
-            birthday: '16.06.2019',
+            birthday: '2019-06-16',
             age: 0,
             weight: 20,
             target_weight: 35,
             activity: 'normal',
         }
     ],
-    activePet: 0,
+    activePet: -1,
     editObj: {},
-    editedPetIndex: 0
+    editedPetIndex: 0,
+    settingsOpen: false,
 };
 
 export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
@@ -71,6 +72,13 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
         return {
             ...state,
             activePet: payload
+        }
+    })
+    .case(petsAndPlansActions.openSettings, (state, payload) => {
+        return {
+            ...state,
+            settingsOpen: true,
+
         }
     })
     .case(petsAndPlansActions.setPetInput, (state, payload) => {
@@ -89,6 +97,7 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
 
         return {
             ...state,
+            settingsOpen: false,
             editedPetIndex: indexOfPetToEdit,
             editObj: {
                 ...petToEdit
@@ -109,7 +118,8 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
         return {
             ...state,
             editedPetIndex: 0,
-            editObj: {}
+            editObj: {},
+            settingsOpen: false
         }
     })
 

@@ -3,21 +3,30 @@
 @import "../../../scss/mixins";
 
 .petsAndPlans {
+  height: 100%;
   @include flexbox();
   @include align-items(flex-start);
   @include justify-content(flex-start);
 
   .extendingButtonGroupWrapper {
+    margin-top: $default;
     @include flexbox();
     @include align-items(flex-start);
     @include justify-content(flex-start);
     @include flex-direction(column);
   }
 
-  .contentWrapper {
-    padding-left: $default;
+  .mainContentWrapper {
+    padding: $default 0 $default $default;
+    overflow: auto;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 66px);
+
+    .plan{
+      margin: auto;
+      max-width: 900px;
+      width: 100%;
+    }
 
     .weekSelectorWrapper {
       width: 100%;

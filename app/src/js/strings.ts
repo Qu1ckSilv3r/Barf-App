@@ -36,12 +36,27 @@ export default {
         /* other */
         input_placeholder: 'eingeben...',
         newPet: 'Neuer Kumpel',
+        planSettings: 'Plan-Einstellungen für ',
+        defaultValueInfo: 'Sollte ein Feld leergelassen werden, wird zur Generierung der Standard-Wert verwendet.',
 
         /* navigation */
         nav_petsAndPlans: 'Tiere und Pläne',
         nav_components: 'Komponenten',
         nav_encyclopedia: 'Lexikon',
         nav_settings: 'Einstellungen',
+
+        /* emptyListInfo */
+        emptyLisInfo_choosePet: 'Klicke auf eines deiner Tiere, um den Plan dazu aufzurufen',
+        emptyLisInfo_generateList: 'Klicke auf Generieren, um einen neuen Plan zu erstellen.',
+
+        /* dropdownElements */
+        dropdown_dog: 'Hund',
+        dropdown_cat: 'Katze',
+        dropdown_ferret: 'Frettchen',
+        dropdown_low: 'Niedrig',
+        dropdown_normal: 'Normal',
+        dropdown_high: 'Hoch',
+        dropdown_chooseElement: 'Bitte auswählen...',
 
         /* landingSections */
         section2Header1: 'Lorem ipsum dolor',
