@@ -20,21 +20,27 @@ public class SchedultdayController {
 	@Autowired 
 	private ISchedultdayService schedultdayService;
 	
+	//geht
 	@GetMapping("/Schedultdays")
 	public List<Schedultday> findAll(){
 		return schedultdayService.findAll();
 	}
 	
+	//geht
 	@GetMapping("/Schedultday/{schedult_id}")
 	public Schedultday findById(@PathVariable("schedult_id") long schedult_id){
 		return schedultdayService.findById(schedult_id);
 	}
 	
+	//geht
+	//evtl sollte die setting_id an die feedlist?
+	//ouchie wir derstmal nicht genutzt --> raus nehmen
 	@PostMapping("/Schedultday/create")
 	public Schedultday createSchedultday(@RequestBody Schedultday schedultday){
 		return schedultdayService.saveSchedultday(schedultday);
 	}
 	
+	//geht
 	@DeleteMapping("/Schedultday/delete/{schedult_id}")
 	public void delete (@PathVariable("schedult_id") long schedult_id){
 		schedultdayService.delete(schedult_id);

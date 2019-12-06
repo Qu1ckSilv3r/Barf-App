@@ -60,7 +60,6 @@ public class Barfuser {
 		this.email = email;
 	}
 
-	//nicht benötigt
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,7 +71,6 @@ public class Barfuser {
 		return result;
 	}
 
-	//nicht benötigt
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

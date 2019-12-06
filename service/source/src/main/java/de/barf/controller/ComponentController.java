@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.barf.model.Barfuser;
 import de.barf.model.Components;
 import de.barf.repository.IComponentService;
 
@@ -36,58 +38,71 @@ public class ComponentController {
 	//geht
 	@GetMapping("/component/ofUser/{user_id}")
 	public List<Components> findByUser_id(@PathVariable("user_id") long user_id){
-		if (user_id > 1){
-			List<Components> relevantComponents = componentService.findByUser_id(1);
-			relevantComponents.addAll(componentService.findByUser_id(user_id));
-			return relevantComponents;
-		}
-		else{
-			return componentService.findByUser_id(user_id);
-		}
+		return componentService.findByUser_id(user_id);
 	}
 	
 	//geht	
 	@GetMapping("/components/byCategorie/{categorie}/{user_id}")
 	public List<Components> findByCategorieAndUser_id(@PathVariable("categorie") String categorie, @PathVariable("user_id") long user_id){
-		if (user_id > 1){
-			List<Components> relevantComponents = componentService.findByCategorieAndUser_id(categorie, 1);
-			relevantComponents.addAll(componentService.findByCategorieAndUser_id(categorie, user_id));
-			return relevantComponents;
-		}
-		else{
-			return componentService.findByCategorieAndUser_id(categorie, user_id);
-		}
+		return componentService.findByCategorieAndUser_id(categorie, user_id);
 	}
 	
 	//geht
 	@GetMapping("/components/bySort/{animal_sort}/{user_id}")
 	public List<Components> findBySortAndUser_id(@PathVariable("animal_sort") String animal_sort, @PathVariable("user_id") long user_id){
-		if (user_id > 1){
-			List<Components> relevantComponents = componentService.findByAnimalSortAndUser_id(animal_sort, 1);
-			relevantComponents.addAll(componentService.findByAnimalSortAndUser_id(animal_sort, user_id));
-			return relevantComponents;
-		}
-		else{
 			return componentService.findByAnimalSortAndUser_id(animal_sort, user_id);
-		}
 	}
 	
 	//geht
 	@GetMapping("/components/byName/{name}/{user_id}")
 	public List<Components> findByNameAndUser_id(@PathVariable("name") String name, @PathVariable("user_id") long user_id){
-		if (user_id > 1){
-			List<Components> relevantComponents = componentService.findByNameAndUser_id(name, 1);
-			relevantComponents.addAll(componentService.findByNameAndUser_id(name, user_id));
-			return relevantComponents;
-		}
-		else{
-			return componentService.findByNameAndUser_id(name, user_id);
-		}
+		return componentService.findByNameAndUser_id(name, user_id);
 	}
 	
 	//geht --> angegeben muss nicht werden: Wiki_id und Info
+	//erweitern um nicht das selbe anlegen
 	@PostMapping("/component/create")
 	public Components createComponent(@RequestBody Components component){
+		return componentService.saveComponent(component);
+	}
+	
+	//geht
+	@PutMapping("/component/changeCategorie/{component_id}")
+	public Components changeCategorie(@PathVariable("component_id")long component_id, @RequestBody String categorie){
+		Components component = componentService.findById(component_id);
+		if(categorie != null && !categorie.isEmpty()){
+			component.setCategorie(categorie);
+		}
+		return componentService.saveComponent(component);
+	}
+	
+	//geht
+	@PutMapping("/component/changeAnimalSort/{component_id}")
+	public Components changeAnimalSort(@PathVariable("component_id")long component_id, @RequestBody String animal_sort){
+		Components component = componentService.findById(component_id);
+		if(animal_sort != null && !animal_sort.isEmpty()){
+			component.setAnimal_sort(animal_sort);
+		}
+		return componentService.saveComponent(component);
+	}
+	
+	//geht
+	@PutMapping("/component/changeName/{component_id}")
+	public Components changeName(@PathVariable("component_id")long component_id, @RequestBody String name){
+		Components component = componentService.findById(component_id);
+		if(name != null && !name.isEmpty()){
+			component.setName(name);
+		}
+		return componentService.saveComponent(component);
+	}
+	
+	//geht
+	@PutMapping("/component/changeInfo/{component_id}")
+	public Components changeInfo(@PathVariable("component_id")long component_id, @RequestBody String info){
+		Components component = componentService.findById(component_id);
+		if(info != null && !info.isEmpty()){
+			component.setInfo(info);
+		}
 		return componentService.saveComponent(component);
 	}
 	

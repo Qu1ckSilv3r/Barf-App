@@ -89,10 +89,64 @@ public class Filtered_by {
 	public void setAnimal_id(long animal_id) {
 		this.animal_id = animal_id;
 	}
+
 	@Override
 	public String toString() {
-		return "Filtered_by [sort=" + sort + ", name=" + name + ", categorie=" + categorie + ", property=" + property
-				+ ", component_id=" + component_id + ", animal_id=" + animal_id + "]";
+		return "Filtered_by [filtered_by_id=" + filtered_by_id + ", sort=" + sort + ", name=" + name + ", categorie="
+				+ categorie + ", property=" + property + ", component_id=" + component_id + ", animal_id=" + animal_id
+				+ "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (animal_id ^ (animal_id >>> 32));
+		result = prime * result + ((categorie == null) ? 0 : categorie.hashCode());
+		result = prime * result + (int) (component_id ^ (component_id >>> 32));
+		result = prime * result + (int) (filtered_by_id ^ (filtered_by_id >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((property == null) ? 0 : property.hashCode());
+		result = prime * result + ((sort == null) ? 0 : sort.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Filtered_by other = (Filtered_by) obj;
+		if (animal_id != other.animal_id)
+			return false;
+		if (categorie == null) {
+			if (other.categorie != null)
+				return false;
+		} else if (!categorie.equals(other.categorie))
+			return false;
+		if (component_id != other.component_id)
+			return false;
+		if (filtered_by_id != other.filtered_by_id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (property == null) {
+			if (other.property != null)
+				return false;
+		} else if (!property.equals(other.property))
+			return false;
+		if (sort == null) {
+			if (other.sort != null)
+				return false;
+		} else if (!sort.equals(other.sort))
+			return false;
+		return true;
+	}
+	
 }
-//geht so nicht, siehe Nuriritions; PRIMARY KEY (component_id, animal_id)
