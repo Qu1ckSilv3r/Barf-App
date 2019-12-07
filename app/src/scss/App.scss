@@ -50,7 +50,7 @@ html, body, #app, #root {
   }
 
   .content {
-    padding: 50px $default 0 396px;
+    padding: 50px 0 0 396px;
     @media (max-width: 380px) {
       padding: $default;
     }
@@ -64,3 +64,8 @@ html, body, #app, #root {
     text-align: center;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+

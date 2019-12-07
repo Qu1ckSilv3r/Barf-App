@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './petsAndPlans.scss';
 import '../../../scss/input-moment.scss';
-import {openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
+import {editPet, openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
 //import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../landing/landingActions";
 import PetListItemContainer from "../../components/petListItem/petListItemContainer";
@@ -24,9 +24,12 @@ import 'moment/locale/de';
 
 import {registerLocale, setDefaultLocale} from "react-datepicker";
 import de from 'date-fns/locale/de';
+import {SideDialogButton} from "../sideDialog/sideDialogReducer";
+import {appApi} from "../../appApi";
 
 registerLocale('de', de);
 setDefaultLocale('de');
+moment.locale('de');
 
 export interface LandingProps {
     pets: Animal[],
@@ -34,6 +37,7 @@ export interface LandingProps {
     setActivePet: typeof setActivePet,
     editObj: Animal,
 
+    editPet: typeof editPet
     openSideDialog: typeof openSideDialog,
     closeSideNavigation: typeof closeSideNavigation,
     clearSideNavigation: typeof clearSideNavigation,
@@ -53,11 +57,11 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
         const {
             pets,
             openSideDialog,
-            setSideNavigation
+            setSideNavigation,
+            setActivePet,
+            editPet
         } = this.props;
 
-        moment.locale('de');
-        console.log('moment', moment().format('DD MMM YYYY'));
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
@@ -70,8 +74,12 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
         //
 
-        const list = [<ListAddButton key={'listAdd0_petsAndPlans'} onClick={() =>
+        const list = [<ListAddButton key={'listAdd0_petsAndPlans'} onClick={() => {
             openSideDialog()
+            setActivePet(-1);
+            editPet(-1)
+        }
+
         } icon={'assets/icons/plus.png'}
                                      label={LanguageHelper.getString('button_addPet')}/>, ...petsToRender];
 
@@ -94,21 +102,157 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
         let sideDialogContent = <div/>
         let sideDialogHeader = "";
+        let sideDialogButtons: SideDialogButton[] = [];
         const activePetObj = pets.find((pet) => pet.animal_id === activePet);
 
         if (settingsOpen) {
-            sideDialogHeader = LanguageHelper.getString('planSettings') + activePetObj!.name
+            sideDialogHeader = LanguageHelper.getString('planSettings') + activePetObj!.name;
+            sideDialogButtons = [
+                {
+                    label: LanguageHelper.getString('button_save'),
+                    onClick: () => appApi.updateAnimalSetting(editObj.animal_id || -1),
+                    icon: '/assets/icons/save.png'
+                },
+                {
+                    label: LanguageHelper.getString('button_reset'),
+                    onClick: () => console.log('restore default plan settings'),
+                    icon: '/assets/icons/repeat.png'
+                }
+            ]
             sideDialogContent = (<div className={'sideDialogContent'}>
-                <Input label={'Settings somewhat'} onChange={(text: string) => console.log("text", text)} type={'text'}
-                       valid={true} value={""}/>
-                <div className="defaultValueInfo">
-                    {LanguageHelper.getString('defaultValueInfo')}
+                <div className="generalSettings">
+                    <div className="header">
+                        Allgemein
+                    </div>
+                    {/*
+                          <div className="radio">radiobuttons</div>
+                    <div className="checkbox">checkbox</div>
+                    */}
+
+                    
+                    <Dropdown label={'Interval (Wochen)'} value={'chooseElement'} options={['1', '2', '3', '4']} onChange={(value: string) => console.log("onChange", value)}/>
+                </div>
+                <div className="amountSettings">
+                    <div className="header">
+                        Bedarfsrelevant
+                    </div>
+                    <Input label={'Pflanzlicher Anteil'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                           valid={true} value={""}/>
+                    <Input label={'Tierischer Anteil'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                           valid={true} value={""}/>
+                    <div className="spacer" style={{height: 16}}/>
+                    <Input label={'Fett (pro Tag)'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                           valid={true} value={""}/>
+                    <Input label={'Protein (pro Tag)'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                           valid={true} value={""}/>
+                    <Input label={'Mengenfaktor'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                           valid={true} value={""}/>
+                    <Dropdown label={'Bedarfsdeckung über'} value={'chooseElement'} options={['1', '2', '3', '4']} onChange={(value: string) => console.log("onChange", value)}/>
+
+                    <div className="defaultValueInfo">
+                        {LanguageHelper.getString('defaultValueInfo')}
+                    </div>
                 </div>
             </div>)
-        } else if (editObj) {
-            sideDialogHeader = editObj.name || LanguageHelper.getString('newPet')
+        }
+        else if (activePet === -1) {
+            sideDialogHeader = editObj.name || LanguageHelper.getString('newPet');
+            sideDialogButtons = [
+                {
+                    label: LanguageHelper.getString('button_save'),
+                    onClick: () => appApi.createAnimal(editObj),
+                    icon: '/assets/icons/save.png'
+                }
+            ]
             sideDialogContent = (<div className={'sideDialogContent'}>
-                <p>image {editObj.image}</p>
+                <div className="imageWrapper">
+                    <div className="label">
+                        {LanguageHelper.getString('label_image')}
+                    </div>
+                    <div className="innerWrapper">
+                        <div className="image" style={{backgroundImage: 'url("/assets/icons/image.png")', backgroundSize: '80%'}}/>
+                        <div className="buttonWrapper">
+                            <ExtendingButton label={LanguageHelper.getString('button_uploadImage')}
+                                             onClick={() => console.log('upload image')}
+                                             icon={'assets/icons/upload.png'}/>
+                        </div>
+                    </div>
+
+                </div>
+
+                <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'}
+                       valid={true} value={editObj.name || ""}/>
+
+                <Dropdown label={'Tierart'}
+                          value={editObj.species || 'chooseElement'}
+                          options={['cat', 'dog', 'ferret']}
+                          onChange={(returnValue: string) => setPetInput({key: "species", value: returnValue})}/>
+
+                <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'}
+                       valid={true} value={editObj.age || ""}/>
+
+                <div className="inputWrapper">
+                    <div className="label">
+                        Geburtstag
+                    </div>
+                    <div className="wrapper">
+                        <DatePicker
+                            showYearDropdown
+                            dateFormat="dd. MMMM yyyy"
+                            selected={editObj.birthday ? moment(editObj.birthday).toDate() : null}
+                            placeholderText={LanguageHelper.getString('placeholder_date')}
+                            onChange={(date) => setPetInput({key: "birthday", value: date && date.toISOString() || ''})}
+                        />
+                        <div className="icon"/>
+                    </div>
+
+
+                </div>
+
+
+                <Input label={'Gewicht'} onChange={(text: string) => setPetInput({key: 'weight', value: text})}
+                       type={'text'} valid={true} value={editObj.weight || ""}/>
+                <Input label={'Zielgewicht'}
+                       onChange={(text: string) => setPetInput({key: 'target_weight', value: text})}
+                       type={'text'} valid={true} value={editObj.target_weight || ""}/>
+
+                <Dropdown label={'Aktivität'}
+                          value={editObj.activity || 'chooseElement'}
+                          options={['low', 'normal', 'high']}
+                          onChange={(returnValue: string) => setPetInput({key: "activity", value: returnValue})}/>
+
+
+            </div>)
+        }
+        else if (editObj) {
+            sideDialogHeader = editObj.name || LanguageHelper.getString('newPet');
+            sideDialogButtons = [
+                {
+                    label: LanguageHelper.getString('button_save'),
+                    onClick: () => appApi.updateAnimal(editObj),
+                    icon: '/assets/icons/save.png'
+                },
+                {
+                    label: LanguageHelper.getString('button_delete'),
+                    onClick: () => appApi.deleteAnimal(activePet),
+                    icon: '/assets/icons/delete.png'
+                }
+            ]
+            sideDialogContent = (<div className={'sideDialogContent'}>
+                <div className="imageWrapper">
+                    <div className="label">
+                        {LanguageHelper.getString('label_image')}
+                    </div>
+                    <div className="innerWrapper">
+                        <div className="image" style={{backgroundImage: 'url(' + editObj.image + ')'}}/>
+                        <div className="buttonWrapper">
+                            <ExtendingButton label={LanguageHelper.getString('button_uploadImage')}
+                                             onClick={() => console.log('upload image')}
+                                             icon={'assets/icons/upload.png'}/>
+                        </div>
+                    </div>
+
+                </div>
 
                 <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'}
                        valid={true} value={editObj.name || ""}/>
@@ -120,13 +264,24 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
                 <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'}
                        valid={true} value={editObj.age || ""}/>
-                <p>age {editObj.age}</p>
-                <p>birthday {editObj.birthday}</p>
-                <DatePicker
-                    dateFormat="dd. MMMM yyyy"
-                    selected={editObj.birthday ? moment(editObj.birthday).toDate() : new Date()}
-                    onChange={(date) =>setPetInput({key: "birthday", value:  date && date.toISOString() || ''})}
-                />
+
+                <div className="inputWrapper">
+                    <div className="label">
+                        Geburtstag
+                    </div>
+                    <div className="wrapper">
+                        <DatePicker
+                            showYearDropdown
+                            dateFormat="dd. MMMM yyyy"
+                            selected={editObj.birthday ? moment(editObj.birthday).toDate() : null}
+                            placeholderText={LanguageHelper.getString('placeholder_date')}
+                            onChange={(date) => setPetInput({key: "birthday", value: date && date.toISOString() || ''})}
+                        />
+                        <div className="icon"/>
+                    </div>
+
+
+                </div>
 
 
                 <Input label={'Gewicht'} onChange={(text: string) => setPetInput({key: 'weight', value: text})}
@@ -164,10 +319,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                                          label={LanguageHelper.getString('button_deleteAll')}/>
 
                         <ExtendingButton onClick={() => console.log("open grocery list")}
-                                         icon={'assets/icons/heart.png'}
+                                         icon={'assets/icons/basket.png'}
                                          label={LanguageHelper.getString('button_grocery')}/>
 
-                        <ExtendingButton onClick={() => console.log("open print")} icon={'assets/icons/image.png'}
+                        <ExtendingButton onClick={() => console.log("open print")} icon={'assets/icons/print.png'}
                                          label={LanguageHelper.getString('button_print')}/>
                     </div>
                     : null}
@@ -256,13 +411,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 </div>
 
 
-                <SideDialogContainer buttons={[
-                    {
-                        label: LanguageHelper.getString('button_save'),
-                        onClick: () => console.log('save'),
-                        icon: '/assets/icons/save.png'
-                    }
-                ]} content={sideDialogContent} header={sideDialogHeader}/>
+                <SideDialogContainer buttons={sideDialogButtons} content={sideDialogContent} header={sideDialogHeader}/>
             </div>
         );
     }

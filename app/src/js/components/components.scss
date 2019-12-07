@@ -44,6 +44,48 @@
   }
 }
 
+.inputWrapper {
+
+  .wrapper {
+    margin-top: $small;
+    border-radius: 3px;
+    border: 1px solid $color_silver;
+    padding: $tinySmall;
+    min-width: 200px;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+
+    .react-datepicker-wrapper {
+      max-width: 300px;
+      width: 100%;
+
+      .react-datepicker__input-container {
+
+        input {
+          font-size: $sizeSM;
+          font-family: 'Lato', sans-serif;
+          font-weight: 200;
+          padding: 0;
+          outline: none;
+          border: none;
+        }
+      }
+    }
+
+    .icon {
+      @include flex-shrink(0);
+      height: 18px;
+      width: 18px;
+      background-image: url("/assets/icons/calendar.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 90%;
+    }
+  }
+}
+
+
 .dropDownWrapper {
   margin-bottom: $big;
   position: relative;
@@ -64,7 +106,7 @@
     margin-top: $small;
 
     &.open {
-      border-bottom: none;
+      border-bottom: 1px solid $color_white;
       border-radius: 3px 3px 0 0;
     }
 
@@ -77,15 +119,15 @@
     }
 
     .arrow {
-      @include transition(all 0.3s ease-in-out);
+      @include transition(all 0.1s ease-in-out);
       height: 16px;
       width: 16px;
       border-radius: 100%;
       background-color: $color_accent;
-      background-image: url("/assets/icons/arrow_down_white.png");
+      background-image: url("/assets/icons/arrow_down_white_filled.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 80%;
+      background-size: 65%;
 
       &.down {
         @include transform(rotate(180deg))
@@ -107,14 +149,15 @@
       height: auto;
       min-height: 20px;
       border: 1px solid $color_silver;
-      border-top: none;
+      border-top: 1px solid $color_white;
       overflow: auto;
     }
 
     .dropdownElement {
       padding: $tinySmall;
       @include transition(all 0.1s ease-in-out);
-      &.bold{
+
+      &.bold {
         font-weight: 600;
         background-color: $color_hover;
       }

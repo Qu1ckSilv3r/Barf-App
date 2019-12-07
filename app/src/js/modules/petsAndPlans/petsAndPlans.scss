@@ -8,6 +8,59 @@
   @include align-items(flex-start);
   @include justify-content(flex-start);
 
+  .amountSettings {
+    margin-top: $default;
+  }
+
+  .generalSettings, .amountSettings {
+    width: 100%;
+    max-width: 300px;
+
+    .header {
+      font-size: $sizeM;
+      margin-bottom: $default;
+      color: $color_accent;
+      font-weight: 600;
+    }
+  }
+
+  .imageWrapper {
+    margin-bottom: $big;
+    max-width: 300px;
+    width: 100%;
+
+    .label {
+      font-size: $sizeSM;
+      font-weight: 600;
+    }
+
+    .innerWrapper {
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(flex-start);
+      margin-top: $small;
+
+      .buttonWrapper {
+        .label {
+          font-size: $sizeS;
+        }
+
+      }
+
+      .image {
+        height: 100px;
+        width: 100px;
+        margin-right: $default;
+        border-radius: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+
+  }
+
   .extendingButtonGroupWrapper {
     margin-top: $default;
     @include flexbox();
@@ -17,12 +70,12 @@
   }
 
   .mainContentWrapper {
-    padding: $default 0 $default $default;
+    padding: $default;
     overflow: auto;
     width: 100%;
     height: calc(100% - 66px);
 
-    .plan{
+    .plan {
       margin: auto;
       max-width: 900px;
       width: 100%;
