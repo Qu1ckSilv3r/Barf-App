@@ -5,10 +5,14 @@ export default {
         label_email: 'E-Mail-Adresse',
         label_password: 'Passwort',
         label_passwordRepeat: 'Passwort wiederholen',
+        label_image: 'Bild',
 
         /* placeholder */
         placeholder_searchEncyclopedia: 'Suche nach Einträgen',
         placeholder_searchComponents: 'Suche nach Komponenten',
+        placeholder_date: 'Datum auswählen...',
+        placeholder_years: 'Jahre eingeben...',
+        placeholder_months: 'Monate eingeben...',
 
         /* feedbacks */
         feedback_login: 'Leider stimmen Benutzername und/oder Passwort nicht. Wenn Sie noch keinen Account haben, können Sie hier einen erstellen.',
@@ -32,6 +36,8 @@ export default {
         button_grocery: 'Einkaufsliste',
         button_print: 'Druckansicht',
         button_deleteAll: 'Alles löschen',
+        button_uploadImage: 'Bild hochladen',
+        button_reset: 'Zurücksetzen',
 
         /* other */
         input_placeholder: 'eingeben...',
@@ -57,6 +63,10 @@ export default {
         dropdown_normal: 'Normal',
         dropdown_high: 'Hoch',
         dropdown_chooseElement: 'Bitte auswählen...',
+        dropdown_1: '1 Woche',
+        dropdown_2: '2 Wochen',
+        dropdown_3: '3 Wochen',
+        dropdown_4: '4 Wochen',
 
         /* landingSections */
         section2Header1: 'Lorem ipsum dolor',

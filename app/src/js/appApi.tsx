@@ -49,56 +49,72 @@ export class AppApi {
             url: ''
         })
 
+        console.log('login - user', user, 'password', password)
     }
 
     getUserById = (userId: number) => {
+        console.log('getUserById - userId', userId)
     }
 
     createUser = (username: string, password: string, email: string) => {
+        console.log('createUser - username', username, 'password', password, 'email', email)
     }
 
     updateUser = (user: User) => {
 
+        console.log('updateUser - user', user)
     }
 
     deleteUser = (userId: number) => {
+        console.log('deleteUser - userId', userId)
     }
 
 
     // -------------- ANIMALS
 
     getAllAnimals = () => {
+        console.log('getAllAnimals()')
     }
 
     getAnimalsByUser = (userId: number) => {
+        console.log('getAnimalsByUser - userId', userId)
     }
 
     getAnimalById = (animalId: number) => {
+        console.log('getAnimalById - animalId', animalId)
     }
 
     createAnimal = (animal: Animal) => {
+        console.log('createAnimal - animal', animal)
     }
 
     updateAnimal = (animal: Animal) => {
-
+        console.log('updateAnimal - animal', animal)
     }
 
     deleteAnimal = (animalId: number) => {
+        console.log('deleteAnimal - animalId', animalId)
     }
 
     updateAnimalSetting = (animalId: number,) => {
+        console.log('updateAnimalSetting - animalId', animalId)
     }
+
+    //Unterschied zu updatePlanSetting() ?
 
 
     // -------------- COMPONENTS
 
     getAllComponents = () => {
+        console.log('getAllComponents()')
     }
 
     getComponentById = (componentId: number) => {
+        console.log('getComponentById - componentId', componentId)
     }
 
     getComponentsByUser = (userId: number) => {
+        console.log('getComponentsByUser - userId', userId)
     }
 
     // nur die nutzerbezogenen Komponenten pro Kategorie?
@@ -111,90 +127,122 @@ export class AppApi {
     //findByNameAndUser_id = () => {}
 
     createComponent = (component: Component) => {
+        console.log('createComponent - component', component)
     }
 
-    updateComponent = (component: Component) => {}
+    updateComponent = (component: Component) => {
+        console.log('updateComponent - component', component)
+    }
 
     deleteComponent = (componentId: number) => {
+        console.log('deleteComponent - componentId', componentId)
     }
 
 
     // -------------- FEEDLIST
 
     getAllFeedLists = () => {
+        console.log('getAllFeedLists()')
     }
 
     getFeedListById = (feedListId: number) => {
+        console.log('getFeedListById - feedListId', feedListId)
     }
 
     getFeedListBySchedule = (schedule: number) => {
+        console.log('getFeedListBySchedule - schedule', schedule)
     }
 
     createFeedList = (feedList: FeedList) => {
+        console.log('createFeedList - feedList', feedList)
     }
 
-    updateFeedList = (feedList: FeedList) => {}
+    updateFeedList = (feedList: FeedList) => {
+        console.log('updateFeedList - feedList', feedList)
+    }
 
     deleteFeedList = (feedListId: number) => {
+        console.log('deleteFeedList - feedListId', feedListId)
     }
 
 
     // -------------- NUTRITIONS
 
     getAllNutritions = () => {
+        console.log('getAllNutritions()')
     }
 
     getNutritionById = (nutritionId: number) => {
+        console.log('getNutritionById - nutritionId', nutritionId)
     }
 
     getNutritionsByComponent = (componentId: number) => {
+        console.log('getNutritionsByComponent - componentId', componentId)
     }
 
     createNutrition = (nutrition: Nutrition) => {
+        console.log('createNutrition - nutrition', nutrition)
     }
 
-    updateNutrition = (nutrition: Nutrition) => {}
+    updateNutrition = (nutrition: Nutrition) => {
+        console.log('updateNutrition - nutrition', nutrition)
+    }
 
     deleteNutrition = (nutritionId: number) => {
+        console.log('deleteNutrition - nutritionId', nutritionId)
     }
 
 
     // -------------- PLANSETTINGS
 
     getAllPlanSettings = () => {
+        console.log('getAllPlanSettings()')
     }
 
     getPlanSettingById = (planSettingId: number) => {
+        console.log('getPlanSettingById - planSettingId', planSettingId)
     }
 
     //getPlanSettingByAnimal ?
 
     createPlanSetting = (planSetting: PlanSetting) => {
+        console.log('createPlanSetting - planSetting', planSetting)
     }
 
-    updatePlanSetting = (planSetting: PlanSetting) => {}
+    updatePlanSetting = (planSetting: PlanSetting) => {
+        console.log('updatePlanSetting - planSetting', planSetting)
+    }
 
     deletePlanSetting = (planSettingId: number) => {
+        console.log('deletePlanSetting - planSettingId', planSettingId)
     }
 
 
     // -------------- SCHEDULEDAY
 
     getAllScheduleDays = () => {
+        console.log('getAllScheduleDays()')
     }
 
     getScheduleDayById = (scheduleDayId: number) => {
+        console.log('getScheduleDayById - scheduleDayId', scheduleDayId)
     }
 
     createScheduleDay = (scheduleDay: ScheduleDay) => {
+        console.log('createScheduleDay - scheduleDay', scheduleDay)
     }
 
-    updateScheduleDay = (scheduleDay: ScheduleDay) => {}
+    updateScheduleDay = (scheduleDay: ScheduleDay) => {
+        console.log('updateScheduleDay - scheduleDay', scheduleDay)
+    }
 
     deleteScheduleDay = (scheduleDayId: number) => {
+        console.log('deleteScheduleDay - scheduleDayId', scheduleDayId)
     }
 
     // -------------- WIKI
 
 
 }
+
+export const appApi = new AppApi();

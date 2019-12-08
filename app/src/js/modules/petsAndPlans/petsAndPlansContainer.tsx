@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
-import {openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
+import {editPet, openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
 import {pushHistory} from "../landing/landingActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
@@ -38,6 +38,7 @@ interface MapDispatchToProps {
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
     openSettings: typeof openSettings,
+    editPet: typeof editPet
 }
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
@@ -51,6 +52,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         setPetInput,
         savePet,
         openSettings,
+        editPet
     }, dispatch)
 };
 
