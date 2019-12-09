@@ -1,6 +1,5 @@
 import 'whatwg-fetch'
 import {Animal, Component, FeedList, Nutrition, PlanSetting, ScheduleDay, User} from "../../datamodels";
-
 interface RequestBuildObj {
     url: string,
     body?: any,
@@ -15,7 +14,7 @@ const backendURL = 'http://192.168.99.100:8081';
 
 export class AppApi {
 
-    private buildRequest = async (buildObject: RequestBuildObj): Promise<any> => {
+    private buildRequest = async (buildObject: RequestBuildObj) => {
         /*
         replace (Access)'TOKEN' if existing
         const authHeader = buildObject.isAuth ? {
@@ -42,6 +41,7 @@ export class AppApi {
         if (json.errorCode) {
             throw (new Error(json.errorCode))
         }
+
         return json
     };
 
@@ -50,7 +50,7 @@ export class AppApi {
 
     login = (username: string, password: string) => {
         console.log('login - user', username, 'password', password)
-        const result = this.buildRequest({
+        return this.buildRequest({
             url: 'barfuser/login',
             method: 'POST',
             body: {
@@ -59,12 +59,11 @@ export class AppApi {
             }
 
         })
-        console.log('builRequest return', result)
     }
 
     getUserById = (userId: number) => {
         console.log('getUserById - userId', userId)
-        const result = this.buildRequest({
+        return this.buildRequest({
             url: '/barfuser/findById/{userId}',
             method: 'GET'
         })
@@ -72,7 +71,7 @@ export class AppApi {
 
     createUser = (username: string, password: string, email: string) => {
         console.log('createUser - username', username, 'password', password, 'email', email)
-        const result = this.buildRequest({
+        return this.buildRequest({
             url: 'barfuser/create',
             method: 'POST',
             body: {
@@ -91,7 +90,7 @@ export class AppApi {
 
     deleteUser = (userId: number) => {
         console.log('deleteUser - userId', userId)
-        const result = this.buildRequest({
+        return this.buildRequest({
             url: 'barfuser/delete/{userId}',
             method: 'DELETE',
         })

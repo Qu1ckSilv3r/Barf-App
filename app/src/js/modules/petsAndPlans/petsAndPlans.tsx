@@ -62,8 +62,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             editPet
         } = this.props;
 
-        const result = appApi.login('admin', 'admin');
-        console.log('login', result)
+        appApi.login('admin', 'admin')
+            .then(re => console.log("login result", re))
+            .catch(er => console.error("er", er))
+       
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
