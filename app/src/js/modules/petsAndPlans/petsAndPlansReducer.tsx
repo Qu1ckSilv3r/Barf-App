@@ -20,6 +20,7 @@ export interface PetsAndPlansState {
 
 const defaultState: PetsAndPlansState = {
     pets: [
+        /*
         {
             animal_id: 1,
             name: 'Harvey',
@@ -55,6 +56,8 @@ const defaultState: PetsAndPlansState = {
             target_weight: 35,
             activity: 'normal',
         }
+
+         */
     ],
     activePet: -1,
     editObj: {},
@@ -69,9 +72,10 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
         }
     })
     .case(petsAndPlansActions.setAnimalsInState, (state, payload) => {
+        console.log('payload', payload)
         return {
             ...state,
-            pets: payload
+            pets: [...payload]
         }
     })
     .case(petsAndPlansActions.setActivePet, (state, payload) => {

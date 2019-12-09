@@ -56,16 +56,33 @@ export interface LandingProps {
 
 export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
-    componentDidMount(): void {
+
+    componentDidMount() {
+        const {
+            userId,
+            setAnimalsInState
+        } = this.props;
+
+        appApi.getAnimalsByUser(userId)
+            .then((re) => {
+                console.log('animal re', re);
+                setAnimalsInState(re)
+            })
+            .catch((er) => console.error(er))
+
+
+    }
+
+    componentDidUpdate(prevProps: Readonly<LandingProps>, prevState: Readonly<{}>, snapshot?: any): void {
         const {
             pets,
             openSideDialog,
             setSideNavigation,
             setActivePet,
             editPet,
-            userId,
-            setAnimalsInState
         } = this.props;
+
+        console.log('pets', pets)
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
@@ -89,10 +106,6 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
 
         setSideNavigation(list);
-
-        appApi.getAnimalsByUser(userId)
-            .then((re) => setAnimalsInState(re))
-            .catch((er) => console.error(er))
     }
 
     render() {
