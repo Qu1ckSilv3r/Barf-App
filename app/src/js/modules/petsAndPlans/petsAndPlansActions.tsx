@@ -5,6 +5,8 @@ const actionCreator = actionCreatorFactory();
 
 export const setActivePet = actionCreator<number>("SET_ACTIVE_PET");
 
+export const setAnimalsInState = actionCreator<Animal[]>('SET_ANIMALS_IN_STATE')
+
 export const openSettings = actionCreator("OPEN_SETTINGS");
 
 export const setPetInput = actionCreator<{key: keyof Animal, value: string | number }>("SET_PET_INPUT")

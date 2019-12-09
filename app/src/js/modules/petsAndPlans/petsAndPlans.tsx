@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './petsAndPlans.scss';
 import '../../../scss/input-moment.scss';
-import {editPet, openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
+import {editPet, openSettings, savePet, setActivePet, setAnimalsInState, setPetInput} from "./petsAndPlansActions";
 //import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../login/loginActions";
 import PetListItemContainer from "../../components/petListItem/petListItemContainer";
@@ -32,6 +32,7 @@ setDefaultLocale('de');
 moment.locale('de');
 
 export interface LandingProps {
+    userId: number,
     pets: Animal[],
     activePet: number
     setActivePet: typeof setActivePet,
@@ -48,7 +49,9 @@ export interface LandingProps {
     savePet: typeof savePet,
 
     openSettings: typeof openSettings,
-    settingsOpen: boolean
+    settingsOpen: boolean,
+
+    setAnimalsInState: typeof setAnimalsInState
 }
 
 export default class PetsAndPlans extends React.Component<LandingProps, {}> {
@@ -59,7 +62,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             openSideDialog,
             setSideNavigation,
             setActivePet,
-            editPet
+            editPet,
+            userId,
+            setAnimalsInState
         } = this.props;
 
         const petsToRender = pets && pets.map((pet, index) => {
@@ -83,7 +88,11 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                                      label={LanguageHelper.getString('button_addPet')}/>, ...petsToRender];
 
 
-        setSideNavigation(list)
+        setSideNavigation(list);
+
+        appApi.getAnimalsByUser(userId)
+            .then((re) => setAnimalsInState(re))
+            .catch((er) => console.error(er))
     }
 
     render() {
@@ -138,7 +147,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     </div>
                     <Input label={'Pflanzlicher Anteil'} onChange={(text: string) => console.log("text", text)}
                            type={'text'}
-                          value={""}/>
+                           value={""}/>
                     <Input label={'Tierischer Anteil'} onChange={(text: string) => console.log("text", text)}
                            type={'text'}
                            value={""}/>
@@ -185,7 +194,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 </div>
 
                 <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'}
-                      value={editObj.name || ""}/>
+                       value={editObj.name || ""}/>
 
                 <Dropdown label={'Tierart'}
                           value={editObj.species || 'chooseElement'}
@@ -258,7 +267,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 </div>
 
                 <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'}
-                      value={editObj.name || ""}/>
+                       value={editObj.name || ""}/>
 
                 <Dropdown label={'Tierart'}
                           value={editObj.species || LanguageHelper.getString('dropdown_chooseElement')}

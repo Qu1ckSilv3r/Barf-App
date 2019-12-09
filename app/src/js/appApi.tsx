@@ -30,7 +30,6 @@ export class AppApi {
          */
         const isJSON = typeof buildObject.body === "object" && !(buildObject.body instanceof FormData)
 
-        //replace URL
         let result = await fetch(`${backendURL}/${buildObject.url}`, {
             method: buildObject.method || 'GET',
             headers: {
@@ -107,6 +106,10 @@ export class AppApi {
 
     getAnimalsByUser = (userId: number) => {
         console.log('getAnimalsByUser - userId', userId)
+        return this.buildRequest({
+            url: '/animal/animalOf/' + userId,
+            method: 'GET'
+        })
     }
 
     getAnimalById = (animalId: number) => {
@@ -115,6 +118,17 @@ export class AppApi {
 
     createAnimal = (animal: Animal) => {
         console.log('createAnimal - animal', animal)
+
+        //TODO bitte checken, funktioniert nicht :(
+
+        return this.buildRequest({
+            url: 'animal/create',
+            method: 'POST',
+            body: {
+                ...animal
+            }
+
+        })
     }
 
     updateAnimal = (animal: Animal) => {

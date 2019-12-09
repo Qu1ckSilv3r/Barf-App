@@ -50,14 +50,23 @@ html, body, #app, #root {
   }
 
   .content {
-    padding: 50px 0 0 396px;
+    .petsAndPlans, .components, .encyclopedia {
+      padding: 50px 0 0 396px;
+    }
+
+    .settings {
+      padding: 50px 0 0 $default;
+    }
+
     @media (max-width: 380px) {
       padding: $default;
     }
     width: 100%;
     height: 100%;
+
   }
-  .emptyListInfo{
+
+  .emptyListInfo {
     width: 100%;
     font-weight: 600;
     color: $color_accent;

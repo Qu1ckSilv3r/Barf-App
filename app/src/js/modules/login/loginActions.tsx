@@ -31,7 +31,10 @@ export const login = (username: string, password: string, stayLoggedIn: boolean)
             }
 
             dispatch(loginSuccess(result.user_id))
-            dispatch(pushHistory('/petsAndPlans'));
+
+            //@ts-ignore
+            const from = getState().router.location.state && getState().router.location.state.from && getState().router.location.state.from.pathname || '/petsAndPlans'
+            dispatch(pushHistory(from));
 
         } catch (er) {
             console.error("er", er)

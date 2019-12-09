@@ -68,6 +68,12 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
             ...defaultState
         }
     })
+    .case(petsAndPlansActions.setAnimalsInState, (state, payload) => {
+        return {
+            ...state,
+            pets: payload
+        }
+    })
     .case(petsAndPlansActions.setActivePet, (state, payload) => {
         return {
             ...state,

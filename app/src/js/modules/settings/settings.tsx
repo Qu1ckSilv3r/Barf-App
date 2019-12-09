@@ -3,7 +3,6 @@ import './settings.scss'
 import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
-import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {logout} from "../login/loginActions";
 
@@ -36,7 +35,7 @@ export default class Settings extends React.Component<LandingProps, {}> {
 
         return (
             <div className="settings">
-                {LanguageHelper.getString('nav_settings')}
+
                 <TouchClick onClick={() => logout()}><b>logout</b></TouchClick>
             </div>
         );
