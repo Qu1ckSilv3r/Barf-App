@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './components.scss'
 import TouchClick from "../../components/touchClick";
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
 import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";

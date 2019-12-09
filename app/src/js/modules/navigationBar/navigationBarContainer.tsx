@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import NavigationBar from './navigationBar';
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import {NavItem} from "./navigationBarReducer";
 import {setActiveNavItem} from "./navigationBarActions";
 

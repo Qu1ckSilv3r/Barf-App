@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
 import {editPet, openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {Animal} from "../../../../datamodels";

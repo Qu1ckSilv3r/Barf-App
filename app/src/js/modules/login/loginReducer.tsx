@@ -1,4 +1,4 @@
-import * as landingActions from "./landingActions";
+import * as loginActions from "./loginActions";
 import {reducerWithInitialState} from "typescript-fsa-reducers"
 import {actionCreatorFactory} from 'typescript-fsa';
 import {LOCATION_CHANGE} from "react-router-redux";
@@ -37,23 +37,38 @@ export interface RegisterValidities {
     policyAgreed: boolean,
 }
 
-export interface LandingState {
-    login: LoginInputs,
+export interface LoginState {
+    userId: number,
+    username: string,
+    password: string,
+    passwordVisibility: boolean,
+    stayLoggedIn: boolean,
+    loginError?: string;
+
     loginValidities: LoginValidities,
     register: RegisterInputs,
     registerValidities: RegisterValidities,
+
+    registerError?: string,
+    regsiterInProgress: boolean,
+    registerSuccess?: boolean,
+
     activeTab: LandingTabs,
-    loggedIn: boolean
+
+    isAutoLogin: boolean,
+    loggedIn: boolean,
+
+    loginInProgress: boolean,
 }
 
 
-const defaultState: LandingState = {
-    login: {
-        username: '',
-        password: '',
-        passwordVisibility: false,
-        stayLoggedIn: false
-    },
+const defaultState: LoginState = {
+    userId: -1,
+    username: "",
+    password: "",
+    passwordVisibility: false,
+    stayLoggedIn: false,
+
     loginValidities: {
         usernameAndPassword: true
     },
@@ -74,28 +89,55 @@ const defaultState: LandingState = {
         policyAgreed: true,
     },
     activeTab: 'login',
+    isAutoLogin: false,
     loggedIn: false,
+
+    regsiterInProgress: false,
+    loginInProgress: false
 };
 
-export const LandingReducer = reducerWithInitialState(defaultState)
+export const LoginReducer = reducerWithInitialState(defaultState)
     .case(locationChange, (state, payload) => {
         return {
-            ...defaultState
+            /*
+            ...defaultState,
+             */
+            ...state,
+            registerSuccess: defaultState.registerSuccess
         }
     })
-     .case(landingActions.setLoginInput, (state, payload) => {
+    .case(loginActions.setLoginInput, (state, payload) => {
         return {
             ...state,
-            login: {
-                ...state.login,
-                [payload.key]: payload.value
-            },
+            [payload.key]: payload.value,
             loginValidities: {
                 ...defaultState.loginValidities
             }
         }
     })
-    .case(landingActions.setLoginValidity, (state, payload) => {
+    .case(loginActions.startLogin, (state, payload) => {
+        return {
+            ...state,
+            loginInProgress: true
+        }
+    })
+    .case(loginActions.loginSuccess, (state, payload) => {
+        const {loginError, ...nonErrorState} = state
+        return {
+            ...nonErrorState,
+            loggedIn: true,
+            loginInProgress: false,
+            userId: payload,
+        }
+    })
+    .case(loginActions.loginFailed, (state, payload) => {
+        return {
+            ...state,
+            loginError: payload,
+            loginInProgress: false
+        }
+    })
+    .case(loginActions.setLoginValidity, (state, payload) => {
         return {
             ...state,
             loginValidities: {
@@ -104,7 +146,7 @@ export const LandingReducer = reducerWithInitialState(defaultState)
             }
         }
     })
-    .case(landingActions.resetLoginValidities, (state, payload) => {
+    .case(loginActions.resetLoginValidities, (state, payload) => {
         return {
             ...state,
             loginValidities: {
@@ -112,57 +154,41 @@ export const LandingReducer = reducerWithInitialState(defaultState)
             }
         }
     })
-    .case(landingActions.setRegisterInput, (state, payload) => {
+    .case(loginActions.setRegisterInput, (state, payload) => {
         return {
             ...state,
             register: {
                 ...state.register,
                 [payload.key]: payload.value
-            },
-            registerValidities: {
-                ...defaultState.registerValidities
-            }
-        }
-    }).case(landingActions.setRegisterValidity, (state, payload) => {
-        return {
-            ...state,
-            registerValidities: {
-                ...state.registerValidities,
-                [payload.key]: payload.value
             }
         }
     })
-    .case(landingActions.resetRegisterValidities, (state, payload) => {
+    .case(loginActions.registerSuccess, (state, payload) => {
+        const {registerError, ...nonErrorState} = state
+        return {
+            ...nonErrorState,
+            registerInProgress: false,
+            registerSuccess: true
+        }
+    }).case(loginActions.registerFailed, (state, payload) => {
         return {
             ...state,
-            registerValidities: {
-                ...defaultState.registerValidities
-            }
+            registerInProgress: false,
+            registerError: payload,
+            registerSuccess: false,
         }
     })
-    .case(landingActions.setActiveTab, (state, payload) => {
+    .case(loginActions.setActiveTab, (state, payload) => {
         return {
             ...state,
             activeTab: payload
         }
     })
-    .case(landingActions.login, (state, payload) => {
+    .case(loginActions.loggedOut, (state, payload) => {
         return {
             ...state,
-            loggedIn: true,
-            loginValidities: {
-                ...defaultState.loginValidities
-            }
-            ,
-            registerValidities: {
-                ...defaultState.registerValidities
-            }
-        }
-    })
-    .case(landingActions.logout, (state, payload) => {
-        return {
-            ...state,
-            loggedIn: false
+            loggedIn: false,
+            userId: -1
         }
     })
 

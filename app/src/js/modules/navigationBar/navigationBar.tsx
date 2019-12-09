@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './navigationBar.scss'
 import TouchClick from "../../components/touchClick";
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import LanguageHelper from "../../languageHelper";
 import {NavItem} from "./navigationBarReducer";
 import {setActiveNavItem} from "./navigationBarActions";

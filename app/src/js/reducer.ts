@@ -1,4 +1,4 @@
-import {LandingReducer, LandingState} from "./modules/landing/landingReducer";
+
 import {SideDialogReducer, SideDialogState} from "./modules/sideDialog/sideDialogReducer";
 import {PetsAndPlansReducer, PetsAndPlansState} from "./modules/petsAndPlans/petsAndPlansReducer";
 import {NavigationBarReducer, NavigationState} from "./modules/navigationBar/navigationBarReducer";
@@ -6,9 +6,10 @@ import {SideNavigationReducer, SideNavigationState} from "./modules/navigationSi
 import {EncyclopediaReducer, EncyclopediaState} from "./modules/encyclopedia/encyclopediaReducer";
 import {ComponentsReducer, ComponentsState} from "./modules/components/componentsReducer";
 import {SettingsReducer, SettingsState} from "./modules/settings/settingsReducer";
+import {LoginReducer, LoginState} from "./modules/login/loginReducer";
 
 export interface State {
-    landing: LandingState,
+    login: LoginState,
     sideDialog: SideDialogState,
     petsAndPlans: PetsAndPlansState,
     navigationBar: NavigationState,
@@ -20,7 +21,7 @@ export interface State {
 }
 
 export default {
-    landing: LandingReducer,
+    login: LoginReducer,
     sideDialog: SideDialogReducer,
     petsAndPlans: PetsAndPlansReducer,
     navigationBar: NavigationBarReducer,

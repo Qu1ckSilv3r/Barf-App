@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import Components from "./components";

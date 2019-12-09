@@ -3,7 +3,7 @@ import './petsAndPlans.scss';
 import '../../../scss/input-moment.scss';
 import {editPet, openSettings, savePet, setActivePet, setPetInput} from "./petsAndPlansActions";
 //import TouchClick from "../../components/touchClick";
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import PetListItemContainer from "../../components/petListItem/petListItemContainer";
 import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
@@ -61,11 +61,6 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             setActivePet,
             editPet
         } = this.props;
-
-        appApi.login('admin', 'admin')
-            .then(re => console.log("login result", re))
-            .catch(er => console.error("er", er))
-       
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
@@ -143,18 +138,18 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     </div>
                     <Input label={'Pflanzlicher Anteil'} onChange={(text: string) => console.log("text", text)}
                            type={'text'}
-                           valid={true} value={""}/>
+                          value={""}/>
                     <Input label={'Tierischer Anteil'} onChange={(text: string) => console.log("text", text)}
                            type={'text'}
-                           valid={true} value={""}/>
+                           value={""}/>
                     <div className="spacer" style={{height: 16}}/>
                     <Input label={'Fett (pro Tag)'} onChange={(text: string) => console.log("text", text)} type={'text'}
-                           valid={true} value={""}/>
+                           value={""}/>
                     <Input label={'Protein (pro Tag)'} onChange={(text: string) => console.log("text", text)}
                            type={'text'}
-                           valid={true} value={""}/>
+                           value={""}/>
                     <Input label={'Mengenfaktor'} onChange={(text: string) => console.log("text", text)} type={'text'}
-                           valid={true} value={""}/>
+                           value={""}/>
                     <Dropdown label={'Bedarfsdeckung über'} value={'chooseElement'} options={['1', '2', '3', '4']}
                               onChange={(value: string) => console.log("onChange", value)}/>
 
@@ -190,7 +185,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 </div>
 
                 <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'}
-                       valid={true} value={editObj.name || ""}/>
+                      value={editObj.name || ""}/>
 
                 <Dropdown label={'Tierart'}
                           value={editObj.species || 'chooseElement'}
@@ -198,7 +193,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                           onChange={(returnValue: string) => setPetInput({key: "species", value: returnValue})}/>
 
                 <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'}
-                       valid={true} value={editObj.age || ""}/>
+                       value={editObj.age || ""}/>
 
                 <div className="inputWrapper">
                     <div className="label">
@@ -220,10 +215,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
 
                 <Input label={'Gewicht'} onChange={(text: string) => setPetInput({key: 'weight', value: text})}
-                       type={'text'} valid={true} value={editObj.weight || ""}/>
+                       type={'text'} value={editObj.weight || ""}/>
                 <Input label={'Zielgewicht'}
                        onChange={(text: string) => setPetInput({key: 'target_weight', value: text})}
-                       type={'text'} valid={true} value={editObj.target_weight || ""}/>
+                       type={'text'} value={editObj.target_weight || ""}/>
 
                 <Dropdown label={'Aktivität'}
                           value={editObj.activity || 'chooseElement'}
@@ -263,7 +258,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 </div>
 
                 <Input label={'Name'} onChange={(text: string) => setPetInput({key: 'name', value: text})} type={'text'}
-                       valid={true} value={editObj.name || ""}/>
+                      value={editObj.name || ""}/>
 
                 <Dropdown label={'Tierart'}
                           value={editObj.species || LanguageHelper.getString('dropdown_chooseElement')}
@@ -271,7 +266,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                           onChange={(returnValue: string) => setPetInput({key: "species", value: returnValue})}/>
 
                 <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'}
-                       valid={true} value={editObj.age || ""}/>
+                       value={editObj.age || ""}/>
 
                 <div className="inputWrapper">
                     <div className="label">
@@ -293,10 +288,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
 
                 <Input label={'Gewicht'} onChange={(text: string) => setPetInput({key: 'weight', value: text})}
-                       type={'text'} valid={true} value={editObj.weight || ""}/>
+                       type={'text'} value={editObj.weight || ""}/>
                 <Input label={'Zielgewicht'}
                        onChange={(text: string) => setPetInput({key: 'target_weight', value: text})}
-                       type={'text'} valid={true} value={editObj.target_weight || ""}/>
+                       type={'text'} value={editObj.target_weight || ""}/>
 
                 <Dropdown label={'Aktivität'}
                           value={editObj.activity || LanguageHelper.getString('dropdown_chooseElement')}

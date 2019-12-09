@@ -1,10 +1,11 @@
 import * as React from 'react';
 import './settings.scss'
 import TouchClick from "../../components/touchClick";
-import {pushHistory} from "../landing/landingActions";
+import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
 import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
+import {logout} from "../login/loginActions";
 
 export interface LandingProps {
     settings: any[],
@@ -14,7 +15,9 @@ export interface LandingProps {
     openSideDialog: typeof openSideDialog,
     setSideNavigation: typeof setSideNavigation,
     closeSideNavigation: typeof closeSideNavigation,
-    pushHistory: typeof pushHistory
+    pushHistory: typeof pushHistory,
+
+    logout: typeof logout,
 }
 
 
@@ -27,16 +30,14 @@ export default class Settings extends React.Component<LandingProps, {}> {
 
     render() {
         const {
-
-            pushHistory,
-
+            logout,
         } = this.props;
 
 
         return (
             <div className="settings">
                 {LanguageHelper.getString('nav_settings')}
-                <TouchClick onClick={() => pushHistory('/')}>go to landing</TouchClick>
+                <TouchClick onClick={() => logout()}><b>logout</b></TouchClick>
             </div>
         );
     }

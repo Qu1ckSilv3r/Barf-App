@@ -68,6 +68,14 @@ export default {
         dropdown_3: '3 Wochen',
         dropdown_4: '4 Wochen',
 
+        /* errors */
+        login_error: 'Benutzername und/oder Passwort stimmen nicht. Überprüfe bitte deine Eingabe',
+        no_username: 'Du hast keinen Benutzernamen eingegeben.',
+        no_email: 'Du hast keine Email-Adresse eingegeben.',
+        no_password: 'Du hast kein Passwort eingegeben.',
+        password_dont_match: 'Die Passwörter stimmen nicht überein.',
+        no_policy: 'Du musst den AGB und der Datenschutzerklärung zustimmen.',
+
         /* landingSections */
         section2Header1: 'Lorem ipsum dolor',
         section2Paragraph1: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',

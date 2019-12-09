@@ -1,5 +1,6 @@
 import 'whatwg-fetch'
 import {Animal, Component, FeedList, Nutrition, PlanSetting, ScheduleDay, User} from "../../datamodels";
+
 interface RequestBuildObj {
     url: string,
     body?: any,
@@ -10,7 +11,12 @@ interface RequestBuildObj {
     isAuth?: boolean,
 }
 
-const backendURL = 'http://192.168.99.100:8081';
+//Julia backend
+const backendURL = 'http://127.0.0.1:8081';
+
+//Marina backend
+//const backendURL = 'http://192.168.99.100:8081';
+
 
 export class AppApi {
 
@@ -24,7 +30,6 @@ export class AppApi {
          */
         const isJSON = typeof buildObject.body === "object" && !(buildObject.body instanceof FormData)
 
-
         //replace URL
         let result = await fetch(`${backendURL}/${buildObject.url}`, {
             method: buildObject.method || 'GET',
@@ -34,7 +39,6 @@ export class AppApi {
             },
             body: isJSON ? JSON.stringify(buildObject.body) : buildObject.body
         })
-
 
         const json = await result.json()
 
@@ -49,7 +53,6 @@ export class AppApi {
     // -------------- BARFUSER
 
     login = (username: string, password: string) => {
-        console.log('login - user', username, 'password', password)
         return this.buildRequest({
             url: 'barfuser/login',
             method: 'POST',
@@ -57,7 +60,6 @@ export class AppApi {
                 username: username,
                 password: password
             }
-
         })
     }
 

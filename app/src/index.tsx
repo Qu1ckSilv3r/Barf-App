@@ -1,13 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import registerServiceWorker from './js/registerServiceWorker';
-import './js/modules/landing/landing.scss';
 
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {Provider} from 'react-redux'
 import reducer from "./js/reducer";
 import thunk from 'redux-thunk';
-import App,{history} from "./js/App";
+import ConnectedAppWrapper,{history} from "./js/App";
 import {connectRouter} from "connected-react-router";
 
 
@@ -23,7 +22,7 @@ const store = createStore(reducers, composeEnhancers(
 ReactDOM.render(
     <Provider
         store={store}>
-        <App/>
+        <ConnectedAppWrapper/>
     </Provider>
 
     ,

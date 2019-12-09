@@ -2,7 +2,7 @@
 @import "../../../scss/constants";
 @import "../../../scss/mixins";
 
-.landing {
+.login {
   width: 100%;
   height: 100%;
   @include flexbox();
@@ -32,6 +32,8 @@
     width: 100%;
     height: 100vh;
     position: relative;
+    background: url("/assets/accentBackground_big.png") no-repeat bottom;
+    background-size: 100% auto;
 
     .contentWrapper {
       @include flexbox();
@@ -102,48 +104,8 @@
         }
       }
     }
-
-    .accentBackground {
-      width: 100%;
-      height: 265px;
-      @include flex-shrink(0);
-      background: url("/assets/accentBackground_big.png") no-repeat bottom;
-      background-size: 100% auto;
-    }
-
-    .accentSpacer {
-      margin-top: -2px;
-      height: 150px;
-      width: 100%;
-      background-color: $color_accent;
-    }
   }
 
-  .section2 {
-    @include flexbox();
-    @include flex-direction(column);
-    @include align-items(center);
-    @include justify-content(center);
-    margin-top: -2px;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-
-    .accentBackground {
-      width: 100%;
-      height: 265px;
-      @include flex-shrink(0);
-      background: url("/assets/accentBackground_big_bottom.png") no-repeat top;
-      background-size: 100% auto;
-    }
-
-    .contentWrapper {
-
-      width: 100%;
-      max-width: 900px;
-      height: 100%;
-    }
-  }
 
 }
 
