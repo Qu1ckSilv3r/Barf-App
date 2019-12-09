@@ -62,6 +62,8 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             editPet
         } = this.props;
 
+        const result = appApi.login('admin', 'admin');
+        console.log('login', result)
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
@@ -129,33 +131,37 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     <div className="checkbox">checkbox</div>
                     */}
 
-                    
-                    <Dropdown label={'Interval (Wochen)'} value={'chooseElement'} options={['1', '2', '3', '4']} onChange={(value: string) => console.log("onChange", value)}/>
+
+                    <Dropdown label={'Interval (Wochen)'} value={'chooseElement'} options={['1', '2', '3', '4']}
+                              onChange={(value: string) => console.log("onChange", value)}/>
                 </div>
                 <div className="amountSettings">
                     <div className="header">
                         Bedarfsrelevant
                     </div>
-                    <Input label={'Pflanzlicher Anteil'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                    <Input label={'Pflanzlicher Anteil'} onChange={(text: string) => console.log("text", text)}
+                           type={'text'}
                            valid={true} value={""}/>
-                    <Input label={'Tierischer Anteil'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                    <Input label={'Tierischer Anteil'} onChange={(text: string) => console.log("text", text)}
+                           type={'text'}
                            valid={true} value={""}/>
                     <div className="spacer" style={{height: 16}}/>
                     <Input label={'Fett (pro Tag)'} onChange={(text: string) => console.log("text", text)} type={'text'}
                            valid={true} value={""}/>
-                    <Input label={'Protein (pro Tag)'} onChange={(text: string) => console.log("text", text)} type={'text'}
+                    <Input label={'Protein (pro Tag)'} onChange={(text: string) => console.log("text", text)}
+                           type={'text'}
                            valid={true} value={""}/>
                     <Input label={'Mengenfaktor'} onChange={(text: string) => console.log("text", text)} type={'text'}
                            valid={true} value={""}/>
-                    <Dropdown label={'Bedarfsdeckung über'} value={'chooseElement'} options={['1', '2', '3', '4']} onChange={(value: string) => console.log("onChange", value)}/>
+                    <Dropdown label={'Bedarfsdeckung über'} value={'chooseElement'} options={['1', '2', '3', '4']}
+                              onChange={(value: string) => console.log("onChange", value)}/>
 
                     <div className="defaultValueInfo">
                         {LanguageHelper.getString('defaultValueInfo')}
                     </div>
                 </div>
             </div>)
-        }
-        else if (activePet === -1) {
+        } else if (activePet === -1) {
             sideDialogHeader = editObj.name || LanguageHelper.getString('newPet');
             sideDialogButtons = [
                 {
@@ -170,7 +176,8 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                         {LanguageHelper.getString('label_image')}
                     </div>
                     <div className="innerWrapper">
-                        <div className="image" style={{backgroundImage: 'url("/assets/icons/image.png")', backgroundSize: '80%'}}/>
+                        <div className="image"
+                             style={{backgroundImage: 'url("/assets/icons/image.png")', backgroundSize: '80%'}}/>
                         <div className="buttonWrapper">
                             <ExtendingButton label={LanguageHelper.getString('button_uploadImage')}
                                              onClick={() => console.log('upload image')}
@@ -223,8 +230,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
 
             </div>)
-        }
-        else if (editObj) {
+        } else if (editObj) {
             sideDialogHeader = editObj.name || LanguageHelper.getString('newPet');
             sideDialogButtons = [
                 {

@@ -11,22 +11,26 @@ interface RequestBuildObj {
     isAuth?: boolean,
 }
 
+const backendURL = 'http://192.168.99.100:8081';
+
 export class AppApi {
 
     private buildRequest = async (buildObject: RequestBuildObj): Promise<any> => {
-        //replace (Access)'TOKEN' if existing
+        /*
+        replace (Access)'TOKEN' if existing
         const authHeader = buildObject.isAuth ? {
             "Authorization": `Bearer ${'TOKEN'}`
         } : null
+
+         */
         const isJSON = typeof buildObject.body === "object" && !(buildObject.body instanceof FormData)
 
 
         //replace URL
-        let result = await fetch(`${'URL'}/${buildObject.url}`, {
+        let result = await fetch(`${backendURL}/${buildObject.url}`, {
             method: buildObject.method || 'GET',
             headers: {
                 ...(isJSON ? {"Content-Type": "application/json"} : {}),
-                ...authHeader,
                 ...buildObject.headers
             },
             body: isJSON ? JSON.stringify(buildObject.body) : buildObject.body
@@ -38,35 +42,59 @@ export class AppApi {
         if (json.errorCode) {
             throw (new Error(json.errorCode))
         }
-
+        return json
     };
 
 
     // -------------- BARFUSER
 
-    login = (user: User, password: string) => {
-        this.buildRequest({
-            url: ''
-        })
+    login = (username: string, password: string) => {
+        console.log('login - user', username, 'password', password)
+        const result = this.buildRequest({
+            url: 'barfuser/login',
+            method: 'POST',
+            body: {
+                username: username,
+                password: password
+            }
 
-        console.log('login - user', user, 'password', password)
+        })
+        console.log('builRequest return', result)
     }
 
     getUserById = (userId: number) => {
         console.log('getUserById - userId', userId)
+        const result = this.buildRequest({
+            url: '/barfuser/findById/{userId}',
+            method: 'GET'
+        })
     }
 
     createUser = (username: string, password: string, email: string) => {
         console.log('createUser - username', username, 'password', password, 'email', email)
+        const result = this.buildRequest({
+            url: 'barfuser/create',
+            method: 'POST',
+            body: {
+                username: username,
+                password: password,
+                email: email
+            }
+
+        })
     }
 
     updateUser = (user: User) => {
-
         console.log('updateUser - user', user)
+
     }
 
     deleteUser = (userId: number) => {
         console.log('deleteUser - userId', userId)
+        const result = this.buildRequest({
+            url: 'barfuser/delete/{userId}',
+            method: 'DELETE',
+        })
     }
 
 

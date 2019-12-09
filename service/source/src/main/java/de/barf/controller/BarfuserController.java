@@ -31,13 +31,13 @@ public class BarfuserController {
 	}
 	
 	//geht
-	@RequestMapping(value = "/barfuser/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/barfuser/findByName/{name}", method = RequestMethod.GET)
 	public Barfuser findBarfusers(@PathVariable("name") String name){
 		return barfuserService.findByName(name);
 	}
 	
 	//geht
-	@RequestMapping(value = "/barfuser/{user_id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/barfuser/findById/{user_id}", method = RequestMethod.GET)
 	public Barfuser findBarfusersById(@PathVariable("user_id") long user_id){
 		return barfuserService.findById(user_id);
 	}
