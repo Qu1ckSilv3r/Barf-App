@@ -9,12 +9,12 @@ export interface Animal {
     animal_id?: number,
     birthday?: string,
     age?: number,
-    species?: string,
+    spezies?: string,
     name?: string,
     image?: string,
     weight?: number,
     target_weight?: number,
-    activity?: 'low' | 'normal' | 'high',
+    aktivity?: 'low' | 'normal' | 'high',
     user_id?: number,
     setting_id?: number
 }

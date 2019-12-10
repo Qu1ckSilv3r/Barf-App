@@ -119,8 +119,6 @@ export class AppApi {
     createAnimal = (animal: Animal) => {
         console.log('createAnimal - animal', animal)
 
-        //TODO bitte checken, funktioniert nicht :(
-
         return this.buildRequest({
             url: 'animal/create',
             method: 'POST',

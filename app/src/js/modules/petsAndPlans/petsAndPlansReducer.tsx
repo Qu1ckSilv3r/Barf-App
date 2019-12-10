@@ -26,35 +26,35 @@ const defaultState: PetsAndPlansState = {
             name: 'Harvey',
             //ouchies: [],
             image: '/assets/demoImages/cat.jpg',
-            species: 'cat',
+            spezies: 'cat',
             birthday: '2013-10-15',
             age: 6,
             weight: 6,
             target_weight: 6,
-            activity: 'normal',
+            aktivity: 'normal',
         },
         {
             animal_id: 2,
             name: 'Ragnar',
             //ouchies: [],
             image: '/assets/demoImages/cat.jpg',
-            species: 'cat',
+            spezies: 'cat',
             age: 2,
             weight: 5,
             target_weight: 5,
-            activity: 'normal',
+            aktivity: 'normal',
         },
         {
             animal_id: 3,
             name: 'Moritz',
             //ouchies: [],
             image: '/assets/demoImages/dog.jpg',
-            species: 'dog',
+            spezies: 'dog',
             birthday: '2019-06-16',
             age: 0,
             weight: 20,
             target_weight: 35,
-            activity: 'normal',
+            aktivity: 'normal',
         }
 
          */
@@ -72,7 +72,6 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
         }
     })
     .case(petsAndPlansActions.setAnimalsInState, (state, payload) => {
-        console.log('payload', payload)
         return {
             ...state,
             pets: [...payload]
@@ -114,15 +113,7 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
             }
         }
     })
-    .case(petsAndPlansActions.savePet, (state, payload) => {
-        const savedPets = state.pets.splice(state.editedPetIndex, 1)
 
-
-        return {
-            ...state,
-            pets: [state.editObj, ...savedPets]
-        }
-    })
     .case(sideDialogActions.closeSideDialog, (state, payload) => {
 
         return {

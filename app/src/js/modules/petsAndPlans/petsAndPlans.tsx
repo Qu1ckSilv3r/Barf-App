@@ -1,7 +1,15 @@
 import * as React from 'react';
 import './petsAndPlans.scss';
 import '../../../scss/input-moment.scss';
-import {editPet, openSettings, savePet, setActivePet, setAnimalsInState, setPetInput} from "./petsAndPlansActions";
+import {
+    createPet,
+    editPet,
+    openSettings,
+    savePet,
+    setActivePet,
+    setAnimalsInState,
+    setPetInput
+} from "./petsAndPlansActions";
 //import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../login/loginActions";
 import PetListItemContainer from "../../components/petListItem/petListItemContainer";
@@ -47,6 +55,7 @@ export interface LandingProps {
 
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
+    createPet: typeof createPet,
 
     openSettings: typeof openSettings,
     settingsOpen: boolean,
@@ -65,7 +74,6 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
         appApi.getAnimalsByUser(userId)
             .then((re) => {
-                console.log('animal re', re);
                 setAnimalsInState(re)
             })
             .catch((er) => console.error(er))
@@ -79,10 +87,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             openSideDialog,
             setSideNavigation,
             setActivePet,
-            editPet,
+            editPet
         } = this.props;
 
-        console.log('pets', pets)
 
         const petsToRender = pets && pets.map((pet, index) => {
             return <PetListItemContainer
@@ -118,7 +125,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             settingsOpen,
             openSideDialog,
             activePet,
-            pets
+            pets,
+            //userId,
+            savePet,
+            createPet
         } = this.props;
 
         let sideDialogContent = <div/>
@@ -185,7 +195,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             sideDialogButtons = [
                 {
                     label: LanguageHelper.getString('button_save'),
-                    onClick: () => appApi.createAnimal(editObj),
+                    onClick: () => createPet(editObj),
                     icon: '/assets/icons/save.png'
                 }
             ]
@@ -210,9 +220,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                        value={editObj.name || ""}/>
 
                 <Dropdown label={'Tierart'}
-                          value={editObj.species || 'chooseElement'}
+                          value={editObj.spezies && editObj.spezies.toLowerCase() || 'chooseElement'}
                           options={['cat', 'dog', 'ferret']}
-                          onChange={(returnValue: string) => setPetInput({key: "species", value: returnValue})}/>
+                          onChange={(returnValue: string) => setPetInput({key: "spezies", value: returnValue})}/>
 
                 <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'}
                        value={editObj.age || ""}/>
@@ -243,9 +253,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                        type={'text'} value={editObj.target_weight || ""}/>
 
                 <Dropdown label={'Aktivität'}
-                          value={editObj.activity || 'chooseElement'}
+                          value={editObj.aktivity && editObj.aktivity.toLowerCase() || 'chooseElement'}
                           options={['low', 'normal', 'high']}
-                          onChange={(returnValue: string) => setPetInput({key: "activity", value: returnValue})}/>
+                          onChange={(returnValue: string) => setPetInput({key: "aktivity", value: returnValue})}/>
 
 
             </div>)
@@ -254,7 +264,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             sideDialogButtons = [
                 {
                     label: LanguageHelper.getString('button_save'),
-                    onClick: () => appApi.updateAnimal(editObj),
+                    onClick: () => savePet(editObj),
                     icon: '/assets/icons/save.png'
                 },
                 {
@@ -269,7 +279,8 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                         {LanguageHelper.getString('label_image')}
                     </div>
                     <div className="innerWrapper">
-                        <div className="image" style={{backgroundImage: 'url(' + editObj.image + ')'}}/>
+                        <div className="image"
+                             style={{backgroundImage: editObj.image ? 'url(' + editObj.image + ')' : 'url(/assets/demoImages/pet_placeholder.jpg)'}}/>
                         <div className="buttonWrapper">
                             <ExtendingButton label={LanguageHelper.getString('button_uploadImage')}
                                              onClick={() => console.log('upload image')}
@@ -283,9 +294,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                        value={editObj.name || ""}/>
 
                 <Dropdown label={'Tierart'}
-                          value={editObj.species || LanguageHelper.getString('dropdown_chooseElement')}
+                          value={editObj.spezies && editObj.spezies.toLowerCase() || LanguageHelper.getString('dropdown_chooseElement')}
                           options={['cat', 'dog', 'ferret']}
-                          onChange={(returnValue: string) => setPetInput({key: "species", value: returnValue})}/>
+                          onChange={(returnValue: string) => setPetInput({key: "spezies", value: returnValue})}/>
 
                 <Input label={'Alter'} onChange={(text: string) => setPetInput({key: 'age', value: text})} type={'text'}
                        value={editObj.age || ""}/>
@@ -316,9 +327,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                        type={'text'} value={editObj.target_weight || ""}/>
 
                 <Dropdown label={'Aktivität'}
-                          value={editObj.activity || LanguageHelper.getString('dropdown_chooseElement')}
+                          value={editObj.aktivity || LanguageHelper.getString('dropdown_chooseElement')}
                           options={['low', 'normal', 'high']}
-                          onChange={(returnValue: string) => setPetInput({key: "activity", value: returnValue})}/>
+                          onChange={(returnValue: string) => setPetInput({key: "aktivity", value: returnValue})}/>
 
 
             </div>)

@@ -90,8 +90,7 @@ export const register = (registerObj: RegisterInputs): ThunkAction<Promise<any>,
                 throw new Error('no_policy')
             }
 
-            const result = await appApi.createUser(username, password, email)
-            console.log('register result', result)
+            await appApi.createUser(username, password, email)
             dispatch(registerSuccess())
 
         } catch (er) {
