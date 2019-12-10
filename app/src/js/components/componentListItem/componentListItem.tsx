@@ -22,7 +22,7 @@ export default class ComponentListItem extends React.Component<ComponentListItem
                            onClick={() => setActive(category._id)}
                            key={'pet' + category._id}>
             <div className={"image" + (active ? ' activeEntry' : '')}
-                 style={{backgroundImage: "url('/assets/icons/components.png')"}}/>
+                 style={{backgroundImage: "url('/assets/icons/" + category.type + ".png')"}}/>
             <div className="textWrapper">
                 <div className={"name" + (active ? ' activeEntry' : '')}>
                     {category.name}
