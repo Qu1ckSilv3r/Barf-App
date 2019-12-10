@@ -2,7 +2,7 @@ import * as petsAndPlansActions from "./petsAndPlansActions";
 import {reducerWithInitialState} from "typescript-fsa-reducers"
 import {actionCreatorFactory} from 'typescript-fsa';
 import {LOCATION_CHANGE} from "react-router-redux";
-import {Animal} from "../../../../datamodels";
+import {Animal, PlanSetting} from "../../../../datamodels";
 import * as sideDialogActions from "../sideDialog/sideDialogActions";
 
 
@@ -16,6 +16,7 @@ export interface PetsAndPlansState {
     editObj: Animal,
     editedPetIndex: number,
     settingsOpen: boolean,
+    settingEditObj: PlanSetting
 }
 
 const defaultState: PetsAndPlansState = {
@@ -63,12 +64,28 @@ const defaultState: PetsAndPlansState = {
     editObj: {},
     editedPetIndex: 0,
     settingsOpen: false,
+    settingEditObj: {}
 };
 
 export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
     .case(locationChange, (state, payload) => {
         return {
             ...defaultState
+        }
+    })
+    .case(petsAndPlansActions.setSettingInput, (state, payload) => {
+        return {
+            ...state,
+            settingEditObj: {
+                ...state.settingEditObj,
+                [payload.key]: payload.value
+            }
+        }
+    })
+     .case(petsAndPlansActions.setPlanSettingInState, (state, payload) => {
+        return {
+            ...state,
+            settingEditObj: payload
         }
     })
     .case(petsAndPlansActions.setAnimalsInState, (state, payload) => {
@@ -91,7 +108,6 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
         }
     })
     .case(petsAndPlansActions.setPetInput, (state, payload) => {
-
         return {
             ...state,
             editObj: {

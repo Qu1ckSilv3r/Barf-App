@@ -65,7 +65,7 @@ export class AppApi {
     getUserById = (userId: number) => {
         console.log('getUserById - userId', userId)
         return this.buildRequest({
-            url: '/barfuser/findById/{userId}',
+            url: 'barfuser/findById/{userId}',
             method: 'GET'
         })
     }
@@ -107,13 +107,18 @@ export class AppApi {
     getAnimalsByUser = (userId: number) => {
         console.log('getAnimalsByUser - userId', userId)
         return this.buildRequest({
-            url: '/animal/animalOf/' + userId,
+            url: 'animal/animalOf/' + userId,
             method: 'GET'
         })
     }
 
     getAnimalById = (animalId: number) => {
         console.log('getAnimalById - animalId', animalId)
+        '/animal/{animal_id}'
+        return this.buildRequest({
+            url: 'animal/' + animalId,
+            method: 'GET'
+        })
     }
 
     createAnimal = (animal: Animal) => {
@@ -131,17 +136,71 @@ export class AppApi {
 
     updateAnimal = (animal: Animal) => {
         console.log('updateAnimal - animal', animal)
+
+        this.buildRequest({
+            url: 'animal/changeBirthday/' + animal.animal_id,
+            method: 'PUT',
+            body: animal.birthday
+
+        })
+        this.buildRequest({
+            url: 'animal/changeAge/' + animal.animal_id,
+            method: 'PUT',
+            body: animal.age
+
+        })
+        this.buildRequest({
+            url: 'animal/changeSpezies/' + animal.animal_id,
+            method: 'PUT',
+            body: animal.spezies
+
+
+        })
+        this.buildRequest({
+            url: 'animal/changeName/' + animal.animal_id,
+            method: 'PUT',
+            body: animal.name
+
+        })
+        this.buildRequest({
+            url: 'animal/changeWeight/' + animal.animal_id,
+            method: 'PUT',
+            body: typeof animal.weight === 'string' ? parseFloat(animal.weight) : animal.weight
+
+        })
+        this.buildRequest({
+            url: 'animal/changeTargetWeight/' + animal.animal_id,
+            method: 'PUT',
+            body: animal.target_weight
+
+        })
+        this.buildRequest({
+            url: 'animal/changeAktivity/' + animal.animal_id,
+            method: 'PUT',
+            body: animal.aktivity
+
+        })
+
     }
 
     deleteAnimal = (animalId: number) => {
         console.log('deleteAnimal - animalId', animalId)
+        return this.buildRequest({
+            url: 'animal/delete/' + animalId,
+            method: 'DELETE',
+
+        })
     }
 
-    updateAnimalSetting = (animalId: number,) => {
-        console.log('updateAnimalSetting - animalId', animalId)
-    }
+    updateAnimalSetting = (animalId: number, settingId: number) => {
+        console.log('updateAnimalSetting - animalId', animalId, ' | settingId', settingId)
+        return this.buildRequest({
+            url: 'animal/setSettingIDof/' + animalId,
+            method: 'PUT',
+            body: settingId
 
-    //Unterschied zu updatePlanSetting() ?
+        })
+    }
 
 
     // -------------- COMPONENTS
@@ -242,16 +301,23 @@ export class AppApi {
 
     getPlanSettingById = (planSettingId: number) => {
         console.log('getPlanSettingById - planSettingId', planSettingId)
-    }
 
-    //getPlanSettingByAnimal ?
+        return this.buildRequest({
+            url: 'planSettings/' + planSettingId,
+            method: 'GET'
+        })
+    }
 
     createPlanSetting = (planSetting: PlanSetting) => {
         console.log('createPlanSetting - planSetting', planSetting)
-    }
+        return this.buildRequest({
+            url: 'planSettings/create',
+            method: 'POST',
+            body: {
+                ...planSetting
+            }
 
-    updatePlanSetting = (planSetting: PlanSetting) => {
-        console.log('updatePlanSetting - planSetting', planSetting)
+        })
     }
 
     deletePlanSetting = (planSettingId: number) => {

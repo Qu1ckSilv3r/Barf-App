@@ -2,13 +2,13 @@ import * as React from 'react';
 import './petsAndPlans.scss';
 import '../../../scss/input-moment.scss';
 import {
-    createPet,
-    editPet,
+    createPet, deletePet,
+    editPet, getPlanSettingAndPassToState,
     openSettings,
-    savePet,
+    savePet, savePlanSettings,
     setActivePet,
     setAnimalsInState,
-    setPetInput
+    setPetInput, setSettingInput
 } from "./petsAndPlansActions";
 //import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../login/loginActions";
@@ -16,7 +16,7 @@ import PetListItemContainer from "../../components/petListItem/petListItemContai
 import LanguageHelper from "../../languageHelper";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
 import {ListAddButton} from "../../components/listAddButton";
-import {Animal} from "../../../../datamodels";
+import {Animal, PlanSetting} from "../../../../datamodels";
 import {Input} from "../../components/input";
 import {ExtendingButton} from "../../components/extendingButton";
 import SideDialogContainer from "../sideDialog/sideDialogContainer";
@@ -56,6 +56,11 @@ export interface LandingProps {
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
     createPet: typeof createPet,
+    deletePet: typeof deletePet,
+    getPlanSettingAndPassToState: typeof getPlanSettingAndPassToState,
+    savePlanSettings: typeof savePlanSettings,
+    settingEditObj: PlanSetting,
+    setSettingInput: typeof setSettingInput,
 
     openSettings: typeof openSettings,
     settingsOpen: boolean,
@@ -128,7 +133,12 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             pets,
             //userId,
             savePet,
-            createPet
+            createPet,
+            deletePet,
+            getPlanSettingAndPassToState,
+            savePlanSettings,
+            settingEditObj,
+            setSettingInput
         } = this.props;
 
         let sideDialogContent = <div/>
@@ -141,13 +151,13 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             sideDialogButtons = [
                 {
                     label: LanguageHelper.getString('button_save'),
-                    onClick: () => appApi.updateAnimalSetting(editObj.animal_id || -1),
+                    onClick: () => savePlanSettings(settingEditObj),
                     icon: '/assets/icons/save.png'
                 },
                 {
                     label: LanguageHelper.getString('button_reset'),
                     onClick: () => console.log('restore default plan settings'),
-                    icon: '/assets/icons/repeat.png'
+                    icon: '/assets/icons/refresh.png'
                 }
             ]
             sideDialogContent = (<div className={'sideDialogContent'}>
@@ -160,30 +170,41 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     <div className="checkbox">checkbox</div>
                     */}
 
+                    own_component - {settingEditObj.own_component !== undefined && settingEditObj.own_component.toString()} | plan_view - {settingEditObj.plan_view !== undefined && settingEditObj.plan_view.toString()}
 
-                    <Dropdown label={'Interval (Wochen)'} value={'chooseElement'} options={['1', '2', '3', '4']}
-                              onChange={(value: string) => console.log("onChange", value)}/>
+
+                    <Dropdown label={'Interval (Wochen)'} value={settingEditObj.intervall || 'chooseElement'}
+                              options={['1', '2', '3', '4']}
+                              onChange={(value: string) => setSettingInput({key: 'intervall', value: value})}/>
                 </div>
                 <div className="amountSettings">
                     <div className="header">
                         Bedarfsrelevant
                     </div>
-                    <Input label={'Pflanzlicher Anteil'} onChange={(text: string) => console.log("text", text)}
+
+
+                    <Input label={'Pflanzlicher Anteil'}
+                           onChange={(text: string) => setSettingInput({key: 'plant_amount', value: text})}
                            type={'text'}
-                           value={""}/>
-                    <Input label={'Tierischer Anteil'} onChange={(text: string) => console.log("text", text)}
+                           value={settingEditObj.plant_amount || ''}/>
+                    <Input label={'Tierischer Anteil'}
+                           onChange={(text: string) => setSettingInput({key: 'animal_amount', value: text})}
                            type={'text'}
-                           value={""}/>
+                           value={settingEditObj.animal_amount || ''}/>
                     <div className="spacer" style={{height: 16}}/>
-                    <Input label={'Fett (pro Tag)'} onChange={(text: string) => console.log("text", text)} type={'text'}
-                           value={""}/>
-                    <Input label={'Protein (pro Tag)'} onChange={(text: string) => console.log("text", text)}
+                    <Input label={'Fett (pro Tag)'}
+                           onChange={(text: string) => setSettingInput({key: 'fet_per_day', value: text})} type={'text'}
+                           value={settingEditObj.fet_per_day || ''}/>
+                    <Input label={'Protein (pro Tag)'}
+                           onChange={(text: string) => setSettingInput({key: 'protein_per_day', value: text})}
                            type={'text'}
-                           value={""}/>
-                    <Input label={'Mengenfaktor'} onChange={(text: string) => console.log("text", text)} type={'text'}
-                           value={""}/>
-                    <Dropdown label={'Bedarfsdeckung über'} value={'chooseElement'} options={['1', '2', '3', '4']}
-                              onChange={(value: string) => console.log("onChange", value)}/>
+                           value={settingEditObj.protein_per_day || ''}/>
+                    <Input label={'Mengenfaktor'}
+                           onChange={(text: string) => setSettingInput({key: 'factor', value: text})} type={'text'}
+                           value={settingEditObj.factor || ''}/>
+                    <Dropdown label={'Bedarfsdeckung über'} value={settingEditObj.fullfil_demant || 'chooseComponent'}
+                              options={['1', '2', '3', '4']}
+                              onChange={(value: string) => setSettingInput({key: 'fullfil_demant', value: value})}/>
 
                     <div className="defaultValueInfo">
                         {LanguageHelper.getString('defaultValueInfo')}
@@ -269,7 +290,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 },
                 {
                     label: LanguageHelper.getString('button_delete'),
-                    onClick: () => appApi.deleteAnimal(activePet),
+                    onClick: () => deletePet(activePet),
                     icon: '/assets/icons/delete.png'
                 }
             ]
@@ -343,8 +364,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 {activePet !== -1 ?
                     <div className="extendingButtonGroupWrapper">
                         <ExtendingButton onClick={() => {
-                            openSettings();
-                            openSideDialog()
+                            getPlanSettingAndPassToState(editObj.setting_id || -1),
+                                openSettings();
+                            openSideDialog();
                         }} icon={'assets/icons/settings.png'}
                                          label={LanguageHelper.getString('button_planSettings')}/>
 

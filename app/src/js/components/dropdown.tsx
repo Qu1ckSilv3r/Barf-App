@@ -7,7 +7,7 @@ import LanguageHelper from "../languageHelper";
 
 export interface DropdownProps {
     label: string,
-    value: string,
+    value: string | number,
     options: string[],
     onChange: (value: string) => void
 }

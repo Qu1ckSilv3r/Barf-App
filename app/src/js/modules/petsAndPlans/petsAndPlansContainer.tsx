@@ -3,18 +3,18 @@ import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
 import {
-    createPet,
-    editPet,
+    createPet, deletePet,
+    editPet, getPlanSettingAndPassToState,
     openSettings,
-    savePet,
+    savePet, savePlanSettings,
     setActivePet,
     setAnimalsInState,
-    setPetInput
+    setPetInput, setSettingInput
 } from "./petsAndPlansActions";
 import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
 import {clearSideNavigation, closeSideNavigation, setSideNavigation} from "../navigationSide/sideNavigationActions";
-import {Animal} from "../../../../datamodels";
+import {Animal, PlanSetting} from "../../../../datamodels";
 
 interface OwnContainerProps {
 }
@@ -25,6 +25,7 @@ interface MapStateToProps {
     editObj: Animal,
     settingsOpen: boolean,
     userId: number,
+    settingEditObj: PlanSetting
 }
 
 const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
@@ -33,7 +34,8 @@ const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToP
         pets: state.petsAndPlans.pets,
         activePet: state.petsAndPlans.activePet,
         editObj: state.petsAndPlans.editObj,
-        settingsOpen: state.petsAndPlans.settingsOpen
+        settingsOpen: state.petsAndPlans.settingsOpen,
+        settingEditObj: state.petsAndPlans.settingEditObj
     }
 };
 
@@ -48,6 +50,10 @@ interface MapDispatchToProps {
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
     createPet: typeof createPet,
+    deletePet: typeof deletePet,
+    getPlanSettingAndPassToState: typeof getPlanSettingAndPassToState,
+    savePlanSettings: typeof savePlanSettings,
+    setSettingInput: typeof setSettingInput,
     openSettings: typeof openSettings,
     editPet: typeof editPet,
     setAnimalsInState: typeof setAnimalsInState
@@ -64,6 +70,10 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         setPetInput,
         savePet,
         createPet,
+        deletePet,
+        getPlanSettingAndPassToState,
+        savePlanSettings,
+        setSettingInput,
         openSettings,
         editPet,
         setAnimalsInState
