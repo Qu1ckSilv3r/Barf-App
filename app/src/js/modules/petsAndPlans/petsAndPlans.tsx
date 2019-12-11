@@ -146,6 +146,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
         let sideDialogButtons: SideDialogButton[] = [];
         const activePetObj = pets.find((pet) => pet.animal_id === activePet);
 
+
         if (settingsOpen) {
             sideDialogHeader = LanguageHelper.getString('planSettings') + activePetObj!.name;
             sideDialogButtons = [
@@ -258,7 +259,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                             dateFormat="dd. MMMM yyyy"
                             selected={editObj.birthday ? moment(editObj.birthday).toDate() : null}
                             placeholderText={LanguageHelper.getString('placeholder_date')}
-                            onChange={(date) => setPetInput({key: "birthday", value: date && date.toISOString() || ''})}
+                            onChange={(date) => setPetInput({key: "birthday", value: date && moment(date).toISOString(true) || ''})}
                         />
                         <div className="icon"/>
                     </div>
@@ -332,7 +333,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                             dateFormat="dd. MMMM yyyy"
                             selected={editObj.birthday ? moment(editObj.birthday).toDate() : null}
                             placeholderText={LanguageHelper.getString('placeholder_date')}
-                            onChange={(date) => setPetInput({key: "birthday", value: date && date.toISOString() || ''})}
+                            onChange={(date) => setPetInput({key: "birthday", value: date && moment(date).toISOString(true) || ''})}
                         />
                         <div className="icon"/>
                     </div>

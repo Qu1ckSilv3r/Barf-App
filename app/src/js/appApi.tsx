@@ -1,5 +1,6 @@
 import 'whatwg-fetch'
 import {Animal, Component, FeedList, Nutrition, PlanSetting, ScheduleDay, User} from "../../datamodels";
+import * as moment from "moment";
 
 interface RequestBuildObj {
     url: string,
@@ -33,7 +34,7 @@ export class AppApi {
         let result = await fetch(`${backendURL}/${buildObject.url}`, {
             method: buildObject.method || 'GET',
             headers: {
-                ...(isJSON ? {"Content-Type": "application/json"} : {}),
+                "Content-Type": "application/json",
                 ...buildObject.headers
             },
             body: isJSON ? JSON.stringify(buildObject.body) : buildObject.body
@@ -137,10 +138,12 @@ export class AppApi {
     updateAnimal = (animal: Animal) => {
         console.log('updateAnimal - animal', animal)
 
+        const birthdayDate = moment(animal.birthday).toDate()
+
         this.buildRequest({
             url: 'animal/changeBirthday/' + animal.animal_id,
             method: 'PUT',
-            body: animal.birthday
+            body: birthdayDate
 
         })
         this.buildRequest({
@@ -153,8 +156,6 @@ export class AppApi {
             url: 'animal/changeSpezies/' + animal.animal_id,
             method: 'PUT',
             body: animal.spezies
-
-
         })
         this.buildRequest({
             url: 'animal/changeName/' + animal.animal_id,
@@ -165,9 +166,11 @@ export class AppApi {
         this.buildRequest({
             url: 'animal/changeWeight/' + animal.animal_id,
             method: 'PUT',
-            body: typeof animal.weight === 'string' ? parseFloat(animal.weight) : animal.weight
+            body: animal.weight
 
         })
+
+        console.log('target_weight', animal.target_weight, ' - target_weight type', typeof animal.target_weight)
         this.buildRequest({
             url: 'animal/changeTargetWeight/' + animal.animal_id,
             method: 'PUT',
@@ -187,17 +190,17 @@ export class AppApi {
         console.log('deleteAnimal - animalId', animalId)
         return this.buildRequest({
             url: 'animal/delete/' + animalId,
-            method: 'DELETE',
-
+            method: 'DELETE'
         })
     }
 
     updateAnimalSetting = (animalId: number, settingId: number) => {
         console.log('updateAnimalSetting - animalId', animalId, ' | settingId', settingId)
+
         return this.buildRequest({
             url: 'animal/setSettingIDof/' + animalId,
             method: 'PUT',
-            body: settingId
+            body: settingId.toString()
 
         })
     }
