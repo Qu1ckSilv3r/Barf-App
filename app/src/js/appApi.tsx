@@ -13,10 +13,10 @@ interface RequestBuildObj {
 }
 
 //Julia backend
-const backendURL = 'http://127.0.0.1:8081';
+//const backendURL = 'http://127.0.0.1:8081';
 
 //Marina backend
-//const backendURL = 'http://192.168.99.100:8081';
+const backendURL = 'http://192.168.99.100:8081';
 
 
 export class AppApi {

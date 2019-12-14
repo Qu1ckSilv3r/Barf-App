@@ -5,8 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/js/appApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/appApi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/js/modules/petsAndPlans/petsAndPlans.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/modules/petsAndPlans/petsAndPlans.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/BarfuserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/BarfuserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/AnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Components.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,6 +102,11 @@
       <workItem from="1538836686564" duration="5181000" />
       <workItem from="1560698058863" duration="4886000" />
       <workItem from="1575802287213" duration="7034000" />
+      <workItem from="1576011780259" duration="3883000" />
+      <workItem from="1576051118103" duration="252000" />
+      <workItem from="1576052290727" duration="710000" />
+      <workItem from="1576259345844" duration="2286000" />
+      <workItem from="1576271468779" duration="491000" />
     </task>
     <servers />
   </component>
@@ -121,7 +127,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -1,11 +1,8 @@
 package de.barf.controller;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import de.barf.model.Animal;
-import de.barf.model.Barfuser;
 import de.barf.model.Plansettings;
 import de.barf.repository.IAnimalService;
 import de.barf.repository.IPlansettingsService;
@@ -178,7 +172,7 @@ public class AnimalController {
 	public Animal changeTargetWeight(@PathVariable("animal_id")long animal_id, @RequestBody double target_weight){
 		Animal animal = animalService.findById(animal_id);
 		if (target_weight != 0){
-			animal.setTargetWeight(target_weight);
+			animal.setTarget_weight(target_weight);
 		}
 		return animalService.saveAnimal(animal);
 	}

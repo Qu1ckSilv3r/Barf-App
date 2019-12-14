@@ -94,5 +94,61 @@ public class Components {
 	public String toString() {
 		return "Component [component_id=" + component_id + ", categorie=" + categorie + ", animal_sort=" + animal_sort
 				+ ", name=" + name + ", info=" + info + ", user_id=" + user_id + ", wiki_id=" + wiki_id + "]";
-	}	
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((animal_sort == null) ? 0 : animal_sort.hashCode());
+		result = prime * result + ((categorie == null) ? 0 : categorie.hashCode());
+		result = prime * result + (int) (component_id ^ (component_id >>> 32));
+		result = prime * result + ((info == null) ? 0 : info.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + (int) (user_id ^ (user_id >>> 32));
+		result = prime * result + ((wiki_id == null) ? 0 : wiki_id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Components other = (Components) obj;
+		if (animal_sort == null) {
+			if (other.animal_sort != null)
+				return false;
+		} else if (!animal_sort.equals(other.animal_sort))
+			return false;
+		if (categorie == null) {
+			if (other.categorie != null)
+				return false;
+		} else if (!categorie.equals(other.categorie))
+			return false;
+		if (component_id != other.component_id)
+			return false;
+		if (info == null) {
+			if (other.info != null)
+				return false;
+		} else if (!info.equals(other.info))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (user_id != other.user_id)
+			return false;
+		if (wiki_id == null) {
+			if (other.wiki_id != null)
+				return false;
+		} else if (!wiki_id.equals(other.wiki_id))
+			return false;
+		return true;
+	}
+	
 }

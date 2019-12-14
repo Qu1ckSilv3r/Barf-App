@@ -76,5 +76,48 @@ public class Schedultday {
 		return "Schedultday [schedult_id=" + schedult_id + ", weekday=" + weekday + ", week=" + week + ", ouchie_id="
 				+ ouchie_id + ", setting_id=" + setting_id + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ouchie_id == null) ? 0 : ouchie_id.hashCode());
+		result = prime * result + (int) (schedult_id ^ (schedult_id >>> 32));
+		result = prime * result + ((setting_id == null) ? 0 : setting_id.hashCode());
+		result = prime * result + week;
+		result = prime * result + ((weekday == null) ? 0 : weekday.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Schedultday other = (Schedultday) obj;
+		if (ouchie_id == null) {
+			if (other.ouchie_id != null)
+				return false;
+		} else if (!ouchie_id.equals(other.ouchie_id))
+			return false;
+		if (schedult_id != other.schedult_id)
+			return false;
+		if (setting_id == null) {
+			if (other.setting_id != null)
+				return false;
+		} else if (!setting_id.equals(other.setting_id))
+			return false;
+		if (week != other.week)
+			return false;
+		if (weekday == null) {
+			if (other.weekday != null)
+				return false;
+		} else if (!weekday.equals(other.weekday))
+			return false;
+		return true;
+	}
 	
 }
