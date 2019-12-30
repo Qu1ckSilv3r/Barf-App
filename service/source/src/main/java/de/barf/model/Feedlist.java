@@ -13,6 +13,7 @@ public class Feedlist {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long feed_part_id;
 	private String feed_part;
+	private long animal_id;
 	private long schedult_id;
 	private int amount;
 	
@@ -20,10 +21,11 @@ public class Feedlist {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Feedlist(long feed_part_id, String feed_part, long schedult_id, int amount) {
+	public Feedlist(long feed_part_id, String feed_part, long animal_id, long schedult_id, int amount) {
 		super();
 		this.feed_part_id = feed_part_id;
 		this.feed_part = feed_part;
+		this.animal_id = animal_id;
 		this.schedult_id = schedult_id;
 		this.amount = amount;
 	}
@@ -42,6 +44,14 @@ public class Feedlist {
 
 	public void setFeed_part(String feed_part) {
 		this.feed_part = feed_part;
+	}
+	
+	public long getAnimal_id() {
+		return animal_id;
+	}
+
+	public void setAnimal_id(long animal_id) {
+		this.animal_id = animal_id;
 	}
 
 	public long getSchedult_id() {
@@ -62,17 +72,16 @@ public class Feedlist {
 
 	@Override
 	public String toString() {
-		return "Feedlist [feed_part_id=" + feed_part_id + ", feed_part=" + feed_part + ", schedult_id=" + schedult_id
-				+ ", amount=" + amount + "]";
+		return "Feedlist [feed_part_id=" + feed_part_id + ", feed_part=" + feed_part + ", animal_id=" + animal_id
+				+ ", schedult_id=" + schedult_id + ", amount=" + amount + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(amount);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + amount;
+		result = prime * result + (int) (animal_id ^ (animal_id >>> 32));
 		result = prime * result + ((feed_part == null) ? 0 : feed_part.hashCode());
 		result = prime * result + (int) (feed_part_id ^ (feed_part_id >>> 32));
 		result = prime * result + (int) (schedult_id ^ (schedult_id >>> 32));
@@ -88,7 +97,9 @@ public class Feedlist {
 		if (getClass() != obj.getClass())
 			return false;
 		Feedlist other = (Feedlist) obj;
-		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
+		if (amount != other.amount)
+			return false;
+		if (animal_id != other.animal_id)
 			return false;
 		if (feed_part == null) {
 			if (other.feed_part != null)
@@ -101,6 +112,5 @@ public class Feedlist {
 			return false;
 		return true;
 	}
-	
 	
 }

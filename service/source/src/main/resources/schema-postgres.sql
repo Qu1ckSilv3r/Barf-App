@@ -83,6 +83,7 @@ CREATE TABLE public.schedultday(
 CREATE TABLE public.feedlist(
    feed_part_id BIGSERIAL PRIMARY KEY,
    feed_part VARCHAR (50) NOT NULL,
+   animal_id BIGINT REFERENCES animal ON DELETE CASCADE NOT NULL,
    schedult_id BIGINT REFERENCES schedultday ON DELETE CASCADE NOT NULL,
    amount NUMERIC (4, 1) NOT NULL 
 );

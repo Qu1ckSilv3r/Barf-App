@@ -41,5 +41,16 @@ public class FeedlistService implements IFeedlistService{
 	public void delete(long feed_part_id) {
 		fRepository.deleteById(feed_part_id);
 	}
+
+	@Override
+	public List<Feedlist> findByAnimal_id(long animal_id) {
+		return fRepository.findByAnimal_id(animal_id);
+	}
+
+	@Override
+	public List<Feedlist> findByAnimal_idAndSchedult_id(long animal_id, long schedult_id) {
+		// TODO Auto-generated method stub
+		return fRepository.findByAnimal_idAndSchedult_id(animal_id, schedult_id);
+	}
 	
 }

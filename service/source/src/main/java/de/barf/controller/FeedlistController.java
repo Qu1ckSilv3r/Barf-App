@@ -46,6 +46,18 @@ public class FeedlistController {
 	}
 	
 	//geht
+	@GetMapping("/Feedlist/byAnimal_id/{animal_id}")
+	public List<Feedlist> findByAnimal_id(@PathVariable("animal_id") long animal_id){
+		return feedlistService.findByAnimal_id(animal_id);
+	}
+	
+	//geht
+	@GetMapping("/Feedlist/byAnimal_idAndSchedult_id/{animal_id}/{schedult_id}")
+	public List<Feedlist> findByAnimal_idAndSchedult_id(@PathVariable("animal_id") long animal_id, @PathVariable("schedult_id") long schedult_id){
+		return feedlistService.findByAnimal_idAndSchedult_id(animal_id, schedult_id);
+	}
+	
+	//geht
 	@PostMapping("/Feedlist/create")
 	public List<Feedlist> create(@RequestBody GenerateFeedlistDto credentials){
 		Map<String, List<Long>> componentsList = credentials.getComponents();		 
@@ -62,6 +74,8 @@ public class FeedlistController {
 			componentsList.entrySet().stream().forEach(possibleComponent ->{
 				Feedlist feedlist = new Feedlist();
 				feedlist.setSchedult_id(e);
+				double animal_id = settings.get("AnimalID");
+				feedlist.setAnimal_id((long)animal_id);
 				String key = possibleComponent.getKey();
 				List<Long> componentIDs = possibleComponent.getValue();
 				long id = componentIDs.get(random.nextInt(componentIDs.size()));

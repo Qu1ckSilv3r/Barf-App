@@ -11,5 +11,7 @@ public interface IFeedlistService {
 	List<Feedlist> findBySchedult_id(long schedult_id);
 	Feedlist saveFeedlist (Feedlist feedlist);
 	void delete (long feed_part_id);
+	List<Feedlist> findByAnimal_id(long animal_id);
+	List<Feedlist> findByAnimal_idAndSchedult_id(long animal_id, long schedult_id);
 	
 }

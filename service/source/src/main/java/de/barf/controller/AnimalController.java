@@ -103,6 +103,7 @@ public class AnimalController {
 		
 		feedpart.put("intervall", intervall);
 		feedpart.put("fullfillDemant", fullfill_demant);
+		feedpart.put("AnimalID", (double)animal_id);
 		
 		return feedpart;
 	}
