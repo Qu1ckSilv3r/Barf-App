@@ -70,7 +70,9 @@ public class Feedlist {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + amount;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((feed_part == null) ? 0 : feed_part.hashCode());
 		result = prime * result + (int) (feed_part_id ^ (feed_part_id >>> 32));
 		result = prime * result + (int) (schedult_id ^ (schedult_id >>> 32));
@@ -86,7 +88,7 @@ public class Feedlist {
 		if (getClass() != obj.getClass())
 			return false;
 		Feedlist other = (Feedlist) obj;
-		if (amount != other.amount)
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
 		if (feed_part == null) {
 			if (other.feed_part != null)
@@ -99,5 +101,6 @@ public class Feedlist {
 			return false;
 		return true;
 	}
+	
 	
 }

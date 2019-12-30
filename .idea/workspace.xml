@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="278d1e47-2a51-4b8f-8b24-f1b1393493b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/js/appApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/js/appApi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/AnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Components.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/source/src/main/resources/data-postgres.sql" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/resources/data-postgres.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +103,7 @@
       <workItem from="1576052290727" duration="710000" />
       <workItem from="1576259345844" duration="2286000" />
       <workItem from="1576271468779" duration="491000" />
+      <workItem from="1576316684803" duration="2302000" />
     </task>
     <servers />
   </component>
@@ -134,5 +131,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/src/js/appApi.tsx</url>
+          <line>190</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

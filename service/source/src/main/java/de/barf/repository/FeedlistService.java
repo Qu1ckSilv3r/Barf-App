@@ -33,9 +33,6 @@ public class FeedlistService implements IFeedlistService{
 	//geht nicht, liest die daten nicht aus
 	@Override
 	public Feedlist saveFeedlist(Feedlist feedlist) {
-		System.out.println(feedlist.getFeed_part());
-		System.out.println(feedlist.getSchedult_id());
-		System.out.println(feedlist.getAmount());
 		return fRepository.save(feedlist);
 	}
 

@@ -1,6 +1,10 @@
+
 package de.barf.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -113,5 +117,92 @@ public class Filtered_byController {
 			}
 		}		
 		return (List<Components>) listOfInterest;
+	}
+	
+	@GetMapping("/filteredList/forAnimal/{animal_id}")
+	public Map<String, List<Long>> compolettMapListForAnimal(@PathVariable("animal_id") long animal_id){
+		Map<String, List<Long>> mapOfComponents = new HashMap<String, List<Long>>();
+		List<Long> componentsOfMuskelfleisch = new ArrayList<>();
+		List<Long> componentsOfInnerein = new ArrayList<>();
+		List<Long> componentsOfKnochen = new ArrayList<>();
+		List<Long> componentsOfPansen = new ArrayList<>();
+		List<Long> componentsOfObst = new ArrayList<>();
+		List<Long> componentsOfGemüse = new ArrayList<>();
+		
+		Animal animal = aService.findById(animal_id);
+		long user_id = animal.getUser_id();
+		List<Components> allElements = cService.findByUser_id(user_id);
+		List<Components> listOfInterest =  new ArrayList<>();
+		List<Filtered_by> filter = filterService.findByAnimalId(animal_id);	
+
+		allElements.stream().forEach(component -> {
+			String comName = component.getName();
+			String comSort = component.getAnimal_sort();
+			listOfInterest.add(component);
+			listOfInterest.add(component);
+			filter.stream().forEach(filterBy -> {
+				String filName = filterBy.getName();
+				String filSort = filterBy.getSort();
+				switch (filterBy.getProperty()){
+				case "Allergie":{
+					if((filName != null && filName.equals(comName))||(filSort != null && filSort.equals(comSort))){
+						listOfInterest.remove(cService.findById(component.getComponent_id()));
+						listOfInterest.remove(cService.findById(component.getComponent_id()));
+					}
+					break;
+				}
+				case "Abneigung":{
+					if ((filName != null && filName.equals(comName)) || (filSort != null && filSort.equals(comSort))){
+						listOfInterest.remove(cService.findById(component.getComponent_id()));
+					}
+					break;
+				}
+				case "Vorliebe":{
+					if ((filName != null && filName.equals(comName))||(filSort != null && filSort.equals(comSort))){
+						listOfInterest.add(component);
+					}
+					break;
+				}
+				}
+			});
+		});
+		
+		listOfInterest.stream().forEach(component -> {
+			switch (component.getCategorie()){
+			case "Muskelfleisch":{
+				componentsOfMuskelfleisch.add(component.getComponent_id());
+				break;
+			}
+			case "Innerein":{
+				componentsOfInnerein.add(component.getComponent_id());
+				break;
+			}
+			case "Knochen":{
+				componentsOfKnochen.add(component.getComponent_id());
+				break;
+			}
+			case "Pansen":{
+				componentsOfPansen.add(component.getComponent_id());
+				break;
+			}
+			case "Obst":{
+				componentsOfObst.add(component.getComponent_id());
+				break;
+			}
+			case "Gemüse":{
+				componentsOfGemüse.add(component.getComponent_id());
+				break;
+			}
+			}
+		});
+		
+		mapOfComponents.put("Muskelfleisch", componentsOfMuskelfleisch);
+		mapOfComponents.put("Innerein", componentsOfInnerein);
+		mapOfComponents.put("Knochen", componentsOfKnochen);
+		mapOfComponents.put("Pansen", componentsOfPansen);
+		mapOfComponents.put("Obst", componentsOfObst);
+		mapOfComponents.put("Gemüse", componentsOfGemüse);
+		
+		return mapOfComponents;
 	}
 }

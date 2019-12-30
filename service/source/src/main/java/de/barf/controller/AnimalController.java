@@ -73,7 +73,6 @@ public class AnimalController {
 		else{
 			factor = 0.02;
 		}
-		System.out.println(factor);
 		//weight in g
 		double weight = animal.getWeight() * 1000;
 		
@@ -88,8 +87,9 @@ public class AnimalController {
 		double fullfill_demant = settings.getFullfil_demant() *7;
 		double total_quantity = weight * factor;
 		
-		double animal_products = total_quantity * animal_amount * fullfill_demant;
-		feedpart.put("Muskelfleisch", animal_products * 0.5 / 28);
+//		double animal_products = total_quantity * animal_amount * fullfill_demant;
+		double animal_products = total_quantity * animal_amount;
+		feedpart.put("Muskelfleisch", animal_products * 0.5);
 		feedpart.put("Innerein", animal_products * 0.15);
 		feedpart.put("Knochen", animal_products * 0.15);
 		feedpart.put("Pansen", animal_products * 0.2); 
@@ -102,6 +102,7 @@ public class AnimalController {
 		feedpart.put("ProteinAmTag", (double)settings.getProtein_per_day());
 		
 		feedpart.put("intervall", intervall);
+		feedpart.put("fullfillDemant", fullfill_demant);
 		
 		return feedpart;
 	}
