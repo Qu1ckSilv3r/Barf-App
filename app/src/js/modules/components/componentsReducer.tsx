@@ -2,6 +2,7 @@ import * as componentsActions from "./componentsActions";
 import {reducerWithInitialState} from "typescript-fsa-reducers"
 import {actionCreatorFactory} from 'typescript-fsa';
 import {LOCATION_CHANGE} from "react-router-redux";
+import {Component} from "../../../../datamodels";
 
 
 const actionCreator = actionCreatorFactory();
@@ -10,13 +11,13 @@ const locationChange = actionCreator(LOCATION_CHANGE);
 export interface ComponentCategory {
     _id: number,
     name: string,
-    components: any[],
     type: string
 }
 
 export interface ComponentsState {
     componentCategories: ComponentCategory[],
-    activeCategory: number
+    activeCategory: number,
+    components: Component[]
 }
 
 
@@ -25,40 +26,35 @@ const defaultState: ComponentsState = {
         {
             _id: 0,
             name: 'Gemüse',
-            components: ['1', '2', '3'],
-            type: 'veggie'
+            type: 'veg'
         },
         {
             _id: 1,
             name: 'Obst',
-            components: ['1', '2', '3'],
-            type: 'fruit'
+            type: 'fru'
         },
         {
             _id: 2,
             name: 'Knochen/RFK',
-            components: ['1', '2', '3'],
-            type: 'bone'
+            type: 'bon'
         },
         {
             _id: 3,
             name: 'Muskelfleisch',
-            components: ['1', '2', '3'],
-            type: 'muscle'
+            type: 'mus'
         },
         {
             _id: 4,
             name: 'Innereien',
-            components: ['1', '2', '3'],
-            type: 'intestine'
+            type: 'int'
         },
         {
             _id: 5,
             name: 'Supplemente',
-            components: ['1', '2', '3'],
-            type: 'supplement'
+            type: 'sup'
         }
     ],
+    components: [],
     activeCategory: 0
 };
 
@@ -68,7 +64,13 @@ export const ComponentsReducer = reducerWithInitialState(defaultState)
             ...defaultState
         }
     })
-    .case(componentsActions.setActiveComponentCategory, (state, payload) => {
+    .case(componentsActions.setComponentsInState, (state, payload) => {
+        return {
+            ...state,
+            components: payload
+        }
+    })
+.case(componentsActions.setActiveComponentCategory, (state, payload) => {
         return {
             ...state,
             activeCategory: payload

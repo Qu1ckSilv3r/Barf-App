@@ -443,3 +443,26 @@
   }
 }
 
+.alphabaticalDividerWrapper {
+  width: 100%;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(felx-start);
+  @include justify-content(center);
+  padding: $small;
+
+  .letter {
+    color: $color_darkGray;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 600;
+    margin-bottom: $tiny;
+  }
+
+  .line {
+    height: 2px;
+    width: 100%;
+    background-color: $color_darkGray;
+  }
+}
+

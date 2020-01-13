@@ -3,6 +3,45 @@
 @import "../../../scss/mixins";
 
 .components {
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(flex-start);
 
+  .emptyListInfo{
+    margin-top: $default;
+  }
+
+  .componentsWrapper {
+    max-width: 900px;
+    width: 100%;
+
+    .itemWrapper {
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+      @include justify-content(flex-start);
+
+      .componentItem {
+        padding: $small $default;
+        margin: $small;
+        background-color: $color_white;
+        @include box-shadow(1px 1px 3px -1px rgba(0, 0, 0, 0.75));
+        @include transition(all 0.1s ease-in-out);
+        border-radius: 3px;
+
+        &:hover {
+          background-color: $color_hover;
+        }
+
+        .componentName {
+          font-weight: 600;
+          color: $color_accent;
+          font-size: 14px;
+        }
+      }
+    }
+
+  }
 }
 

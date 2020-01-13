@@ -1,11 +1,11 @@
 import TouchClick from "../touchClick";
 import * as React from "react";
-import {setActivePet} from "../../modules/petsAndPlans/petsAndPlansActions";
 import {ComponentCategory} from "../../modules/components/componentsReducer";
+import {setActiveComponentCategory} from "../../modules/components/componentsActions";
 
 interface ComponentListItemProps {
     category: ComponentCategory,
-    setActive: typeof setActivePet
+    setActive: typeof setActiveComponentCategory
     active: boolean,
 }
 

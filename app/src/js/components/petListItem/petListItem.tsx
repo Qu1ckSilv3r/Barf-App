@@ -22,7 +22,7 @@ export default class PetListItem extends React.Component<PetListItemProps, {}> {
             setPetToEdit
         } = this.props;
 
-       setActive(pet.animal_id || -1);
+        setActive(pet.animal_id || -1);
         setPetToEdit(pet.animal_id || -1)
         edit();
     }
@@ -34,9 +34,11 @@ export default class PetListItem extends React.Component<PetListItemProps, {}> {
             setActive,
         } = this.props;
 
-        return <TouchClick className={"petListItem" + (active ? ' activePet' : '')} onClick={() => setActive(pet.animal_id || -1)}
+        return <TouchClick className={"petListItem" + (active ? ' activePet' : '')}
+                           onClick={() => setActive(pet.animal_id || -1)}
                            key={'pet' + pet.animal_id}>
-            <div className="image" style={{backgroundImage: "url('" + pet.image + "')"}}/>
+            <div className="image"
+                 style={{backgroundImage: pet.image ? 'url(' + pet.image + ')' : 'url(/assets/demoImages/pet_placeholder.jpg)'}}/>
             <div className="textWrapper">
                 <div className={"name" + (active ? ' activePet' : '')}>
                     {pet.name}

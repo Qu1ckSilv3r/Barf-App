@@ -22,7 +22,7 @@ export default class EncyclopediaListItem extends React.Component<EncyclopediaLi
                            onClick={() => setActive(entry._id)}
                            key={'pet' + entry._id}>
             <div className={"image" + (active ? ' activeEntry' : '')}
-                 style={{backgroundImage: entry.type === 'info' ? "url('/assets/type_info.png')" : "url('/assets/type_important.png')"}}/>
+                 style={{backgroundImage: entry.type === 'info' ? "url('/assets/icons/info.png')" : "url('/assets/icons/alert.png')"}}/>
             <div className="textWrapper">
                 <div className={"name" + (active ? ' activeEntry' : '')}>
                     {entry.name}

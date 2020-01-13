@@ -54,6 +54,7 @@ export default {
         /* emptyListInfo */
         emptyLisInfo_choosePet: 'Klicke auf eines deiner Tiere, um den Plan dazu aufzurufen',
         emptyLisInfo_generateList: 'Klicke auf Generieren, um einen neuen Plan zu erstellen.',
+        emptyListInfo: 'Es befinden sich leider noch Einträge in dieser Liste.',
 
         /* dropdownElements */
         dropdown_dog: 'Hund',

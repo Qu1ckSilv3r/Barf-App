@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./components.scss"
+import "./generalComponents.scss"
 import TouchClick from "./touchClick";
 import LanguageHelper from "../languageHelper";
 
