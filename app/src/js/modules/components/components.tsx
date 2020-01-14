@@ -123,6 +123,62 @@ export default class Components extends React.Component<LandingProps, {}> {
             animal_sort: 'rind',
             user_id: 1
         };
+        const component11 = {
+            categorie: 'veg',
+            name: 'Pastinake',
+            user_id: 1
+        };
+        const component12 = {
+            categorie: 'veg',
+            name: 'Spinat',
+            user_id: 1
+        };
+        const component13 = {
+            categorie: 'fru',
+            name: 'Ananas',
+            user_id: 1
+        };
+        const component14 = {
+            categorie: 'fru',
+            name: 'Banane',
+            user_id: 1
+        };
+        const component15 = {
+            categorie: 'bon',
+            name: 'Kalbsbrustbein',
+            animal_sort: 'kalb',
+            user_id: 1
+        };
+        const component16 = {
+            categorie: 'bon',
+            name: 'Hühnerflügel',
+            animal_sort: 'huhn',
+            user_id: 1
+        };
+        const component17 = {
+            categorie: 'mus',
+            name: 'Pferdefleisch',
+            animal_sort: 'pferd',
+            user_id: 1
+        };
+        const component18 = {
+            categorie: 'mus',
+            name: 'Lachsabschnitte',
+            animal_sort: 'fisch',
+            user_id: 1
+        };
+        const component19 = {
+            categorie: 'int',
+            name: 'Rindermilz',
+            animal_sort: 'rind',
+            user_id: 1
+        };
+        const component20 = {
+            categorie: 'int',
+            name: 'Kaninchenlunge',
+            animal_sort: 'kaninchen',
+            user_id: 1
+        };
 
         appApi.createComponent(component1);
         appApi.createComponent(component2);
@@ -134,6 +190,16 @@ export default class Components extends React.Component<LandingProps, {}> {
         appApi.createComponent(component8);
         appApi.createComponent(component9);
         appApi.createComponent(component10);
+        appApi.createComponent(component11);
+        appApi.createComponent(component12);
+        appApi.createComponent(component13);
+        appApi.createComponent(component14);
+        appApi.createComponent(component15);
+        appApi.createComponent(component16);
+        appApi.createComponent(component17);
+        appApi.createComponent(component18);
+        appApi.createComponent(component19);
+        appApi.createComponent(component20);
     }
 
     compare = (a: Component, b: Component) => {

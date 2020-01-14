@@ -1,5 +1,5 @@
 import {actionCreatorFactory} from 'typescript-fsa';
-import {Animal, PlanSetting} from "../../../../datamodels";
+import {Animal, FeedList, PlanSetting} from "../../../../datamodels";
 import {ThunkAction} from "redux-thunk";
 import {State} from "../../reducer";
 import {appApi} from "../../appApi";
@@ -183,3 +183,40 @@ export const savePlanSettings = (planSetting: PlanSetting): ThunkAction<Promise<
     }
 }
 
+export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
+    return async (dispatch, getState) => {
+
+        try {
+            //const userId = getState().login.userId;
+            const animalId = getState().petsAndPlans.activePet;
+            let settingId: number = -1;
+            let settingsObj: PlanSetting = {};
+            let filteredFeedList: FeedList = {};
+
+            await appApi.getAnimalById(animalId)
+                .then((re) => {
+                    settingId = re.setting_id
+                })
+                .catch((er) => console.error(er))
+
+            await appApi.getPlanSettingById(settingId)
+                .then((re) => {
+                    settingsObj = re;
+                })
+                .catch((er) => console.error(er))
+
+            await appApi.getFilteredFeedListByAnimal(animalId)
+                .then((re) => {
+                    filteredFeedList = re;
+                })
+                .catch((er) => console.error(er))
+
+            console.log('settingsObj', settingsObj, 'filteredFeedList', filteredFeedList);
+
+
+        } catch (er) {
+            console.error("er", er)
+
+        }
+    }
+}

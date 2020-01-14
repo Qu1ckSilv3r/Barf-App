@@ -4,7 +4,7 @@ import '../../../scss/input-moment.scss';
 import {
     createPet, deletePet,
     editPet, getPlanSettingAndPassToState,
-    openSettings,
+    openSettings,generatePlan,
     savePet, savePlanSettings,
     setActivePet,
     setAnimalsInState,
@@ -52,6 +52,7 @@ export interface LandingProps {
     clearSideNavigation: typeof clearSideNavigation,
     setSideNavigation: typeof setSideNavigation,
     pushHistory: typeof pushHistory,
+    generatePlan: typeof generatePlan,
 
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
@@ -138,7 +139,8 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             getPlanSettingAndPassToState,
             savePlanSettings,
             settingEditObj,
-            setSettingInput
+            setSettingInput,
+            generatePlan
         } = this.props;
 
         let sideDialogContent = <div/>
@@ -371,7 +373,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                         }} icon={'assets/icons/settings.png'}
                                          label={LanguageHelper.getString('button_planSettings')}/>
 
-                        <ExtendingButton onClick={() => console.log("generate plan")} icon={'assets/icons/repeat.png'}
+                        <ExtendingButton onClick={() => generatePlan()} icon={'assets/icons/repeat.png'}
                                          label={LanguageHelper.getString('button_generate')}/>
 
                         <ExtendingButton onClick={() => console.log("delete all")} icon={'assets/icons/delete.png'}

@@ -13,10 +13,10 @@ interface RequestBuildObj {
 }
 
 //Julia backend
-//const backendURL = 'http://127.0.0.1:8081';
+const backendURL = 'http://127.0.0.1:8081';
 
 //Marina backend
-const backendURL = 'http://192.168.99.100:8081';
+//const backendURL = 'http://192.168.99.100:8081';
 
 
 export class AppApi {
@@ -209,6 +209,7 @@ export class AppApi {
     // -------------- COMPONENTS
 
     getAllComponents = () => {
+        '/components'
         console.log('getAllComponents()')
     }
 
@@ -218,6 +219,11 @@ export class AppApi {
 
     getComponentsByUser = (userId: number) => {
         console.log('getComponentsByUser - userId', userId)
+
+        return this.buildRequest({
+            url: 'component/ofUser/' + userId,
+
+        })
     }
 
     // nur die nutzerbezogenen Komponenten pro Kategorie?
@@ -231,6 +237,16 @@ export class AppApi {
 
     createComponent = (component: Component) => {
         console.log('createComponent - component', component)
+
+        return this.buildRequest({
+            url: 'component/create',
+            method: 'POST',
+            body: {
+                ...component
+            }
+
+        })
+
     }
 
     updateComponent = (component: Component) => {
@@ -248,8 +264,15 @@ export class AppApi {
         console.log('getAllFeedLists()')
     }
 
-    getFeedListById = (feedListId: number) => {
-        console.log('getFeedListById - feedListId', feedListId)
+    getFilteredFeedListByAnimal = (animalId: number) => {
+        console.log('getFilteresFeedListByAnimal - animalId', animalId)
+
+
+        return this.buildRequest({
+            url: 'filteredList/forAnimal/' + animalId,
+            method: 'GET'
+
+        })
     }
 
     getFeedListBySchedule = (schedule: number) => {
@@ -258,6 +281,7 @@ export class AppApi {
 
     createFeedList = (feedList: FeedList) => {
         console.log('createFeedList - feedList', feedList)
+        '/Feedlist/create'
     }
 
     updateFeedList = (feedList: FeedList) => {
@@ -266,6 +290,7 @@ export class AppApi {
 
     deleteFeedList = (feedListId: number) => {
         console.log('deleteFeedList - feedListId', feedListId)
+        '/Feedlist/delete/{feedlist_id}'
     }
 
 

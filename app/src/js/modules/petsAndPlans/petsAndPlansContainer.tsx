@@ -4,7 +4,7 @@ import {State} from "../../reducer";
 import PetsAndPlans from './petsAndPlans';
 import {
     createPet, deletePet,
-    editPet, getPlanSettingAndPassToState,
+    editPet, generatePlan, getPlanSettingAndPassToState,
     openSettings,
     savePet, savePlanSettings,
     setActivePet,
@@ -51,6 +51,7 @@ interface MapDispatchToProps {
     savePet: typeof savePet,
     createPet: typeof createPet,
     deletePet: typeof deletePet,
+    generatePlan: typeof generatePlan,
     getPlanSettingAndPassToState: typeof getPlanSettingAndPassToState,
     savePlanSettings: typeof savePlanSettings,
     setSettingInput: typeof setSettingInput,
@@ -73,6 +74,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         deletePet,
         getPlanSettingAndPassToState,
         savePlanSettings,
+        generatePlan,
         setSettingInput,
         openSettings,
         editPet,
