@@ -9,7 +9,27 @@ const actionCreator = actionCreatorFactory();
 
 export const setActivePet = actionCreator<number>("SET_ACTIVE_PET");
 
+export const setActivePetWithPlan = (animalId: number): ThunkAction<Promise<any>, State, any, any> => {
+
+    return async (dispatch, getState) => {
+        try {
+            appApi.getPlanByAnimal(animalId)
+                .then((re) => {
+                    dispatch(setPlanInState(re))
+                })
+                .catch((er) => console.error(er))
+
+            dispatch(setActivePet(animalId))
+
+
+        } catch (er) {
+            console.error("er", er)
+        }
+    }
+}
+
 export const setAnimalsInState = actionCreator<Animal[]>('SET_ANIMALS_IN_STATE')
+export const setPlanInState = actionCreator<any>('SET_PLAN_IN_STATE')
 
 export const openSettings = actionCreator("OPEN_SETTINGS");
 
@@ -181,6 +201,7 @@ export const savePlanSettings = (planSetting: PlanSetting): ThunkAction<Promise<
         }
     }
 }
+export const setActiveWeek = actionCreator<number>('SET_ACTIVE_WEEK')
 
 export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
     return async (dispatch, getState) => {
@@ -191,7 +212,6 @@ export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
             //let settingId: number = -1;
             let settingsObj: PlanSetting = {};
             let filteredFeedList: FeedList = {};
-            let plan = {};
             /*
                         await appApi.getAnimalById(animalId)
                             .then((re) => {
@@ -216,11 +236,9 @@ export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
 
             await appApi.createFeedList(settingsObj, filteredFeedList)
                 .then((re) => {
-                    plan = re;
+                    dispatch(setPlanInState(re))
                 })
                 .catch((er) => console.error(er))
-
-            console.log('plan', plan);
 
 
         } catch (er) {

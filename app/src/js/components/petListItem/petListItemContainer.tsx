@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {State} from "../../reducer";
 import PetListItem, {PetListItemProps} from './petListItem';
-import {editPet, savePet, setActivePet, setPetInput} from "../../modules/petsAndPlans/petsAndPlansActions";
+import {editPet, savePet, setActivePetWithPlan, setPetInput} from "../../modules/petsAndPlans/petsAndPlansActions";
 import {Animal} from "../../../../datamodels";
 import {mergePropsFunc} from "../../mergeFunction";
 
@@ -22,7 +22,7 @@ const mapStateToProps = (state: State, ownProps: OwnContainerProps)/*: MapStateT
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps)/*: MapDispatchToProps*/ => {
     return bindActionCreators({
-        setActive: setActivePet,
+        setActive: setActivePetWithPlan,
         setPetToEdit: editPet,
         setPetInput:setPetInput,
         savePet:savePet

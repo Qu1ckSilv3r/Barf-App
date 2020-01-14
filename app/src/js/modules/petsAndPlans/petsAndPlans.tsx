@@ -4,11 +4,11 @@ import '../../../scss/input-moment.scss';
 import {
     createPet, deletePet,
     editPet, getPlanSettingAndPassToState,
-    openSettings,generatePlan,
+    openSettings, generatePlan,
     savePet, savePlanSettings,
     setActivePet,
     setAnimalsInState,
-    setPetInput, setSettingInput
+    setPetInput, setSettingInput, setActiveWeek, setPlanInState
 } from "./petsAndPlansActions";
 //import TouchClick from "../../components/touchClick";
 import {pushHistory} from "../login/loginActions";
@@ -46,6 +46,9 @@ export interface LandingProps {
     setActivePet: typeof setActivePet,
     editObj: Animal,
 
+    setActiveWeek: typeof setActiveWeek,
+    activeWeek: number,
+
     editPet: typeof editPet
     openSideDialog: typeof openSideDialog,
     closeSideNavigation: typeof closeSideNavigation,
@@ -66,7 +69,9 @@ export interface LandingProps {
     openSettings: typeof openSettings,
     settingsOpen: boolean,
 
-    setAnimalsInState: typeof setAnimalsInState
+    setAnimalsInState: typeof setAnimalsInState,
+    plan: any,
+    setPlanInState: typeof setPlanInState
 }
 
 export default class PetsAndPlans extends React.Component<LandingProps, {}> {
@@ -75,7 +80,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
     componentDidMount() {
         const {
             userId,
-            setAnimalsInState
+            setAnimalsInState,
         } = this.props;
 
         appApi.getAnimalsByUser(userId)
@@ -140,13 +145,69 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             savePlanSettings,
             settingEditObj,
             setSettingInput,
-            generatePlan
+            generatePlan,
+            setActiveWeek,
+            activeWeek,
+            plan
         } = this.props;
 
         let sideDialogContent = <div/>
         let sideDialogHeader = "";
         let sideDialogButtons: SideDialogButton[] = [];
         const activePetObj = pets.find((pet) => pet.animal_id === activePet);
+
+        let availableWeeks = 1;
+        let week = [];
+        let planToRender: any[] = [];
+
+        if(plan.length > 0) {
+
+
+            plan.forEach((item: any) => {
+                if (item.schedult_id / 7 === 1 || item.schedult_id / 7 === 2 || item.schedult_id / 7 === 3 || item.schedult_id / 7 === 4) {
+                    availableWeeks = item.schedult_id / 7
+                }
+            })
+
+            const planFilteredByWeek = plan.filter((day: any) => day.schedult_id <= (activeWeek * 7) && day.schedult_id > ((activeWeek - 1) * 7));
+
+            console.log('planFilteredByWeek', planFilteredByWeek)
+            week = [
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 1),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 2),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 3),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 4),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 5),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 6),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === 7)
+            ]
+
+            console.log('week',week)
+
+            planToRender = week.map((weekday: any) => {
+                /*
+
+                feed_part_id(pin):3
+                feed_part(pin):"Lammrippe"
+                animal_id(pin):3
+                schedult_id(pin):1
+                amount(pin):25
+                */
+
+                console.log('weekday' + weekday[0].schedult_id)
+                return (
+                    <PlanDay
+                        animalComponents={weekday}
+                        plantComponents={weekday}
+                        supplementComponents={weekday}
+                        weekday={LanguageHelper.getString('weekday_' + weekday[0].schedult_id)}
+                    />
+                )
+            })
+
+            console.log(planToRender)
+
+        }
 
 
         if (settingsOpen) {
@@ -173,7 +234,9 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     <div className="checkbox">checkbox</div>
                     */}
 
-                    own_component - {settingEditObj.own_component !== undefined && settingEditObj.own_component.toString()} | plan_view - {settingEditObj.plan_view !== undefined && settingEditObj.plan_view.toString()}
+                    own_component
+                    - {settingEditObj.own_component !== undefined && settingEditObj.own_component.toString()} |
+                    plan_view - {settingEditObj.plan_view !== undefined && settingEditObj.plan_view.toString()}
 
 
                     <Dropdown label={'Interval (Wochen)'} value={settingEditObj.intervall || 'chooseElement'}
@@ -261,7 +324,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                             dateFormat="dd. MMMM yyyy"
                             selected={editObj.birthday ? moment(editObj.birthday).toDate() : null}
                             placeholderText={LanguageHelper.getString('placeholder_date')}
-                            onChange={(date) => setPetInput({key: "birthday", value: date && moment(date).toISOString(true) || ''})}
+                            onChange={(date) => setPetInput({
+                                key: "birthday",
+                                value: date && moment(date).toISOString(true) || ''
+                            })}
                         />
                         <div className="icon"/>
                     </div>
@@ -335,7 +401,10 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                             dateFormat="dd. MMMM yyyy"
                             selected={editObj.birthday ? moment(editObj.birthday).toDate() : null}
                             placeholderText={LanguageHelper.getString('placeholder_date')}
-                            onChange={(date) => setPetInput({key: "birthday", value: date && moment(date).toISOString(true) || ''})}
+                            onChange={(date) => setPetInput({
+                                key: "birthday",
+                                value: date && moment(date).toISOString(true) || ''
+                            })}
                         />
                         <div className="icon"/>
                     </div>
@@ -392,77 +461,23 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     {activePet !== -1 ?
                         <div className="plan">
                             <div className="weekSelectorWrapper">
-                                <div className="weekSelector">
+                                {availableWeeks > 1 && activeWeek !== 1 ?
                                     <Button icon={'assets/icons/arrow_left.png'}
-                                            onClick={() => console.log("week back")}/>
+                                            onClick={() => setActiveWeek(activeWeek > 1 ? activeWeek - 1 : 1)}/> : null}
+                                <div className="weekSelector">
+
                                     <div className="label">
-                                        Woche X
+                                        Woche {activeWeek}
                                     </div>
-                                    <Button icon={'assets/icons/arrow_right.png'}
-                                            onClick={() => console.log("week next")}/>
+                                    {activeWeek < availableWeeks && activeWeek !== availableWeeks ?
+                                        <Button icon={'assets/icons/arrow_right.png'}
+                                                onClick={() => setActiveWeek(activeWeek < availableWeeks ? activeWeek + 1 : availableWeeks)}/> : null
+                                    }
+
                                 </div>
                             </div>
 
-                            <PlanDay
-                                animalComponents={[{name: 'animalComponent_a', amount: 12}, {
-                                    name: 'animalComponent_b',
-                                    amount: 23
-                                }, {name: 'animalComponent_c', amount: 5}, {name: 'animalComponent_d', amount: 90}]}
-                                plantComponents={[{name: 'plantComponent_a', amount: 42}, {
-                                    name: 'plantComponent_b',
-                                    amount: 10
-                                }]}
-                                supplementComponents={[{
-                                    name: 'supplementComponent_a',
-                                    amount: 30
-                                }, {name: 'supplementComponent_b', amount: 80}]}
-                                weekday={'Montag'}
-                            />
-                            <PlanDay
-                                animalComponents={[{name: 'animalComponent_a', amount: 12}, {
-                                    name: 'animalComponent_b',
-                                    amount: 23
-                                }, {name: 'animalComponent_c', amount: 5}, {name: 'animalComponent_d', amount: 90}]}
-                                plantComponents={[{name: 'plantComponent_a', amount: 42}, {
-                                    name: 'plantComponent_b',
-                                    amount: 10
-                                }]}
-                                supplementComponents={[{
-                                    name: 'supplementComponent_a',
-                                    amount: 30
-                                }, {name: 'supplementComponent_b', amount: 80}]}
-                                weekday={'Dienstag'}
-                            />
-                            <PlanDay
-                                animalComponents={[{name: 'animalComponent_a', amount: 12}, {
-                                    name: 'animalComponent_b',
-                                    amount: 23
-                                }, {name: 'animalComponent_c', amount: 5}, {name: 'animalComponent_d', amount: 90}]}
-                                plantComponents={[{name: 'plantComponent_a', amount: 42}, {
-                                    name: 'plantComponent_b',
-                                    amount: 10
-                                }]}
-                                supplementComponents={[{
-                                    name: 'supplementComponent_a',
-                                    amount: 30
-                                }, {name: 'supplementComponent_b', amount: 80}]}
-                                weekday={'Mittwoch'}
-                            />
-                            <PlanDay
-                                animalComponents={[{name: 'animalComponent_a', amount: 12}, {
-                                    name: 'animalComponent_b',
-                                    amount: 23
-                                }, {name: 'animalComponent_c', amount: 5}, {name: 'animalComponent_d', amount: 90}]}
-                                plantComponents={[{name: 'plantComponent_a', amount: 42}, {
-                                    name: 'plantComponent_b',
-                                    amount: 10
-                                }]}
-                                supplementComponents={[{
-                                    name: 'supplementComponent_a',
-                                    amount: 30
-                                }, {name: 'supplementComponent_b', amount: 80}]}
-                                weekday={'Donnerstag'}
-                            />
+                            {planToRender}
                         </div>
                         : <div className="emptyListInfo">
                             {LanguageHelper.getString('emptyLisInfo_choosePet')}

@@ -69,6 +69,15 @@ export default {
         dropdown_3: '3 Wochen',
         dropdown_4: '4 Wochen',
 
+        /* weekdays */
+        weekday_1: 'Montag',
+        weekday_2: 'Dienstag',
+        weekday_3: 'Mittwoch',
+        weekday_4: 'Donnerstag',
+        weekday_5: 'Freitag',
+        weekday_6: 'Samstag',
+        weekday_7: 'Sonntag',
+
         /* errors */
         login_error: 'Benutzername und/oder Passwort stimmen nicht. Überprüfe bitte deine Eingabe',
         no_username: 'Du hast keinen Benutzernamen eingegeben.',

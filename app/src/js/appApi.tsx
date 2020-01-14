@@ -282,8 +282,12 @@ export class AppApi {
         })
     }
 
-    getFeedListBySchedule = (schedule: number) => {
-        console.log('getFeedListBySchedule - schedule', schedule)
+    getPlanByAnimal = (animalId: number) => {
+        return this.buildRequest({
+            url: 'Feedlist/byAnimal_id/' + animalId,
+            method: 'GET'
+
+        })
     }
 
     createFeedList = (setting: PlanSetting, components: any) => {

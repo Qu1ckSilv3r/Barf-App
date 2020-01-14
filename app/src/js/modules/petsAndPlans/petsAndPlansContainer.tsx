@@ -7,9 +7,9 @@ import {
     editPet, generatePlan, getPlanSettingAndPassToState,
     openSettings,
     savePet, savePlanSettings,
-    setActivePet,
+    setActivePet, setActiveWeek,
     setAnimalsInState,
-    setPetInput, setSettingInput
+    setPetInput, setPlanInState, setSettingInput
 } from "./petsAndPlansActions";
 import {pushHistory} from "../login/loginActions";
 import {openSideDialog} from "../sideDialog/sideDialogActions";
@@ -25,7 +25,9 @@ interface MapStateToProps {
     editObj: Animal,
     settingsOpen: boolean,
     userId: number,
-    settingEditObj: PlanSetting
+    settingEditObj: PlanSetting,
+    activeWeek: number,
+    plan: any
 }
 
 const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToProps => {
@@ -35,7 +37,9 @@ const mapStateToProps = (state: State, ownProps: OwnContainerProps): MapStateToP
         activePet: state.petsAndPlans.activePet,
         editObj: state.petsAndPlans.editObj,
         settingsOpen: state.petsAndPlans.settingsOpen,
-        settingEditObj: state.petsAndPlans.settingEditObj
+        settingEditObj: state.petsAndPlans.settingEditObj,
+        activeWeek: state.petsAndPlans.activeWeek,
+        plan: state.petsAndPlans.plan
     }
 };
 
@@ -52,12 +56,14 @@ interface MapDispatchToProps {
     createPet: typeof createPet,
     deletePet: typeof deletePet,
     generatePlan: typeof generatePlan,
+    setActiveWeek: typeof setActiveWeek,
     getPlanSettingAndPassToState: typeof getPlanSettingAndPassToState,
     savePlanSettings: typeof savePlanSettings,
     setSettingInput: typeof setSettingInput,
     openSettings: typeof openSettings,
     editPet: typeof editPet,
-    setAnimalsInState: typeof setAnimalsInState
+    setAnimalsInState: typeof setAnimalsInState,
+    setPlanInState: typeof setPlanInState,
 }
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDispatchToProps => {
@@ -77,8 +83,10 @@ const mapDispatchToProps = (dispatch: any, ownProps: OwnContainerProps): MapDisp
         generatePlan,
         setSettingInput,
         openSettings,
+        setActiveWeek,
         editPet,
-        setAnimalsInState
+        setAnimalsInState,
+        setPlanInState
     }, dispatch)
 };
 

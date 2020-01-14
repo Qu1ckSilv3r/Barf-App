@@ -3,7 +3,7 @@ import './planComponents.scss'
 import LanguageHelper from "../../../languageHelper";
 
 export type planComponent = {
-    name: string,
+    feed_part: string,
     amount: number
 }
 
@@ -18,7 +18,7 @@ export const PlanDay = (props: PlanDayProps) => {
     const animalComponentsToRender = props.animalComponents.map((component, index) => {
         return <div key={'animalComponents' + index} className={'planComponent'}>
             <div className="name">
-                {component.name}
+                {component.feed_part}
             </div>
             <div className="amount">
                 {component.amount}
@@ -28,7 +28,7 @@ export const PlanDay = (props: PlanDayProps) => {
     const plantComponentsToRender = props.plantComponents.map((component, index) => {
         return <div key={'plantComponents' + index}
                     className={'planComponent'}> <div className="name">
-            {component.name}
+            {component.feed_part}
         </div>
             <div className="amount">
                 {component.amount}
@@ -37,7 +37,7 @@ export const PlanDay = (props: PlanDayProps) => {
     const supplementComponentsToRender = props.supplementComponents.map((component, index) => {
         return <div key={'supplementComponents' + index}
                     className={'planComponent'}> <div className="name">
-            {component.name}
+            {component.feed_part}
         </div>
             <div className="amount">
                 {component.amount}

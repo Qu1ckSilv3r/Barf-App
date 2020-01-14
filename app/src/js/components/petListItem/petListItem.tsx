@@ -1,12 +1,12 @@
 import TouchClick from "../touchClick";
 import * as React from "react";
 import {Button} from "../button";
-import {editPet, setActivePet} from "../../modules/petsAndPlans/petsAndPlansActions";
+import {editPet, setActivePetWithPlan} from "../../modules/petsAndPlans/petsAndPlansActions";
 import {Animal} from "../../../../datamodels";
 
 export interface PetListItemProps {
     pet: Animal,
-    setActive: typeof setActivePet
+    setActive: typeof setActivePetWithPlan
     active: boolean,
     edit: () => void,
     setPetToEdit: typeof editPet,

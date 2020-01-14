@@ -16,55 +16,20 @@ export interface PetsAndPlansState {
     editObj: Animal,
     editedPetIndex: number,
     settingsOpen: boolean,
-    settingEditObj: PlanSetting
+    settingEditObj: PlanSetting,
+    activeWeek: number,
+    plan: any
 }
 
 const defaultState: PetsAndPlansState = {
-    pets: [
-        /*
-        {
-            animal_id: 1,
-            name: 'Harvey',
-            //ouchies: [],
-            image: '/assets/demoImages/cat.jpg',
-            spezies: 'cat',
-            birthday: '2013-10-15',
-            age: 6,
-            weight: 6,
-            target_weight: 6,
-            aktivity: 'normal',
-        },
-        {
-            animal_id: 2,
-            name: 'Ragnar',
-            //ouchies: [],
-            image: '/assets/demoImages/cat.jpg',
-            spezies: 'cat',
-            age: 2,
-            weight: 5,
-            target_weight: 5,
-            aktivity: 'normal',
-        },
-        {
-            animal_id: 3,
-            name: 'Moritz',
-            //ouchies: [],
-            image: '/assets/demoImages/dog.jpg',
-            spezies: 'dog',
-            birthday: '2019-06-16',
-            age: 0,
-            weight: 20,
-            target_weight: 35,
-            aktivity: 'normal',
-        }
-
-         */
-    ],
+    pets: [],
+    plan: [],
     activePet: -1,
     editObj: {},
     editedPetIndex: 0,
     settingsOpen: false,
-    settingEditObj: {}
+    settingEditObj: {},
+    activeWeek: 1
 };
 
 export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
@@ -94,6 +59,12 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
             pets: [...payload]
         }
     })
+    .case(petsAndPlansActions.setPlanInState, (state, payload) => {
+        return {
+            ...state,
+            plan: payload
+        }
+    })
     .case(petsAndPlansActions.setActivePet, (state, payload) => {
         return {
             ...state,
@@ -105,6 +76,12 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
             ...state,
             settingsOpen: true,
 
+        }
+    })
+    .case(petsAndPlansActions.setActiveWeek, (state, payload) => {
+        return {
+            ...state,
+            activeWeek: payload
         }
     })
     .case(petsAndPlansActions.setPetInput, (state, payload) => {
@@ -139,5 +116,6 @@ export const PetsAndPlansReducer = reducerWithInitialState(defaultState)
             settingsOpen: false
         }
     })
+
 
 
