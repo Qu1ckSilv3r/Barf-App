@@ -111,12 +111,7 @@ export default class Components extends React.Component<LandingProps, {}> {
             animal_sort: 'pute',
             user_id: 1
         };
-        const component9 = {
-            categorie: 'int',
-            name: 'Rinderpansen (grün)',
-            animal_sort: 'rind',
-            user_id: 1
-        };
+
         const component10 = {
             categorie: 'int',
             name: 'Rinderniere',
@@ -179,6 +174,18 @@ export default class Components extends React.Component<LandingProps, {}> {
             animal_sort: 'kaninchen',
             user_id: 1
         };
+        const component21 = {
+            categorie: 'rum',
+            name: 'Rinderpansen (grün)',
+            animal_sort: 'rind',
+            user_id: 1
+        };
+        const component22 = {
+            categorie: 'rum',
+            name: 'Kalbspansen (grün)',
+            animal_sort: 'kalb',
+            user_id: 1
+        };
 
         appApi.createComponent(component1);
         appApi.createComponent(component2);
@@ -188,7 +195,7 @@ export default class Components extends React.Component<LandingProps, {}> {
         appApi.createComponent(component6);
         appApi.createComponent(component7);
         appApi.createComponent(component8);
-        appApi.createComponent(component9);
+
         appApi.createComponent(component10);
         appApi.createComponent(component11);
         appApi.createComponent(component12);
@@ -200,6 +207,8 @@ export default class Components extends React.Component<LandingProps, {}> {
         appApi.createComponent(component18);
         appApi.createComponent(component19);
         appApi.createComponent(component20);
+        appApi.createComponent(component21);
+        appApi.createComponent(component22);
     }
 
     compare = (a: Component, b: Component) => {
@@ -224,25 +233,35 @@ export default class Components extends React.Component<LandingProps, {}> {
         const componentsSorted = components.sort((a, b) => this.compare(a, b))
         let alphabeticalDividers: any[] = [];
         let currentLetter = '';
-        const componentsToRender = componentsSorted.filter((component) => component.categorie === activeCategory.type).map((component, index) => {
-
-
-                if (currentLetter !== component.name![0]) {
-                    currentLetter = component.name![0];
-                    alphabeticalDividers.push({letter: component.name![0], position: index})
+        const componentsToRender = componentsSorted.filter((component) => {
+                if(component.categorie === activeCategory.type){
+                    return true
                 }
-                return <TouchClick onClick={() => console.log('would open edit')}
-                                   key={'component' + component.component_id} className="componentItem">
-                    <div className="componentName">
-                        {component.name}
-                    </div>
-                </TouchClick>
+                else if(activeCategory.type === 'int' && component.categorie === 'rum'){
+                    return true
+                }
+                else return false
+            }
+        ).map((component, index) => {
+
+
+            if (currentLetter !== component.name![0]) {
+                currentLetter = component.name![0];
+                alphabeticalDividers.push({letter: component.name![0], position: index})
+            }
+            return <TouchClick onClick={() => console.log('would open edit')}
+                               key={'component' + component.component_id} className="componentItem">
+                <div className="componentName">
+                    {component.name}
+                </div>
+            </TouchClick>
 
         }).filter((obj) => obj !== undefined);
 
         let shift = 0;
         alphabeticalDividers.forEach((divider) => {
-            componentsToRender.splice(divider.position + shift, 0, <AlphabeticalDivider key={'divider' + divider.letter + divider.position} letter={divider.letter}/>);
+            componentsToRender.splice(divider.position + shift, 0, <AlphabeticalDivider
+                key={'divider' + divider.letter + divider.position} letter={divider.letter}/>);
             shift = shift + 1;
         })
 

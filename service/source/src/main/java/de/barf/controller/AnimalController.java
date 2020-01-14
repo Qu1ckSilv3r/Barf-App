@@ -56,7 +56,7 @@ public class AnimalController {
 	
 	//geht
 	//wiedergabe der gramm werte nach settingPlan
-	@GetMapping("/animal/getSettingsOf/{animal_id}")
+	@RequestMapping("/animal/getSettingsOf/{animal_id}")
 	public Map<String, Double> settingsOfAnimal(@PathVariable("animal_id") long animal_id){
 		Map<String, Double> feedpart = new HashMap<String, Double>();
 		
@@ -89,14 +89,14 @@ public class AnimalController {
 		
 //		double animal_products = total_quantity * animal_amount * fullfill_demant;
 		double animal_products = total_quantity * animal_amount;
-		feedpart.put("Muskelfleisch", animal_products * 0.5);
-		feedpart.put("Innerein", animal_products * 0.15);
-		feedpart.put("Knochen", animal_products * 0.15);
-		feedpart.put("Pansen", animal_products * 0.2); 
+		feedpart.put("mus", animal_products * 0.5);
+		feedpart.put("int", animal_products * 0.15);
+		feedpart.put("bon", animal_products * 0.15);
+		feedpart.put("rum", animal_products * 0.2);
 		
 		double vegetable_products = total_quantity * plant_amount;
-		feedpart.put("Gemüse", vegetable_products * 0.75);
-		feedpart.put("Obst", vegetable_products * 0.25);
+		feedpart.put("veg", vegetable_products * 0.75);
+		feedpart.put("fru", vegetable_products * 0.25);
 		
 		feedpart.put("FettAmTag", (double)settings.getFet_per_day());
 		feedpart.put("ProteinAmTag", (double)settings.getProtein_per_day());

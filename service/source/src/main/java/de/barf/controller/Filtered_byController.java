@@ -182,12 +182,10 @@ public class Filtered_byController {
 				componentsOfKnochen.add(component.getComponent_id());
 				break;
 			}
-			/*
-			case "Pansen":{
+			case "rum":{
 				componentsOfPansen.add(component.getComponent_id());
 				break;
 			}
-			*/
 			case "fru":{
 				componentsOfObst.add(component.getComponent_id());
 				break;
@@ -198,13 +196,15 @@ public class Filtered_byController {
 			}
 			}
 		});
-		
+
 		mapOfComponents.put("mus", componentsOfMuskelfleisch);
 		mapOfComponents.put("int", componentsOfInnerein);
 		mapOfComponents.put("bon", componentsOfKnochen);
-		//mapOfComponents.put("Pansen", componentsOfPansen);
+		mapOfComponents.put("rum", componentsOfPansen);
 		mapOfComponents.put("fru", componentsOfObst);
 		mapOfComponents.put("veg", componentsOfGemüse);
+
+
 		
 		return mapOfComponents;
 	}

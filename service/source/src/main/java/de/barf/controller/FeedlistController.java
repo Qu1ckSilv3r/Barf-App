@@ -61,6 +61,7 @@ public class FeedlistController {
 	//geht
 	@PostMapping("/Feedlist/create")
 	public List<Feedlist> create(@RequestBody GenerateFeedlistDto credentials){
+
 		Map<String, List<Long>> componentsList = credentials.getComponents();		 
 		Map<String, Double> settings = credentials.getSettingsOfAnimal();
 		List<Feedlist> forAnimal = new ArrayList<>();

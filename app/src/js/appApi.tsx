@@ -115,7 +115,6 @@ export class AppApi {
 
     getAnimalById = (animalId: number) => {
         console.log('getAnimalById - animalId', animalId)
-        '/animal/{animal_id}'
         return this.buildRequest({
             url: 'animal/' + animalId,
             method: 'GET'
@@ -202,6 +201,14 @@ export class AppApi {
             method: 'PUT',
             body: settingId.toString()
 
+        })
+    }
+
+    getSettingsOfAnimal = (animalId: number) => {
+
+        return this.buildRequest({
+            url: 'animal/getSettingsOf/' + animalId,
+            method: 'GET'
         })
     }
 

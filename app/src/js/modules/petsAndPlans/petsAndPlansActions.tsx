@@ -126,10 +126,9 @@ export const getPlanSettingAndPassToState = (settingId: number): ThunkAction<Pro
 
             await appApi.getPlanSettingById(settingId)
                 .then((re) => {
-                   dispatch(setPlanSettingInState(re))
+                    dispatch(setPlanSettingInState(re))
                 })
                 .catch((er) => console.error(er))
-
 
 
         } catch (er) {
@@ -139,7 +138,7 @@ export const getPlanSettingAndPassToState = (settingId: number): ThunkAction<Pro
     }
 }
 
-export const setSettingInput = actionCreator<{key: keyof PlanSetting, value: string | boolean}>('SET_SETTING_INPUT')
+export const setSettingInput = actionCreator<{ key: keyof PlanSetting, value: string | boolean }>('SET_SETTING_INPUT')
 
 export const startSavePlanSettings = actionCreator('START_SAVE_PLAN_SETTINGS');
 export const savePlanSettingsFailed = actionCreator<string>('SAVE_PLAN_SETTINGS_FAILED');
@@ -156,7 +155,7 @@ export const savePlanSettings = (planSetting: PlanSetting): ThunkAction<Promise<
             const withRemovedId = planSetting;
             withRemovedId.setting_id = undefined;
 
-           await appApi.createPlanSetting(withRemovedId)
+            await appApi.createPlanSetting(withRemovedId)
                 .then((re) => {
                     console.log('new setting', re)
                     settingId = re.setting_id;
@@ -189,22 +188,25 @@ export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
         try {
             //const userId = getState().login.userId;
             const animalId = getState().petsAndPlans.activePet;
-            let settingId: number = -1;
+            //let settingId: number = -1;
             let settingsObj: PlanSetting = {};
             let filteredFeedList: FeedList = {};
             let plan = {};
+            /*
+                        await appApi.getAnimalById(animalId)
+                            .then((re) => {
+                                settingId = re.setting_id
+                            })
+                            .catch((er) => console.error(er))
 
-            await appApi.getAnimalById(animalId)
-                .then((re) => {
-                    settingId = re.setting_id
-                })
-                .catch((er) => console.error(er))
-
-            await appApi.getPlanSettingById(settingId)
+             */
+            await appApi.getSettingsOfAnimal(animalId)
                 .then((re) => {
                     settingsObj = re;
                 })
                 .catch((er) => console.error(er))
+
+            console.log('getSettingsOfAnimal result', settingsObj)
 
             await appApi.getFilteredFeedListByAnimal(animalId)
                 .then((re) => {
