@@ -171,20 +171,19 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
             const planFilteredByWeek = plan.filter((day: any) => day.schedult_id <= (activeWeek * 7) && day.schedult_id > ((activeWeek - 1) * 7));
 
-            console.log('planFilteredByWeek', planFilteredByWeek)
             week = [
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 1),
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 2),
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 3),
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 4),
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 5),
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 6),
-                planFilteredByWeek.filter((day: any) => day.schedult_id === 7)
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 1),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 2),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 3),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 4),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 5),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 6),
+                planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 7)
             ]
 
             console.log('week',week)
 
-            planToRender = week.map((weekday: any) => {
+            planToRender = week.map((weekday: any, index) => {
                 /*
 
                 feed_part_id(pin):3
@@ -194,13 +193,12 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 amount(pin):25
                 */
 
-                console.log('weekday' + weekday[0].schedult_id)
                 return (
                     <PlanDay
                         animalComponents={weekday}
                         plantComponents={weekday}
                         supplementComponents={weekday}
-                        weekday={LanguageHelper.getString('weekday_' + weekday[0].schedult_id)}
+                        weekday={LanguageHelper.getString('weekday_' + (index+1))}
                     />
                 )
             })
