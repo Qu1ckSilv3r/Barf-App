@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="278d1e47-2a51-4b8f-8b24-f1b1393493b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/AnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/FeedlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/controller/FeedlistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Feedlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/model/Feedlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/repository/FeedlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/repository/FeedlistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/repository/FeedlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/repository/FeedlistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/java/de/barf/repository/IFeedlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/java/de/barf/repository/IFeedlistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/resources/data-postgres.sql" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/resources/data-postgres.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/source/src/main/resources/schema-postgres.sql" beforeDir="false" afterPath="$PROJECT_DIR$/service/source/src/main/resources/schema-postgres.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +104,7 @@
       <workItem from="1576271468779" duration="491000" />
       <workItem from="1576316684803" duration="2302000" />
       <workItem from="1577707057849" duration="598000" />
+      <workItem from="1579001070687" duration="1226000" />
     </task>
     <servers />
   </component>
@@ -138,16 +132,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/src/js/appApi.tsx</url>
-          <line>190</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

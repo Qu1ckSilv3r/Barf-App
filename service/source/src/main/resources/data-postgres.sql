@@ -23,7 +23,7 @@ INSERT INTO schedultday (weekday, week) VALUES ('Montag', 2), ('Dienstag', 2), (
 INSERT INTO schedultday (weekday, week) VALUES ('Montag', 3), ('Dienstag', 3), ('Mittwoch', 3), ('Donnerstag', 3), ('Freitag', 3), ('Samstag', 3), ('Sonntag', 3);
 INSERT INTO schedultday (weekday, week) VALUES ('Montag', 4), ('Dienstag', 4), ('Mittwoch', 4), ('Donnerstag', 4), ('Freitag', 4), ('Samstag', 4), ('Sonntag', 4);
 
-INSERT INTO feedlist (feed_part, schedult_id, amount, animal_id) VALUES ('Rinderschulter', 3, 50, 1), ('Rinderleber', 3, 30, 1);
+INSERT INTO feedlist (feed_part, schedult_id, amount, animal_id, categorie) VALUES ('Rinderschulter', 3, 50, 1, 'Innerei');
 
 INSERT INTO filtered_by (sort, name, categorie, property, component_id, animal_id) VALUES (NULL, 'Leber', NULL, 'Abneigung', 1, 1), ('Rind', NULL, NULL, 'Allergie', 3, 1), (NULL, 'Gurke', 'Gemüse', 'Vorliebe', 2, 1);
 INSERT INTO filtered_by (sort, name, categorie, property, component_id, animal_id) VALUES (NULL, 'Schulter', NULL, 'Abneigung', 1, 1), (NULL, 'Apfel', 'Obst', 'Allergie', 3, 1), ('Schwein', NULL, NULL, 'Vorliebe', 2, 1);

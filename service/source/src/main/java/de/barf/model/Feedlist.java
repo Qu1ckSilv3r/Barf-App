@@ -16,18 +16,20 @@ public class Feedlist {
 	private long animal_id;
 	private long schedult_id;
 	private int amount;
+	private String categorie;
 	
 	public Feedlist() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Feedlist(long feed_part_id, String feed_part, long animal_id, long schedult_id, int amount) {
+	public Feedlist(long feed_part_id, String feed_part, long animal_id, long schedult_id, int amount, String categorie) {
 		super();
 		this.feed_part_id = feed_part_id;
 		this.feed_part = feed_part;
 		this.animal_id = animal_id;
 		this.schedult_id = schedult_id;
 		this.amount = amount;
+		this.categorie = categorie;
 	}
 
 	public long getFeed_part_id() {
@@ -70,10 +72,18 @@ public class Feedlist {
 		this.amount = amount;
 	}
 
+	public String getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+
 	@Override
 	public String toString() {
 		return "Feedlist [feed_part_id=" + feed_part_id + ", feed_part=" + feed_part + ", animal_id=" + animal_id
-				+ ", schedult_id=" + schedult_id + ", amount=" + amount + "]";
+				+ ", schedult_id=" + schedult_id + ", amount=" + amount + ", categorie=" + categorie + "]";
 	}
 
 	@Override
@@ -82,6 +92,7 @@ public class Feedlist {
 		int result = 1;
 		result = prime * result + amount;
 		result = prime * result + (int) (animal_id ^ (animal_id >>> 32));
+		result = prime * result + ((categorie == null) ? 0 : categorie.hashCode());
 		result = prime * result + ((feed_part == null) ? 0 : feed_part.hashCode());
 		result = prime * result + (int) (feed_part_id ^ (feed_part_id >>> 32));
 		result = prime * result + (int) (schedult_id ^ (schedult_id >>> 32));
@@ -100,6 +111,11 @@ public class Feedlist {
 		if (amount != other.amount)
 			return false;
 		if (animal_id != other.animal_id)
+			return false;
+		if (categorie == null) {
+			if (other.categorie != null)
+				return false;
+		} else if (!categorie.equals(other.categorie))
 			return false;
 		if (feed_part == null) {
 			if (other.feed_part != null)
