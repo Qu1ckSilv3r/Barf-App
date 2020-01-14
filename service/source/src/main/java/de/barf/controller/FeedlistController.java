@@ -84,6 +84,8 @@ public class FeedlistController {
 				Components fullComponent = cService.findById(id);
 				String feed_part = fullComponent.getName();
 				feedlist.setFeed_part(feed_part);
+				String categorie = fullComponent.getCategorie();
+				feedlist.setCategorie(categorie);
 				int amount = (int) Math.round(settings.get(key));
 				feedlist.setAmount(amount);
 				feedlistService.saveFeedlist(feedlist);
