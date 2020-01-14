@@ -60,7 +60,7 @@ export default class Components extends React.Component<LandingProps, {}> {
 
         setSideNavigation(<div className="wrapper">
             <SearchBarContainer placeholder={LanguageHelper.getString('placeholder_searchComponents')}/>
-            <ListAddButton label={LanguageHelper.getString('button_addComponent')} icon={'assets/icons/plus.png'}
+            <ListAddButton label={LanguageHelper.getString('button_addComponent')} icon={'assets/plus.png'}
                            onClick={() => console.log("add component")}/>
             {categoriesToRender}
         </div>)

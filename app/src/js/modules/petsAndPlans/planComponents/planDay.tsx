@@ -34,7 +34,7 @@ export const PlanDay = (props: PlanDayProps) => {
                 {component.amount}
             </div></div>
     })
-    const supplementComponentsToRender = props.supplementComponents.map((component, index) => {
+    /*const supplementComponentsToRender = props.supplementComponents.map((component, index) => {
         return <div key={'supplementComponents' + index}
                     className={'planComponent'}> <div className="name">
             {component.feed_part}
@@ -42,7 +42,7 @@ export const PlanDay = (props: PlanDayProps) => {
             <div className="amount">
                 {component.amount}
             </div></div>
-    })
+    })*/
 
     return (
         <div className="planDayWrapper">
@@ -64,12 +64,15 @@ export const PlanDay = (props: PlanDayProps) => {
                     </div>
                     {plantComponentsToRender}
                 </div>
-                <div className="supplement">
+                {/*
+                     <div className="supplement">
                     <div className="colHeader">
                         {LanguageHelper.getString('planDay_supplementComponents')}
                     </div>
                     {supplementComponentsToRender}
                 </div>
+                */}
+
             </div>
 
         </div>

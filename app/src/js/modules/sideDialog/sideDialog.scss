@@ -41,7 +41,7 @@
       width: 24px;
       @include flex-shrink(0);
       @include flex-grow(0);
-      background: url('/assets/icons/x_filled.png') no-repeat center;
+      background: url('/assets/x_filled.png') no-repeat center;
       background-size: contain;
     }
 

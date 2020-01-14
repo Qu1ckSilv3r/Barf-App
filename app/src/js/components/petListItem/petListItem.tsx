@@ -43,13 +43,10 @@ export default class PetListItem extends React.Component<PetListItemProps, {}> {
                 <div className={"name" + (active ? ' activePet' : '')}>
                     {pet.name}
                 </div>
-                <div className={"lastGenerated" + (active ? ' activePet' : '')}>
-                    (letzte Generierung...)
-                </div>
             </div>
             <div className="buttonWrapper">
-                <Button onClick={() => this.editPet()} icon={'/assets/icons/edit.png'}/>
-                {/*<Button bigger onClick={() => console.log('ouchies')} icon={'/assets/icons/ouchies.png'}/>*/}
+                <Button onClick={() => this.editPet()} icon={'/assets/edit.png'}/>
+                {/*<Button bigger onClick={() => console.log('ouchies')} icon={'/assets/ouchies.png'}/>*/}
             </div>
         </TouchClick>
     }

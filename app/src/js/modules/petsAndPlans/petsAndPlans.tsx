@@ -119,7 +119,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
             editPet(-1)
         }
 
-        } icon={'assets/icons/plus.png'}
+        } icon={'assets/plus.png'}
                                      label={LanguageHelper.getString('button_addPet')}/>, ...petsToRender];
 
 
@@ -160,7 +160,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
         let week = [];
         let planToRender: any[] = [];
 
-        if(plan.length > 0) {
+        if (plan.length > 0) {
 
 
             plan.forEach((item: any) => {
@@ -181,7 +181,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 planFilteredByWeek.filter((day: any) => day.schedult_id === ((activeWeek - 1) * 7) + 7)
             ]
 
-            console.log('week',week)
+            console.log('week', week)
 
             planToRender = week.map((weekday: any, index) => {
                 /*
@@ -193,12 +193,16 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 amount(pin):25
                 */
 
+                const animalComponents = weekday.filter((component: any) => component.categorie === 'mus' || component.categorie === 'int' || component.categorie === 'bon' || component.categorie === 'rum')
+                const plantComponents = weekday.filter((component: any) => component.categorie === 'veg' || component.categorie === 'fru')
+
+
                 return (
                     <PlanDay
-                        animalComponents={weekday}
-                        plantComponents={weekday}
+                        animalComponents={animalComponents}
+                        plantComponents={plantComponents}
                         supplementComponents={weekday}
-                        weekday={LanguageHelper.getString('weekday_' + (index+1))}
+                        weekday={LanguageHelper.getString('weekday_' + (index + 1))}
                     />
                 )
             })
@@ -214,12 +218,12 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 {
                     label: LanguageHelper.getString('button_save'),
                     onClick: () => savePlanSettings(settingEditObj),
-                    icon: '/assets/icons/save.png'
+                    icon: '/assets/save.png'
                 },
                 {
                     label: LanguageHelper.getString('button_reset'),
                     onClick: () => console.log('restore default plan settings'),
-                    icon: '/assets/icons/refresh.png'
+                    icon: '/assets/refresh.png'
                 }
             ]
             sideDialogContent = (<div className={'sideDialogContent'}>
@@ -281,7 +285,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 {
                     label: LanguageHelper.getString('button_save'),
                     onClick: () => createPet(editObj),
-                    icon: '/assets/icons/save.png'
+                    icon: '/assets/save.png'
                 }
             ]
             sideDialogContent = (<div className={'sideDialogContent'}>
@@ -291,11 +295,11 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                     </div>
                     <div className="innerWrapper">
                         <div className="image"
-                             style={{backgroundImage: 'url("/assets/icons/image.png")', backgroundSize: '80%'}}/>
+                             style={{backgroundImage: 'url("/assets/image.png")', backgroundSize: '80%'}}/>
                         <div className="buttonWrapper">
                             <ExtendingButton label={LanguageHelper.getString('button_uploadImage')}
                                              onClick={() => console.log('upload image')}
-                                             icon={'assets/icons/upload.png'}/>
+                                             icon={'assets/upload.png'}/>
                         </div>
                     </div>
 
@@ -353,12 +357,12 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                 {
                     label: LanguageHelper.getString('button_save'),
                     onClick: () => savePet(editObj),
-                    icon: '/assets/icons/save.png'
+                    icon: '/assets/save.png'
                 },
                 {
                     label: LanguageHelper.getString('button_delete'),
                     onClick: () => deletePet(activePet),
-                    icon: '/assets/icons/delete.png'
+                    icon: '/assets/delete.png'
                 }
             ]
             sideDialogContent = (<div className={'sideDialogContent'}>
@@ -372,7 +376,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                         <div className="buttonWrapper">
                             <ExtendingButton label={LanguageHelper.getString('button_uploadImage')}
                                              onClick={() => console.log('upload image')}
-                                             icon={'assets/icons/upload.png'}/>
+                                             icon={'assets/upload.png'}/>
                         </div>
                     </div>
 
@@ -437,20 +441,20 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                             getPlanSettingAndPassToState(editObj.setting_id || -1),
                                 openSettings();
                             openSideDialog();
-                        }} icon={'assets/icons/settings.png'}
+                        }} icon={'assets/settings.png'}
                                          label={LanguageHelper.getString('button_planSettings')}/>
 
-                        <ExtendingButton onClick={() => generatePlan()} icon={'assets/icons/repeat.png'}
+                        <ExtendingButton onClick={() => generatePlan()} icon={'assets/repeat.png'}
                                          label={LanguageHelper.getString('button_generate')}/>
 
-                        <ExtendingButton onClick={() => console.log("delete all")} icon={'assets/icons/delete.png'}
+                        <ExtendingButton onClick={() => console.log("delete all")} icon={'assets/delete.png'}
                                          label={LanguageHelper.getString('button_deleteAll')}/>
 
                         <ExtendingButton onClick={() => console.log("open grocery list")}
-                                         icon={'assets/icons/basket.png'}
+                                         icon={'assets/basket.png'}
                                          label={LanguageHelper.getString('button_grocery')}/>
 
-                        <ExtendingButton onClick={() => console.log("open print")} icon={'assets/icons/print.png'}
+                        <ExtendingButton onClick={() => console.log("open print")} icon={'assets/print.png'}
                                          label={LanguageHelper.getString('button_print')}/>
                     </div>
                     : null}
@@ -460,7 +464,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                         <div className="plan">
                             <div className="weekSelectorWrapper">
                                 {availableWeeks > 1 && activeWeek !== 1 ?
-                                    <Button icon={'assets/icons/arrow_left.png'}
+                                    <Button icon={'assets/arrow_left.png'}
                                             onClick={() => setActiveWeek(activeWeek > 1 ? activeWeek - 1 : 1)}/> : null}
                                 <div className="weekSelector">
 
@@ -468,7 +472,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
                                         Woche {activeWeek}
                                     </div>
                                     {activeWeek < availableWeeks && activeWeek !== availableWeeks ?
-                                        <Button icon={'assets/icons/arrow_right.png'}
+                                        <Button icon={'assets/arrow_right.png'}
                                                 onClick={() => setActiveWeek(activeWeek < availableWeeks ? activeWeek + 1 : availableWeeks)}/> : null
                                     }
 
