@@ -192,6 +192,7 @@ export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
             let settingId: number = -1;
             let settingsObj: PlanSetting = {};
             let filteredFeedList: FeedList = {};
+            let plan = {};
 
             await appApi.getAnimalById(animalId)
                 .then((re) => {
@@ -211,7 +212,13 @@ export const generatePlan = (): ThunkAction<Promise<any>, State, any, any> => {
                 })
                 .catch((er) => console.error(er))
 
-            console.log('settingsObj', settingsObj, 'filteredFeedList', filteredFeedList);
+            await appApi.createFeedList(settingsObj, filteredFeedList)
+                .then((re) => {
+                    plan = re;
+                })
+                .catch((er) => console.error(er))
+
+            console.log('plan', plan);
 
 
         } catch (er) {

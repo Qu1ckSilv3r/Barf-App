@@ -190,7 +190,7 @@ public class AnimalController {
 	}
 	
 	//geht
-	@DeleteMapping("/animal/delete/{animalID}")
+	@RequestMapping("/animal/delete/{animalID}")
 	public void deleteAnimal(@PathVariable("animalID") long animalID){
 		animalService.delete(animalID);
 	}

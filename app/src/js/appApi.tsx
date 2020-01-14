@@ -279,9 +279,25 @@ export class AppApi {
         console.log('getFeedListBySchedule - schedule', schedule)
     }
 
-    createFeedList = (feedList: FeedList) => {
-        console.log('createFeedList - feedList', feedList)
-        '/Feedlist/create'
+    createFeedList = (setting: PlanSetting, components: any) => {
+       // console.log('createFeedList - feedList', feedList)
+
+        const body = {
+            settingsOfAnimal: setting,
+            components: components
+        }
+
+        console.log(JSON.stringify(body))
+
+        return this.buildRequest({
+            url: 'Feedlist/create',
+            method: 'POST',
+            body: {
+                settingsOfAnimal: setting,
+                components: components
+            }
+
+        })
     }
 
     updateFeedList = (feedList: FeedList) => {

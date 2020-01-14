@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import de.barf.model.Animal;
 import de.barf.model.Components;
@@ -119,7 +120,7 @@ public class Filtered_byController {
 		return (List<Components>) listOfInterest;
 	}
 	
-	@GetMapping("/filteredList/forAnimal/{animal_id}")
+	@RequestMapping("/filteredList/forAnimal/{animal_id}")
 	public Map<String, List<Long>> compolettMapListForAnimal(@PathVariable("animal_id") long animal_id){
 		Map<String, List<Long>> mapOfComponents = new HashMap<String, List<Long>>();
 		List<Long> componentsOfMuskelfleisch = new ArrayList<>();
@@ -169,39 +170,41 @@ public class Filtered_byController {
 		
 		listOfInterest.stream().forEach(component -> {
 			switch (component.getCategorie()){
-			case "Muskelfleisch":{
+			case "mus":{
 				componentsOfMuskelfleisch.add(component.getComponent_id());
 				break;
 			}
-			case "Innerein":{
+			case "int":{
 				componentsOfInnerein.add(component.getComponent_id());
 				break;
 			}
-			case "Knochen":{
+			case "bon":{
 				componentsOfKnochen.add(component.getComponent_id());
 				break;
 			}
+			/*
 			case "Pansen":{
 				componentsOfPansen.add(component.getComponent_id());
 				break;
 			}
-			case "Obst":{
+			*/
+			case "fru":{
 				componentsOfObst.add(component.getComponent_id());
 				break;
 			}
-			case "Gemüse":{
+			case "veg":{
 				componentsOfGemüse.add(component.getComponent_id());
 				break;
 			}
 			}
 		});
 		
-		mapOfComponents.put("Muskelfleisch", componentsOfMuskelfleisch);
-		mapOfComponents.put("Innerein", componentsOfInnerein);
-		mapOfComponents.put("Knochen", componentsOfKnochen);
-		mapOfComponents.put("Pansen", componentsOfPansen);
-		mapOfComponents.put("Obst", componentsOfObst);
-		mapOfComponents.put("Gemüse", componentsOfGemüse);
+		mapOfComponents.put("mus", componentsOfMuskelfleisch);
+		mapOfComponents.put("int", componentsOfInnerein);
+		mapOfComponents.put("bon", componentsOfKnochen);
+		//mapOfComponents.put("Pansen", componentsOfPansen);
+		mapOfComponents.put("fru", componentsOfObst);
+		mapOfComponents.put("veg", componentsOfGemüse);
 		
 		return mapOfComponents;
 	}

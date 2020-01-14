@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import de.barf.model.Components;
 import de.barf.model.Feedlist;
@@ -28,31 +29,31 @@ public class FeedlistController {
 	private IComponentService cService;
 	
 	//geht
-	@GetMapping("/Feedlists")
+	@RequestMapping("/Feedlists")
 	public List<Feedlist> findAll(){
 		return feedlistService.findAll();
 	}
 	
 	//geht
-	@GetMapping("/Feedlist/byID/{feedlist_id}")
+	@RequestMapping("/Feedlist/byID/{feedlist_id}")
 	public Feedlist findById(@PathVariable("feedlist_id") long feedlist_id){
 		return feedlistService.findById(feedlist_id);
 	}
 	
 	//geht
-	@GetMapping("/Feedlist/bySchedult_id/{schedult_id}")
+	@RequestMapping("/Feedlist/bySchedult_id/{schedult_id}")
 	public List<Feedlist> findBySchedult_id(@PathVariable("schedult_id") long schedult_id){
 		return feedlistService.findBySchedult_id(schedult_id);
 	}
 	
 	//geht
-	@GetMapping("/Feedlist/byAnimal_id/{animal_id}")
+	@RequestMapping("/Feedlist/byAnimal_id/{animal_id}")
 	public List<Feedlist> findByAnimal_id(@PathVariable("animal_id") long animal_id){
 		return feedlistService.findByAnimal_id(animal_id);
 	}
 	
 	//geht
-	@GetMapping("/Feedlist/byAnimal_idAndSchedult_id/{animal_id}/{schedult_id}")
+	@RequestMapping("/Feedlist/byAnimal_idAndSchedult_id/{animal_id}/{schedult_id}")
 	public List<Feedlist> findByAnimal_idAndSchedult_id(@PathVariable("animal_id") long animal_id, @PathVariable("schedult_id") long schedult_id){
 		return feedlistService.findByAnimal_idAndSchedult_id(animal_id, schedult_id);
 	}
