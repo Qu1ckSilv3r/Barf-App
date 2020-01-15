@@ -39,42 +39,43 @@ registerLocale('de', de);
 setDefaultLocale('de');
 moment.locale('de');
 
-export interface LandingProps {
+export interface PetsAndPlansProps {
     userId: number,
+
     pets: Animal[],
+    setAnimalsInState: typeof setAnimalsInState,
     activePet: number
     setActivePet: typeof setActivePet,
-    editObj: Animal,
-
-    setActiveWeek: typeof setActiveWeek,
-    activeWeek: number,
-
     editPet: typeof editPet
-    openSideDialog: typeof openSideDialog,
-    closeSideNavigation: typeof closeSideNavigation,
-    clearSideNavigation: typeof clearSideNavigation,
-    setSideNavigation: typeof setSideNavigation,
-    pushHistory: typeof pushHistory,
-    generatePlan: typeof generatePlan,
-
+    editObj: Animal,
     setPetInput: typeof setPetInput,
     savePet: typeof savePet,
     createPet: typeof createPet,
     deletePet: typeof deletePet,
+
+    generatePlan: typeof generatePlan,
+    setActiveWeek: typeof setActiveWeek,
+    activeWeek: number,
+    plan: any,
+    setPlanInState: typeof setPlanInState
+
+    openSideDialog: typeof openSideDialog,
+    openSettings: typeof openSettings,
+    settingsOpen: boolean,
     getPlanSettingAndPassToState: typeof getPlanSettingAndPassToState,
     savePlanSettings: typeof savePlanSettings,
     settingEditObj: PlanSetting,
     setSettingInput: typeof setSettingInput,
 
-    openSettings: typeof openSettings,
-    settingsOpen: boolean,
+    closeSideNavigation: typeof closeSideNavigation,
+    clearSideNavigation: typeof clearSideNavigation,
+    setSideNavigation: typeof setSideNavigation,
 
-    setAnimalsInState: typeof setAnimalsInState,
-    plan: any,
-    setPlanInState: typeof setPlanInState
+    pushHistory: typeof pushHistory,
+
 }
 
-export default class PetsAndPlans extends React.Component<LandingProps, {}> {
+export default class PetsAndPlans extends React.Component<PetsAndPlansProps, {}> {
 
 
     componentDidMount() {
@@ -92,7 +93,7 @@ export default class PetsAndPlans extends React.Component<LandingProps, {}> {
 
     }
 
-    componentDidUpdate(prevProps: Readonly<LandingProps>, prevState: Readonly<{}>, snapshot?: any): void {
+    componentDidUpdate(prevProps: Readonly<PetsAndPlansProps>, prevState: Readonly<{}>, snapshot?: any): void {
         const {
             pets,
             openSideDialog,
